@@ -84,11 +84,6 @@ body {
     color: #00000036;
 }
 
-/*support mozilla*/
-.form-control:-moz-input-placeholder {
-    color: red;
-}
-
 /*support internet explorer*/
 .form-control:-ms-input-placeholder {
     color: red;
