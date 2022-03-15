@@ -1,0 +1,50 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page Stripboekenwebsite";
+}
+
+<div class="container">
+  <!-- Content here -->
+  <div class="row">
+
+      <div class="col-7">
+          <!-- Community tab-->
+          <div class="card">      
+                    <h5 class="card-title text-center">Community tab</h5>
+                  <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a href="#nieuw" class="nav-link active" data-bs-toggle="tab">Nieuw</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#vrienden" class="nav-link" data-bs-toggle="tab">Vrienden</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#aanbevolen" class="nav-link" data-bs-toggle="tab">Aanbevolen</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="nieuw">
+                        <p>Home</p>
+                    </div>
+                    <div class="tab-pane fade" id="vrienden">
+                        <p>Vrienden</p>
+                    </div>
+                    <div class="tab-pane fade" id="aanbevolen">
+                        <p>Aanbevolen</p>
+                    </div>
+                </div>
+            </div>
+      </div>
+
+      <div class="col-3">
+          <!--Wishlist tab-->
+              <div class="card">
+            
+                    <h5 class="card-title text-center">Wishlist tab</h5>
+                  
+                  </div>
+            </div>
+      </div>
+
+</div>
