@@ -1,0 +1,12 @@
+@page
+@model Stripboekensite.testpagedatabse
+
+@{
+}
+
+ @foreach (var genre in @Model.Genres)
+ {
+     <div>
+         <h1>@genre.Soort</h1>
+     </div>
+ }
