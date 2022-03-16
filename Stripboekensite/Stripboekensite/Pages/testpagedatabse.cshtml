@@ -9,4 +9,12 @@
      <div>
          <h1>@genre.Soort</h1>
      </div>
+
  }
+
+<form asp-page-handler="Create" method="post">
+    <button class="btn btn-default">+</button>
+    <input type="hidden" name="naam" value="happy"/>
+</form>
+
+<h1 class="clearfix">@Model.message</h1>
