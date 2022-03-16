@@ -2,27 +2,22 @@ using System.Collections.Generic;
 using System.Data;
 using Dapper;
 
-
 namespace Stripboekensite;
 
-public class GenreRepository
+public class GebruikerRepository
 {
-    
     private IDbConnection GetConnection()
     {
         return new DbUtils().GetDbConnection();
     }
     
-    //geeft een IEnumerable lijst terug met genres.
-    public IEnumerable<Genre> Get()
+    //geeft een IEnumerable lijst terug met gebruikers.
+    public IEnumerable<Gebruiker> Get()
     {
-        string sql = "SELECT * FROM genre";
+        string sql = "SELECT * FROM gebruikers";
 
         using var connection = GetConnection();
-        var genres  = connection.Query<Genre>(sql);
-        return genres;
+        var gebruikers  = connection.Query<Gebruiker>(sql);
+        return gebruikers;
     }
-    
-    
-    
 }

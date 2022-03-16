@@ -4,7 +4,7 @@ namespace Stripboekensite;
 
 public class testpagedatabse : PageModel
 {
-    public List<genre> Genres = new List<genre>();
+    public List<Genre> Genres = new List<Genre>();
 
     public void OnGet()
     {
