@@ -11,7 +11,7 @@ public class GebruikerRepository
         return new DbUtils().GetDbConnection();
     }
     
-    //geeft speciefiek gebruiker terug op basis id 
+    //geeft specifiek gebruiker terug op basis id 
     public Gebruiker Get(int gebruikerId)
     {
         string sql = "SELECT * FROM gebruikers WHERE Gebruikers_id = @gebruikerId";
@@ -53,7 +53,7 @@ public class GebruikerRepository
         int numOfEffectedRows = connection.Execute(sql, new { GebruikersId });
         return numOfEffectedRows == 1;
     }
-    //updates een gebruiker zijn gebruikersnaam(wahtwoord rol enzo updates kunnen worden toegevoegd)
+    //updates een gebruiker zijn gebruikersnaam(wachtwoord rol enzo updates kunnen worden toegevoegd)
     public Gebruiker Update(Gebruiker gebruiker)
     {
         string sql = @"
