@@ -56,7 +56,7 @@ public class ReeksRepository
         int numOfEffectedRows = connection.Execute(sql, new { reeksid });
         return numOfEffectedRows == 1;
     }
-    //updates een reeks zijn Naam
+    //updates een reeks zijn Naam (aantal kan ook toegegvoegd worden)
     public Reeks Update(Reeks reeks)
     {
         string sql = @"
