@@ -23,6 +23,7 @@ public class GenreRepository
         return genres;
     }
     
+    //geeft speciefiek genre terug op basis id 
     public Genre Get(int genreid)
     {
         string sql = "SELECT * FROM genre where genre_id = @genreid";
@@ -32,6 +33,7 @@ public class GenreRepository
         return genre;
     }
 
+    //voegt nieuwe genre toe
     public Genre Add(Genre genre)
     {
         string sql = "INSERT INTO genre (soort) VALUES (@Soort); SELECT * FROM genre WHERE genre_id = LAST_INSERT_ID()";
@@ -39,7 +41,8 @@ public class GenreRepository
         var newgenre = connection.QuerySingle<Genre>(sql, genre);
         return newgenre;
     }
-
+    
+    //verwijdert genre
     public bool Delete(int genreid)
     {
         string sql = @"DELETE FROM genre WHERE genre_id = @genreid";
@@ -48,6 +51,7 @@ public class GenreRepository
         return rowsaffected == 1;
     }
 
+    //updates een genre
     public Genre Update(Genre genre)
     {
         string sql = @"
