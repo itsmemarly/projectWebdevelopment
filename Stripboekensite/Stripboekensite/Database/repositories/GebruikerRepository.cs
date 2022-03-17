@@ -30,6 +30,7 @@ public class GebruikerRepository
         var gebruikers  = connection.Query<Gebruiker>(sql);
         return gebruikers;
     }
+    
     //voegt nieuwe gebruiker toe
     public Gebruiker Add(Gebruiker gebruiker)
     {
@@ -52,8 +53,8 @@ public class GebruikerRepository
         int numOfEffectedRows = connection.Execute(sql, new { GebruikersId });
         return numOfEffectedRows == 1;
     }
-    
-    public bool Update(Gebruiker gebruiker)
+    //updates een gebruiker zijn gebruikersnaam(wahtwoord rol enzo updates kunnen worden toegevoegd)
+    public Gebruiker Update(Gebruiker gebruiker)
     {
         string sql = @"
                 UPDATE gebruikers SET 
@@ -62,9 +63,7 @@ public class GebruikerRepository
                 SELECT * FROM gebruikers WHERE Gebruikers_id = @gebruikers_id";
 
         using var connection = GetConnection();
-        var updatedgebruiker = connection.Execute(sql, gebruiker);
-        return updatedgebruiker==1;
+        var updatedgebruiker = connection.QuerySingle<Gebruiker>(sql, gebruiker);
+        return updatedgebruiker;
     }
-
-    
 }
