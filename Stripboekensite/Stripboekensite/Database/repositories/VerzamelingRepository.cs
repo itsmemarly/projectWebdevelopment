@@ -23,7 +23,7 @@ public class VerzamelingRepository
         var gebruiker = connection.QuerySingle<Gebruiker>(sql, new { gebruikerId });
         return gebruiker;
     }
-    //get 'stripboek_id'
+    get 'stripboek_id'
     
     
     //add 'druk'
