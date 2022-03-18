@@ -11,28 +11,39 @@ public class StripboekRepository
         return new DbUtils().GetDbConnection();
     }
 
-      
-    //geeft specifiek stripboek terug op basis id 
+
+    //gives back a specific stripboek using id
     public Stripboek Get(int stripboek_ID)
     {
         string sql = "SELECT * FROM stripboeken WHERE stripboek_id = @stripboek_ID";
 
         using var connection = GetConnection();
-        var creator = connection.QuerySingle<Stripboek>(sql, new { stripboek_ID });
+        var creator = connection.QuerySingle<Stripboek>(sql, new {stripboek_ID});
         return creator;
     }
 
-    //geeft een IEnumerable lijst terug met stripboek.
+    //gives back the list of all stripboeken
     public IEnumerable<Stripboek> Get()
     {
-        string sql = "SELECT * FROM Creator";
+        string sql = "SELECT * FROM stripboeken";
 
         using var connection = GetConnection();
-        var stripboeken  = connection.Query<Stripboek>(sql);
+        var stripboeken = connection.Query<Stripboek>(sql);
         return stripboeken;
     }
-    
-    //voegt nieuwe stripboek toe (met alle variabelen kunnen minder van gemaakt worden als dat moet)
+
+    //gives back a list of search result depending on titel using a string called search
+    public IEnumerable<Stripboek> GetSearch(string search)
+    {
+        search = "%" + search + "%";
+        string sql = "SELECT * FROM stripboeken where titel like @search ";
+
+        using var connection = GetConnection();
+        var stripboeken = connection.Query<Stripboek>(sql,search);
+        return stripboeken;
+    }
+
+    //adds a stripboek with al its variabkes to the database
     public Stripboek Add(Stripboek stripboek)
     {
         string sql = @"
@@ -44,17 +55,18 @@ public class StripboekRepository
         var nieuwstripboek = connection.QuerySingle<Stripboek>(sql, stripboek);
         return nieuwstripboek;
     }
-    
-    //verwijdert stripboek
+
+    //deletes a stripboek using id
     public bool Delete(int stripboek_id)
     {
         string sql = @"DELETE FROM stripboeken WHERE  stripboek_id = @stripboek_id";
 
         using var connection = GetConnection();
-        int numOfEffectedRows = connection.Execute(sql, new { stripboek_id });
+        int numOfEffectedRows = connection.Execute(sql, new {stripboek_id});
         return numOfEffectedRows == 1;
     }
-    //updates een stripboek zijn titel
+
+    //updates a stripboek their titel
     public Stripboek Update(Stripboek stripboek)
     {
         string sql = @"
@@ -67,6 +79,4 @@ public class StripboekRepository
         var updatedStripboek = connection.QuerySingle<Stripboek>(sql, stripboek);
         return updatedStripboek;
     }
-
-    
 }

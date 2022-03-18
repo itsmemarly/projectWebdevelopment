@@ -11,10 +11,9 @@ public class ReeksRepository
         {
             return new DbUtils().GetDbConnection();
         }
+    
         
-        
-        
-    //geeft speciefiek reeks terug op basis id 
+    //gives back a specific reeks using its id
     public Reeks Get(int reeksid)
     {
         string sql = "SELECT * FROM reeksen WHERE reeks_id = @reeksid";
@@ -24,7 +23,7 @@ public class ReeksRepository
         return reeks;
     }
 
-    //geeft een IEnumerable lijst terug met reeksen.
+    //gives back a list of reeksen
     public IEnumerable<Reeks> Get()
     {
         string sql = "SELECT * FROM reeksen";
@@ -34,7 +33,7 @@ public class ReeksRepository
         return reeksen;
     }
     
-    //voegt nieuwe reeks toe
+    //adds a reeks to database
     public Reeks Add(Reeks reeks)
     {
         string sql = @"
@@ -47,7 +46,7 @@ public class ReeksRepository
         return nieuwReeks;
     }
     
-    //verwijdert reeks
+    //removes reeks from databse using id 
     public bool Delete(int reeksid)
     {
         string sql = @"DELETE FROM reeksen WHERE  reeks_id = @reeksid";
@@ -56,12 +55,13 @@ public class ReeksRepository
         int numOfEffectedRows = connection.Execute(sql, new { reeksid });
         return numOfEffectedRows == 1;
     }
-    //updates een reeks zijn Naam (aantal kan ook toegegvoegd worden)
+    
+    //updates a reeks its name and aantal using id 
     public Reeks Update(Reeks reeks)
     {
         string sql = @"
                 UPDATE reeksen SET 
-                    Reeks_titel = @Reeks_titel 
+                    Reeks_titel = @Reeks_titel and aantal = @Aantal
                 WHERE reeks_id = @Reeks_id;
                 SELECT * FROM reeksen WHERE reeks_id = @Reeks_id";
 
@@ -69,7 +69,5 @@ public class ReeksRepository
         var updatedreeks = connection.QuerySingle<Reeks>(sql, reeks);
         return updatedreeks;
     }
-    
-        
-        
+
 }

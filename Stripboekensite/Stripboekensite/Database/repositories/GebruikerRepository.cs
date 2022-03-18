@@ -11,7 +11,7 @@ public class GebruikerRepository
         return new DbUtils().GetDbConnection();
     }
     
-    //geeft specifiek gebruiker terug op basis id 
+    //gives back a specific gebruiker using its id
     public Gebruiker Get(int gebruikerId)
     {
         string sql = "SELECT * FROM gebruikers WHERE Gebruikers_id = @gebruikerId";
@@ -21,7 +21,7 @@ public class GebruikerRepository
         return gebruiker;
     }
 
-    //geeft een IEnumerable lijst terug met gebruikers.
+    //gives back a list of gebruikers
     public IEnumerable<Gebruiker> Get()
     {
         string sql = "SELECT * FROM gebruikers";
@@ -31,7 +31,7 @@ public class GebruikerRepository
         return gebruikers;
     }
     
-    //voegt nieuwe gebruiker toe
+    //adds new gebruiker
     public Gebruiker Add(Gebruiker gebruiker)
     {
         string sql = @"
@@ -44,7 +44,7 @@ public class GebruikerRepository
         return nieuwgebruiker;
     }
     
-    //verwijdert gebruiker
+    //deletes gebruiker using id
     public bool Delete(int GebruikersId)
     {
         string sql = @"DELETE FROM gebruikers WHERE Gebruikers_id = @GebruikersId";
@@ -53,7 +53,7 @@ public class GebruikerRepository
         int numOfEffectedRows = connection.Execute(sql, new { GebruikersId });
         return numOfEffectedRows == 1;
     }
-    //updates een gebruiker zijn gebruikersnaam(wachtwoord rol enzo updates kunnen worden toegevoegd)
+    //updates a gebruiker their gebruikersnaam(wachtwoord, rol etc. updates can be added)
     public Gebruiker Update(Gebruiker gebruiker)
     {
         string sql = @"
