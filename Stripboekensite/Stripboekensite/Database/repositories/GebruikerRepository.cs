@@ -17,12 +17,22 @@ public class GebruikerRepository
         string sql = "SELECT * FROM gebruikers WHERE Gebruikers_id = @gebruikerId";
 
         using var connection = GetConnection();
-        var gebruiker = connection.QuerySingle<Gebruiker>(sql, new { gebruikerId });
+        var gebruiker = connection.QuerySingle<Gebruiker>(sql, new {gebruikerId}); 
         return gebruiker;
     }
-    
+
     //gives back a specific gebruiker using its name
-    public bool GetName(string name)
+    public bool IdCheck(int gebruikerId )
+    {
+        string sql = "SELECT * FROM gebruikers WHERE Gebruikers_id = @gebruikerId";
+
+        using var connection = GetConnection();
+        var numOfEffectedRows  = connection.Execute(sql, new {gebruikerId}); 
+        return numOfEffectedRows == 1;
+    }
+    
+    //gives back if user name exists
+    public bool NameCheck(string name)
     {
         string sql = "SELECT * FROM gebruikers WHERE gebruikersnaam = @name";
 
