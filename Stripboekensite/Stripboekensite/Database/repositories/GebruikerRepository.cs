@@ -20,6 +20,16 @@ public class GebruikerRepository
         var gebruiker = connection.QuerySingle<Gebruiker>(sql, new { gebruikerId });
         return gebruiker;
     }
+    
+    //gives back a specific gebruiker using its name
+    public bool GetName(string name)
+    {
+        string sql = "SELECT * FROM gebruikers WHERE gebruikersnaam = @name";
+
+        using var connection = GetConnection();
+        var numOfEffectedRows  = connection.Execute(sql, new { name });
+        return numOfEffectedRows == 1;
+    }
 
     //gives back a list of gebruikers
     public IEnumerable<Gebruiker> Get()
