@@ -2,3 +2,192 @@
 @model Stripboekensite.Pages.VerzamelingModel
 @{
 }
+
+<div class="row">
+    <div class="col-6">
+            <div class="mb-3 d-md-flex justify-content-md-center">
+<button type="button" class="btn btn-dark col-12"><a asp-page="/Boekenkast" class="text-light" style="text-decoration: none;">Ga naar mijn boekenkast</a></button>
+</div>
+    </div>
+    <div class="col-6">
+           <div class="card">
+            
+                    <h5 class="card-title text-center">Verzameling van community</h5>
+                    <div class="card-body">
+
+                    </div>
+                    </div>
+</div>
+</div>
+<br/>
+<br/>
+<div class="col-12">
+    <!-- Accordion gebruiken voor verzameling tab-->
+    <div class="accordion" id="WishlistAccordion">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+       Alle items
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#WishlistAccordion">
+      <div class="accordion-body">
+        
+      
+                <div class="row scrollable flex-row flex-nowrap mt-4 pb-4 pt-2 text-center" style="overflow-x: scroll;">
+      <!-- Card aanmaken voor elk boek, modal aanmaken voor elk boek (modal gaat open na button onclick) -->
+                     <div class="card col-4 mt-2" style="width: 18rem; margin:3rem;">
+                  <img class="card-img-top" src="~/imgreplacer.svg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">EX-1</h5>
+                    <p class="card-text">Test item 3</p>
+                 <a href="#" class="btn btn-primary">Meer informatie</a>
+                  </div>
+                </div>
+
+
+                 <div class="card col-4 mt-2" style="width: 18rem; margin:3rem;">
+                  <img class="card-img-top" src="~/imgreplacer.svg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">EX-2</h5>
+                    <p class="card-text">Test item 3</p>
+                    <a href="#" class="btn btn-primary">Meer informatie</a>
+                  </div>
+                </div>
+
+                 <div class="card col-4 mt-2" style="width: 18rem; margin:3rem;">
+                  <img class="card-img-top" src="~/imgreplacer.svg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">EX-3</h5>
+                    <p class="card-text">Test item 3</p>
+                    <a href="#" class="btn btn-primary">Meer informatie</a>
+                  </div>
+                </div>
+
+                 <div class="card col-4 mt-2" style="width: 18rem;margin:3rem;">
+                  <img class="card-img-top" src="~/imgreplacer.svg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">EX-4</h5>
+                    <p class="card-text">Test item 3</p>
+                    <a href="#" class="btn btn-primary">Meer informatie</a>
+                  </div>
+                </div>
+            </div>
+     
+     
+
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+       Per categorie
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#WishlistAccordion">
+      <div class="accordion-body">
+
+          <div class="row scrollable flex-row flex-nowrap mt-4 pb-4 pt-2 text-center" style="overflow-x: scroll;">
+      
+                     <div class="card col-4 mt-2" style="width: 18rem; margin:3rem;">
+                  <img class="card-img-top" src="~/imgreplacer.svg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">EX-1</h5>
+                    <p class="card-text">Test item 3</p>
+                    <a href="#" class="btn btn-primary">Meer informatie</a>
+                  </div>
+                </div>
+
+
+                 <div class="card col-4 mt-2" style="width: 18rem; margin:3rem;">
+                  <img class="card-img-top" src="~/imgreplacer.svg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">EX-2</h5>
+                    <p class="card-text">Test item 3</p>
+                    <a href="#" class="btn btn-primary">Meer informatie</a>
+                  </div>
+                </div>
+
+                 <div class="card col-4 mt-2" style="width: 18rem; margin:3rem;">
+                  <img class="card-img-top" src="~/imgreplacer.svg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">EX-3</h5>
+                    <p class="card-text">Test item 3</p>
+                    <a href="#" class="btn btn-primary">Meer informatie</a>
+                  </div>
+                </div>
+
+                 <div class="card col-4 mt-2" style="width: 18rem;margin:3rem;">
+                  <img class="card-img-top" src="~/imgreplacer.svg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">EX-4</h5>
+                    <p class="card-text">Test item 3</p>
+                    <a href="#" class="btn btn-primary">Meer informatie</a>
+                  </div>
+                </div>
+            </div>
+      
+     
+
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Suggesties
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#WishlistAccordion">
+      <div class="accordion-body">
+
+        <div class="row scrollable flex-row flex-nowrap mt-4 pb-4 pt-2 text-center" style="overflow-x: scroll;">
+      
+                     <div class="card col-4 mt-2" style="width: 18rem; margin:3rem;">
+                  <img class="card-img-top" src="~/imgreplacer.svg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">EX-1</h5>
+                    <p class="card-text">Test item 3</p>
+                    <a href="#" class="btn btn-primary">Meer informatie</a>
+                  </div>
+                </div>
+
+                 <div class="card col-4 mt-2" style="width: 18rem; margin:3rem;">
+                  <img class="card-img-top" src="~/imgreplacer.svg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">EX-2</h5>
+                    <p class="card-text">Test item 3</p>
+                    <a href="#" class="btn btn-primary">Meer informatie</a>
+                  </div>
+                </div>
+
+                 <div class="card col-4 mt-2" style="width: 18rem; margin:3rem;">
+                  <img class="card-img-top" src="~/imgreplacer.svg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">EX-3</h5>
+                    <p class="card-text">Test item 3</p>
+                    <a href="#" class="btn btn-primary">Meer informatie</a>
+                  </div>
+                </div>
+
+                 <div class="card col-4 mt-2" style="width: 18rem;margin:3rem;">
+                  <img class="card-img-top" src="~/imgreplacer.svg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">EX-4</h5>
+                    <p class="card-text">Test item 3</p>
+                    <a href="#" class="btn btn-primary">Meer informatie</a>
+                  </div>
+                </div>
+            </div>
+       
+
+      </div>
+    </div>
+  </div>
+</div>
+<br/>
+</div>
+
+
+
