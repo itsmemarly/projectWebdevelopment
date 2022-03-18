@@ -44,12 +44,12 @@ public class GebruikerRepository
     }
     
     //gives back if user name exists
-    public bool NameCheck(string name)
+    public bool NameCheck(string gebruikersNaam)
     {
-        string sql = "SELECT * FROM gebruikers WHERE gebruikersnaam = @name";
+        string sql = "SELECT * FROM gebruikers WHERE gebruikersnaam = @gebruikersNaam";
 
         using var connection = GetConnection();
-        var numOfEffectedRows  = connection.Execute(sql, new { name });
+        var numOfEffectedRows  = connection.Execute(sql, new { gebruikersNaam });
         return numOfEffectedRows == 1;
     }
 

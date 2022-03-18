@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Stripboekensite.Pages
@@ -22,23 +24,42 @@ namespace Stripboekensite.Pages
 
         }
 
-        public void OnPost()
+        public async Task<IActionResult> OnPostAsync()
         {
             //check if the data is valid
-            if (!ModelState.IsValid) return;
+            if (!ModelState.IsValid) return Page();
             
             //make a db connection and get the user from db
             Gebruiker gebruiker;
             {
                 GebruikerRepository gebruikersRep = new GebruikerRepository();
+                
+                //check if the user exists
+                if (!gebruikersRep.NameCheck(credential.UserName)) return Page();
+                
                 gebruiker = gebruikersRep.Get(credential.UserName);
             }
             
-            //TODO check if gebruiker exists
-            
+           
+            //check if the password is correct
+            //todo figure out how to properly hash the password
             if (credential.Password.GetHashCode().ToString() == gebruiker.versleuteld_wachtwoord){
+                //create a new security context
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Email, gebruiker.Gebruikersnaam),
+                    new Claim(ClaimTypes.Name, gebruiker.naam)
+                };
+                var identity = new ClaimsIdentity(claims, "MyCookieAuth");
+                ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal();
+
+                await HttpContext.SignInAsync("MyCookieAuth", claimsPrincipal);
                 
+
+                return RedirectToPage("/Index");
             }
+
+            return Page();
         }
 
         public class Credential
