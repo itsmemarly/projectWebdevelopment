@@ -23,6 +23,16 @@ public class Gebruikers_StripboekenRepository
         var gebruikerenstripboekopgehaald = connection.QuerySingl<Gebruikers_Stripboeken>(sql, new { gebruiker, stripboek });
         return gebruikerenstripboekopgehaald;
     }
+    
+    //get an ienumerable list of 'stripboeken'
+    public IEnumerable<Stripboek> Get()
+    {
+        string sql = "SELECT * FROM stripboeken";
+
+        using var connection = GetConnection();
+        var stripboeken  = connection.Query<Stripboek>(sql);
+        return stripboeken;
+    }
 
     //add druk, bandlengte, plaats_gekocht, prijs_gekocht en staat
     public Gebruikers_Stripboeken Add(Gebruikers_Stripboeken gebruikers_stripboeken)
