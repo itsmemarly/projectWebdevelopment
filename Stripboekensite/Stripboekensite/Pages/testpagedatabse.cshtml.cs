@@ -25,7 +25,5 @@ public class testpagedatabse : PageModel
         {
             message = "new user added with " + gebruikertest.Gebruikersnaam;
         }
-        
-        
     }
 }
