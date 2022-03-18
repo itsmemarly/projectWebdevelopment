@@ -20,6 +20,18 @@ public class GebruikerRepository
         var gebruiker = connection.QuerySingle<Gebruiker>(sql, new { gebruikerId });
         return gebruiker;
     }
+    
+    //returns a gebruiker using it's username
+
+    public Gebruiker Get(string gebruikersNaam)
+    {
+        string sql = "SELECT * FROM gebruikers WHERE Gebruikersnaam = @gebruikersNaam";
+        
+        using var connection =  GetConnection();
+        Gebruiker gebruiker = connection.QuerySingle<Gebruiker>(sql, new {gebruikersNaam});
+        
+        return gebruiker;
+    }
 
     //gives back a list of gebruikers
     public IEnumerable<Gebruiker> Get()
@@ -53,6 +65,7 @@ public class GebruikerRepository
         int numOfEffectedRows = connection.Execute(sql, new { GebruikersId });
         return numOfEffectedRows == 1;
     }
+    
     //updates a gebruiker their gebruikersnaam(wachtwoord, rol etc. updates can be added)
     public Gebruiker Update(Gebruiker gebruiker)
     {

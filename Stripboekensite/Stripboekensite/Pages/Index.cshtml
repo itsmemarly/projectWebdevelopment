@@ -64,16 +64,20 @@
                     <div class="tab-pane fade show active" id="signin">
                            <br />
                                <div>
-                                    <form class="text-center col-12">
-                                            <div class="alert alert-info" role="alert">
-                                             Let op: Gebruikersnaam is uw email!
-                                            </div>
-						                <input class="form-control center-block" type="email" name="" placeholder="Email">
-						                <br>
-						                <input class="form-control" type="password" name="" placeholder="Wachtwoord">
-						                <br>
-						                <button class="btn btn-primary btn-sm border-0 col-6" type="submit" name="submit">Log In</button>
-					                </form>
+                                   <form class="text-center col-12" method="post">
+                                       <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                                       <div class="alert alert-info" role="alert">
+                                           Let op: Gebruikersnaam is uw email!
+                                       </div>
+                                       
+                                       <input class="form-control center-block" type="email" name="" placeholder="Email" asp-for="credential.UserName">
+                                        <span class="text-danger" asp-validation-for="credential.UserName"></span>
+                                       <br>
+                                       <input class="form-control" type="password" name="" placeholder="Wachtwoord" asp-for="credential.Password">
+                                       <span class="text-danger" asp-validation-for="credential.Password"></span>
+                                       <br>
+                                       <button class="btn btn-primary btn-sm border-0 col-6" type="submit" name="submit">Log In</button>
+                                   </form>
                                 </div>
                             <br/>
                     </div>
