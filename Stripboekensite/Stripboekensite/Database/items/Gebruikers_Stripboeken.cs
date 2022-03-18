@@ -1,6 +1,6 @@
 ﻿namespace Stripboekensite;
 
-public class Verzameling
+public class Gebruikers_Stripboeken
 {
    
         public int Gebruiker_stripboek_ID { get; set; }
@@ -22,6 +22,8 @@ public class Verzameling
         public string staat { get; set; }
         
         public Stripboek Stripboek_id { get; set; }
+        
+        public Gebruiker Gebruiker { get; set; }
         
         
         
