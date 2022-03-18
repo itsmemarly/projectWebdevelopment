@@ -11,7 +11,7 @@ public class UitgeverRepository
         return new DbUtils().GetDbConnection();
     }
 
-    //geeft speciefiek uitgever terug op basis id 
+    //gives back a certain uitgever using their id
     public Uitgever Get(int Uitgeverid)
     {
         string sql = "SELECT * FROM uitgever WHERE uitgever_id = @Uitgeverid";
@@ -21,7 +21,7 @@ public class UitgeverRepository
         return uitgever;
     }
 
-    //geeft een IEnumerable lijst terug met uitgever.
+    //gives back the list of uitgevers
     public IEnumerable<Uitgever> Get()
     {
         string sql = "SELECT * FROM uitgever";
@@ -31,7 +31,7 @@ public class UitgeverRepository
         return uitgevers;
     }
     
-    //voegt nieuwe uitgever toe
+    //adds a uitgever to the database
     public Uitgever Add(Uitgever uitgever)
     {
         string sql = @"
@@ -44,7 +44,7 @@ public class UitgeverRepository
         return nieuwUitgever;
     }
     
-    //verwijdert uitgever
+    //removes uitgever uit database
     public bool Delete(int uitgeverid)
     {
         string sql = @"DELETE FROM uitgever WHERE  uitgever_id = @uitgeverid";
@@ -53,7 +53,7 @@ public class UitgeverRepository
         int numOfEffectedRows = connection.Execute(sql, new { uitgeverid });
         return numOfEffectedRows == 1;
     }
-    //updates een uitgever zijn Naam
+    //updates an uitgever their name
     public Uitgever Update(Uitgever uitgever)
     {
         string sql = @"
