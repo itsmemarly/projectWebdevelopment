@@ -13,7 +13,7 @@ public class GenreRepository
         return new DbUtils().GetDbConnection();
     }
     
-    //geeft een IEnumerable lijst terug met genres.
+    //gives back a list of al genres
     public IEnumerable<Genre> Get()
     {
         string sql = "SELECT * FROM genre";
@@ -23,6 +23,7 @@ public class GenreRepository
         return genres;
     }
     
+    //gives back a specific genre its name
     public Genre Get(int genreid)
     {
         string sql = "SELECT * FROM genre where genre_id = @genreid";
@@ -32,6 +33,7 @@ public class GenreRepository
         return genre;
     }
 
+    //adds a new genre
     public Genre Add(Genre genre)
     {
         string sql = "INSERT INTO genre (soort) VALUES (@Soort); SELECT * FROM genre WHERE genre_id = LAST_INSERT_ID()";
@@ -39,7 +41,8 @@ public class GenreRepository
         var newgenre = connection.QuerySingle<Genre>(sql, genre);
         return newgenre;
     }
-
+    
+    //deletes a genre using its id
     public bool Delete(int genreid)
     {
         string sql = @"DELETE FROM genre WHERE genre_id = @genreid";
@@ -48,6 +51,7 @@ public class GenreRepository
         return rowsaffected == 1;
     }
 
+    //updates a genre its name/soort
     public Genre Update(Genre genre)
     {
         string sql = @"
