@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Stripboekensite.Pages
 {
-    public class BoekenkastModel : PageModel
+    public class LoginModel : PageModel
     {
         public void OnGet()
         {
