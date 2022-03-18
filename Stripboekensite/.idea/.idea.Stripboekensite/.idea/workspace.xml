@@ -7,7 +7,11 @@
   <component name="ChangeListManager">
     <list default="true" id="b755ff3c-8ed1-4fe9-88ba-a3d1e8bdc880" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stripboekensite/Database/items/Boektoevoegen.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stripboekensite/Database/items/Verzameling.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Database/items/Verzameling.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stripboekensite/Database/repositories/BoektoevoegenRepository.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Stripboekensite/Database/repositories/VerzamelingRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Database/repositories/VerzamelingRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stripboekensite/Stripboekensite.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Stripboekensite.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +82,7 @@
       <updated>1647517988245</updated>
       <workItem from="1647517990736" duration="3832000" />
       <workItem from="1647545967361" duration="3389000" />
+      <workItem from="1647594678663" duration="3986000" />
     </task>
     <task id="LOCAL-00001" summary="nvt">
       <created>1647551816154</created>

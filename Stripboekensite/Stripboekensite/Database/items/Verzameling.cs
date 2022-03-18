@@ -5,7 +5,7 @@ public class Verzameling
    
         public int Gebruiker_stripboek_ID { get; set; }
     
-        public int Gebruikers_ID { get; set; }
+        public int Gebruiker_id { get; set; }
     
         public int stripboek_id { get; set; }
     
@@ -20,5 +20,10 @@ public class Verzameling
         public string prijs_gekocht { get; set; }
         
         public string staat { get; set; }
+        
+        public Stripboek Stripboek_id { get; set; }
+        
+        
+        
     
 }
