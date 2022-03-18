@@ -6,7 +6,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b755ff3c-8ed1-4fe9-88ba-a3d1e8bdc880" name="Changes" comment="naam verzameling naar gebruikers_stripboeken">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Stripboekensite/Database/items/Join.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Stripboekensite/Database/repositories/JoinRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stripboekensite/Database/repositories/Gebruikers_StripboekenRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Database/repositories/Gebruikers_StripboekenRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stripboekensite/Database/repositories/StripboekRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Database/repositories/StripboekRepository.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +35,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -79,7 +86,7 @@
       <workItem from="1647545967361" duration="3389000" />
       <workItem from="1647594678663" duration="3986000" />
       <workItem from="1647598737481" duration="103000" />
-      <workItem from="1647602099265" duration="759000" />
+      <workItem from="1647602099265" duration="4933000" />
     </task>
     <task id="LOCAL-00001" summary="nvt">
       <created>1647551816154</created>

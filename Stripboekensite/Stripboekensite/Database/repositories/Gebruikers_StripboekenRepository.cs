@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Data;
-using Dapper; 
+using Dapper;
 
 namespace Stripboekensite;
 
 public class Gebruikers_StripboekenRepository
 {
     //connect to database
-    private IDbConnection getConnection()
+    private IDbConnection GetConnection()
     {
         return new DbUtils().GetDbConnection();
     }
@@ -20,7 +20,7 @@ public class Gebruikers_StripboekenRepository
         string sql = "SELECT * FROM gebruikers WHERE Gebruikers_ID = @gebruiker AND WHERE stripboek_id = @stripboek";
 
         using var connection = GetConnection();
-        var gebruikerenstripboekopgehaald = connection.QuerySingl<Gebruikers_Stripboeken>(sql, new { gebruiker, stripboek });
+        var gebruikerenstripboekopgehaald = connection.QuerySingle<Gebruikers_Stripboeken>(sql, new { gebruiker, stripboek });
         return gebruikerenstripboekopgehaald;
     }
     
@@ -46,6 +46,11 @@ public class Gebruikers_StripboekenRepository
         var nieuwstripboekverzameling = connection.QuerySingle<Gebruikers_Stripboeken>(sql, gebruikers_stripboeken);
         return nieuwstripboekverzameling;
     }
+    
+    //update join gebruikers_stripboeken and stripboeken
+    
+    
+    
 
     //update collection
     public Gebruikers_Stripboeken Update(Gebruikers_Stripboeken gebruikers_stripboeken)

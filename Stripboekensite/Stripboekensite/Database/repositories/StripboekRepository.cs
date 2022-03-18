@@ -12,7 +12,7 @@ public class StripboekRepository
     }
 
       
-    //geeft speciefiek stripboek terug op basis id 
+    //geeft specifiek stripboek terug op basis id 
     public Stripboek Get(int stripboek_ID)
     {
         string sql = "SELECT * FROM stripboeken WHERE stripboek_id = @stripboek_ID";
