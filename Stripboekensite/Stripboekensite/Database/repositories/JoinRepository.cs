@@ -29,6 +29,19 @@ public class JoinRepository
         return creators_stripboeken;
     }
     
+    //join method that returns a list with all stripboeken en gebruikers_stripboeken
+    public IEnumerable<Gebruikers_Stripboeken> JoinBoektoGebruikerStripboeken()
+    {
+        var sql = @"select p.Gebruiker_stripboek_ID, p.stripboek_id, p.Gebruikers_ID, p.druk, p.uitgave, p.bandlengte, p.plaats_gekocht, p.prijs_gekocht, p.staat, c. stripboek_id, c.isbn, c.uitgave1e_druk, c.reeks_nr, c.bladzijden, c.titel, c.expliciet, c.uitgever_id, c.reeks_id 
+                from gebruikers_stripboeken p
+                inner join stripboeken c on p.stripboek_id = c.stripboek_id";
+        using var connection = GetConnection();
+        var gebruikers_stripboeken  = connection.Query<Gebruikers_Stripboeken, Gebruiker, Stripboek>(sql, map:(gebruikers_stripboeken:Gebruikers_Stripboeken, stripboek) => {
+                gebruikers_stripboeken.Stripboek = stripboek;
+                return gebruikers_stripboeken;
+            },
+            splitOn: "Gebruiker_stripboek_ID, stripboek_ID").ToList();
+
+            return gebruikers_stripboeken;
+    }
     
-    
-}

@@ -13,6 +13,16 @@ public class Gebruikers_StripboekenRepository
     }
 
     //add information of books to own collection
+    
+    //gives back specific gebruiker_stripboek stripboek combination
+    public Gebruikers_Stripboeken Get(int Gebruiker_stripboek_ID, int Stripboek_ID)
+    {
+        string sql = "SELECT * FROM gebruikers_stripboeken WHERE Gebruiker_stripboek_ID = @Gebruiker_stripboek_ID and stripboek_id = @Stripboek_ID";
+
+        using var connection = GetConnection();
+        var gebrStripboeken = connection.QuerySingle<Gebruikers_Stripboeken>(sql, new { Gebruiker_stripboek_ID, Stripboek_ID});
+        return gebrStripboeken;
+    }
 
     //get 'gebruikers_id & stripboek_id'
     public Gebruikers_Stripboeken Get(int gebruiker, int stripboek)
