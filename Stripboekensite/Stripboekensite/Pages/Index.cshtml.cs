@@ -40,7 +40,7 @@ namespace Stripboekensite.Pages
             
             querysearch = "%" + search + "%";
             //search gedoe
-            message = search;
+            message = "je zoekt op :" + search;
             if (new StripboekRepository().checkSearch(querysearch))
             {
                 searchresults = new StripboekRepository().GetSearch(querysearch).ToList();
@@ -57,6 +57,10 @@ namespace Stripboekensite.Pages
                 }
                 stripboekgenreshowed = new List<GenreStripboek>();
                 stripboekgenreshowed = ownedsearch;
+            }
+            else
+            {
+                message = "geen zoek resultaat voor:" + search;
             }
 
         }
