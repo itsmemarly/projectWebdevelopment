@@ -64,6 +64,20 @@ public class JoinRepository
 
         return GenreStripboeken;
     }
-    
-    
+    //join gebruikers_stripboeken stripboeken
+    public IEnumerable<GebrsStripboek> joingebrstripboekstripboeken()
+    {
+        var sql = @"select c.stripboek_id, c.isbn, c.uitgave1e_druk, c.reeks_nr, c.bladzijden, c.titel, c.expliciet, p.Gebruikers_ID, p.stripboek_id, p.druk, p.uitgave, p.bandlengte, p.plaats_gekocht, p.prijs_gekocht, p.staat
+                from stripboeken c
+                inner join gebruikers_stripboeken p on c.stripboek_id = p.stripboek_id";
+        using var connection = GetConnection();
+        var stripboeken =connection.Query<GebrsStripboek,Gebruikers_Stripboeken, Stripboek, GebrsStripboek>(sql, (stripboek, Gebruikers_Stripboeken) =>
+            {
+                GebrsStripboek.gebruikers_stripboeken = Gebruikers_Stripboeken;;
+                return GebrsStripboek;
+            }, 
+            splitOn: "Stripboek_id").ToList();
+
+        return stripboeken;
+    }
 }
