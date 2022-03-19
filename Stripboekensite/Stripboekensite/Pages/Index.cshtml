@@ -4,94 +4,60 @@
     ViewData["Title"] = "Home page Stripboekenwebsite";
 }
 
+
+        <!-- Belangrijke links & tags-->
+
+        <!-- Meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+ 
+
+        <!-- Begin code -->
+<!-- Rest van de pagina (Community pagina & wishlist) -->
 <div class="container">
+  <!-- Content here -->
 
-<!-- Card deck -->
-<div class="card-deck row">
-
-  <div class="col-xs-12 col-sm-6 col-md-4">
-  <!-- Card -->
-  <div class="card">
-
-    <!--Card image-->
-    <div class="view overlay">
-      <img class="card-img-top" src="~/atomicHabits.jpg" alt="Card image cap">
-      <a href="#!">
-        <div class="mask rgba-white-slight"></div>
-      </a>
-    </div>
-
-    <!--Card content-->
-    <div class="card-body">
-
-      <!--Title-->
-      <h4 class="card-title">Atomic habits</h4>
-      <!--Text-->
-      <p class="card-text">Eventuele beschrijving</p>
-      <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-      <button type="button" class="btn btn-light-blue btn-md">Details</button>
-
-    </div>
-
-  </div>
-  <!-- Card -->
-  </div>
-
-  <div class="col-xs-12 col-sm-6 col-md-4">
-  <!-- Card -->
-  <div class="card mb-4">
-
-    <!--Card image-->
-    <div class="view overlay">
-      <img class="card-img-top" src="~/suske-en-wiske-de-treiterende-trien-2019.jpg" alt="Card image cap">
-      <a href="#!">
-        <div class="mask rgba-white-slight"></div>
-      </a>
-    </div>
-
-    <!--Card content-->
-    <div class="card-body">
-
-      <!--Title-->
-      <h4 class="card-title">Suske & Wiske De treiterende trien 2019</h4>
-      <!--Text-->
-      <p class="card-text">Eventuele beschrijving</p>
-      <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-      <button type="button" class="btn btn-light-blue btn-md">Details</button>
-
-    </div>
-
-  </div>
-  <!-- Card -->
 </div>
+  <div class="row">
 
-<div class="col-xs-12 col-sm-6 col-md-4">
-  <!-- Card -->
-  <div class="card mb-4">
+      <div class="col-7">
+          <!-- Community tab-->
+          <div class="card">      
+                    <h5 class="card-title text-center">Community tab</h5>
+                  <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a href="#new" class="nav-link active" data-bs-toggle="tab">Nieuw</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#friends" class="nav-link" data-bs-toggle="tab">Vrienden</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#recommended" class="nav-link" data-bs-toggle="tab">Aanbevolen</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="new">
+                        <p>Home</p>
+                    </div>
+                    <div class="tab-pane fade" id="friends">
+                        <p>Vrienden</p>
+                    </div>
+                    <div class="tab-pane fade" id="recommended">
+                        <p>Aanbevolen</p>
+                    </div>
+                </div>
+            </div>
+      </div>
 
-    <!--Card image-->
-    <div class="view overlay">
-      <img class="card-img-top" src="~/donaldDuck.jpg" height=400px width=150px alt="Card image cap">
-      <a href="#!">
-        <div class="mask rgba-white-slight"></div>
-      </a>
-    </div>
+      <div class="col-3">
+          <!--Wishlist tab-->
+              <div class="card">
+            
+                    <h5 class="card-title text-center">Wishlist tab</h5>
+                  
+                  </div>
+            </div>
+      </div>
 
-    <!--Card content-->
-    <div class="card-body">
-
-      <!--Title-->
-      <h4 class="card-title">Donald Duck</h4>
-      <!--Text-->
-      <p class="card-text">Eventuele beschrijving</p>
-      <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-      <button type="button" class="btn btn-light-blue btn-md">Details</button>
-
-    </div>
-
-  </div>
-  <!-- Card -->
-</div>
-<!-- Card deck -->
-  </div>
-</div>

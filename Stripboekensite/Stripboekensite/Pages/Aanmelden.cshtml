@@ -3,17 +3,23 @@
 @{
 }
 
-  <div class="card">
-                                <form class="text-center col-12">
-                                         <div class="alert alert-warning" role="alert">
-                                                <strong>Let op:</strong>  Gebruik niet dezelfde combinatie die u op andere website's gebruikt!
-                                         </div>
-                                    <input class="form-control" type="text" name="" placeholder="Naam">
-						            <br/>
-						            <input class="form-control center-block" type="email" name="" placeholder="Email">
-						            <br/>
-						            <input class="form-control" type="password" name="" placeholder="Wachtwoord">
-						            <br/>
-						            <button class="btn btn-primary btn-sm border-0 col-6" type="submit" name="submit">Maak account aan</button>
-					            </form>
-                            </div>
+<div class="card">
+	<form class="text-center col-12" method="post">
+		<div class="alert alert-warning" role="alert">
+			<strong>Let op:</strong> Gebruik niet dezelfde combinatie die u op andere website's gebruikt!
+		</div>
+		<input class="form-control" type="text" placeholder="Naam" asp-for="gebruikerData.naam">
+		<span class="text-danger" asp-validation-for="gebruikerData.naam"></span>
+		<br/>
+		<input class="form-control center-block" type="email" placeholder="Email" asp-for="gebruikerData.gebruikersnaam">
+		<span class="text-danger" asp-validation-for="gebruikerData.gebruikersnaam"></span>
+		<br/>
+		<input class="form-control" type="password" placeholder="Wachtwoord" asp-for="gebruikerData.password">
+		<span class="text-danger" asp-validation-for="gebruikerData.password"></span>
+		<input class="form-control" type="password" placeholder="Herhaal Wachtwoord" asp-for="gebruikerData.confirmationPassword">
+		<span class="text-danger" asp-validation-for="gebruikerData.confirmationPassword"></span>
+		<br/>
+		<button class="btn btn-primary btn-sm border-0 col-6" type="submit" name="submit">Maak account aan</button>
+	</form>
+</div>
+
