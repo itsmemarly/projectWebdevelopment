@@ -43,12 +43,21 @@ public class StripboekRepository
     //gives back a list of search result depending on titel using a string called search
     public IEnumerable<Stripboek> GetSearch(string search)
     {
-        search = "%" + search + "%";
+        //search = "%" + search + "%";
         string sql = "SELECT * FROM stripboeken where titel like @search ";
 
         using var connection = GetConnection();
         var stripboeken = connection.Query<Stripboek>(sql,search);
         return stripboeken;
+    }
+    public bool checkSearch(string search)
+    {
+        //search = "%" + search + "%";
+        string sql = "SELECT * FROM stripboeken where titel like @search ";
+
+        using var connection = GetConnection();
+        var check = connection.ExecuteScalar<bool>(sql,search);
+        return check;
     }
 
     //adds a stripboek with al its variabkes to the database

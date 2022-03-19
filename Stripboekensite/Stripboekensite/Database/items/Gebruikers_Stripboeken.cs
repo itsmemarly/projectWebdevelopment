@@ -21,7 +21,7 @@ public class Gebruikers_Stripboeken
         
         public string staat { get; set; }
         
-        public Stripboek Stripboek_id { get; set; }
+        public Stripboek Stripboek { get; set; }
         
         public Gebruiker Gebruiker { get; set; }
         

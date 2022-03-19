@@ -23,7 +23,8 @@ public class Gebruikers_StripboekenRepository
         var gebrStripboeken = connection.QuerySingle<Gebruikers_Stripboeken>(sql, new { Gebruiker_stripboek_ID, Stripboek_ID});
         return gebrStripboeken;
     }
-
+    
+/*
     //get 'gebruikers_id & stripboek_id'
     public Gebruikers_Stripboeken Get(int gebruiker, int stripboek)
     {
@@ -33,6 +34,7 @@ public class Gebruikers_StripboekenRepository
         var gebruikerenstripboekopgehaald = connection.QuerySingle<Gebruikers_Stripboeken>(sql, new { gebruiker, stripboek });
         return gebruikerenstripboekopgehaald;
     }
+    */
     
     //get an ienumerable list of 'stripboeken'
     public IEnumerable<Stripboek> Get()
@@ -44,6 +46,16 @@ public class Gebruikers_StripboekenRepository
         return stripboeken;
     }
 
+    //get an ienumerable list of 'stripboeken' from a specifiek user
+    public IEnumerable<Stripboek> Getfromuser(int Gebruiker_ID)
+    {
+        string sql = "SELECT * FROM stripboeken WHERE Gebruiker_stripboek_ID = @Gebruiker_ID";
+
+        using var connection = GetConnection();
+        var stripboeken  = connection.Query<Stripboek>(sql, new {Gebruiker_ID});
+        return stripboeken;
+    }
+    
     //add druk, bandlengte, plaats_gekocht, prijs_gekocht en staat
     public Gebruikers_Stripboeken Add(Gebruikers_Stripboeken gebruikers_stripboeken)
     {
@@ -56,11 +68,6 @@ public class Gebruikers_StripboekenRepository
         var nieuwstripboekverzameling = connection.QuerySingle<Gebruikers_Stripboeken>(sql, gebruikers_stripboeken);
         return nieuwstripboekverzameling;
     }
-    
-    //update join gebruikers_stripboeken and stripboeken
-    
-    
-    
 
     //update collection
     public Gebruikers_Stripboeken Update(Gebruikers_Stripboeken gebruikers_stripboeken)

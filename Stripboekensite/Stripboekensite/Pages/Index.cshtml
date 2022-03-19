@@ -5,17 +5,19 @@
 }
 
 
-    
-      
-           <div class="row">
-                 <div class="form-outline col-8">    
 
-                    <input type="search" id="form1" class="form-control col-8" placeholder="Typ hier" aria-label="Search" />
-                    
 
-               </div>
-                <button class="btn btn-dark col-4" type="button">Zoeken</button>
-               </div>
+<div class="row">
+             <div class="form-outline col-8">    
+               
+               <form asp-page-handler="Search" method="post" asp-for="search" >
+                 <input type="search" name="search" id="form1" class="form-control col-8" placeholder="Typ hier" aria-label="Search" />
+               </form>
+             </div>
+             
+             <button class="btn btn-dark col-4" type="button">Zoeken</button>
+             <h1 class="clearfix">@Model.message</h1>
+           </div>
       <br/>
        
 
@@ -32,54 +34,31 @@
     <div id="CollectionOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#CollectionAccordion">
       <div class="accordion-body">
         
-      
-                <div class="row mt-4 pb-4 pt-2 text-center">
-      <!-- Card aanmaken voor elk boek, modal aanmaken voor elk boek (modal gaat open na button onclick) -->
-                     <div class="card col-4 mt-2" style="width: 18rem; margin:3rem;">
-                  <img class="card-img-top" src="~/imgreplacer.svg" alt="Card image cap">
+        <div class="row mt-4 pb-4 pt-2 text-center">
+          @foreach (var genre in @Model.Genres)
+          {
+            <div>@genre.Soort</div>
+            @foreach (var stripboek in @Model.stripboekgenreshowed)
+            {
+              @if (stripboek.genre.genre_id == genre.genre_id)
+              {
+                <div class="card col-4 mt-2" style="width: 18rem; margin:3rem;">
                   <div class="card-body">
-                    <h5 class="card-title">EX-1</h5>
-                    <p class="card-text">Test item 3</p>
-                 <a href="#" class="btn btn-primary">Meer informatie</a>
-                  </div>
-                </div>
-
-
-                 <div class="card col-4 mt-2" style="width: 18rem; margin:3rem;">
-                  <img class="card-img-top" src="~/imgreplacer.svg" alt="Card image cap">
-                  <div class="card-body">
-                    <h5 class="card-title">EX-2</h5>
+                    <h5 class="card-title">@stripboek.Stripboek.titel</h5>
                     <p class="card-text">Test item 3</p>
                     <a href="#" class="btn btn-primary">Meer informatie</a>
                   </div>
                 </div>
-
-                 <div class="card col-4 mt-2" style="width: 18rem; margin:3rem;">
-                  <img class="card-img-top" src="~/imgreplacer.svg" alt="Card image cap">
-                  <div class="card-body">
-                    <h5 class="card-title">EX-3</h5>
-                    <p class="card-text">Test item 3</p>
-                    <a href="#" class="btn btn-primary">Meer informatie</a>
-                  </div>
-                </div>
-
-                 <div class="card col-4 mt-2" style="width: 18rem;margin:3rem;">
-                  <img class="card-img-top" src="~/imgreplacer.svg" alt="Card image cap">
-                  <div class="card-body">
-                    <h5 class="card-title">EX-4</h5>
-                    <p class="card-text">Test item 3</p>
-                    <a href="#" class="btn btn-primary">Meer informatie</a>
-                  </div>
-                </div>
-            </div>
-     
-     
-
+              }
+            }
+          }
+        </div>
+        
+        </div>
       </div>
     </div>
+    </div>
   </div>
-</div>
-</div>
 <br/>
 
 
