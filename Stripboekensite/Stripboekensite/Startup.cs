@@ -22,7 +22,7 @@ namespace Stripboekensite
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSession();
-            services.AddAuthentication().AddCookie("MyCookieAuth", options =>
+            services.AddAuthentication("MyCookieAuth").AddCookie("MyCookieAuth", options =>
             {
                 options.Cookie.Name = "MyCookieAuth";
             });
@@ -52,6 +52,7 @@ namespace Stripboekensite
 
             app.UseRouting();
             app.UseSession();
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

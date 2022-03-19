@@ -38,12 +38,6 @@ namespace Stripboekensite.Pages
             
            
             //check if the password is correct
-            //also this jank because I don't know how to use the authenticator stuff properly
-            AuthenticationOptions options = new AuthenticationOptions
-            {
-                RequireAuthenticatedSignIn = false
-            };
-            
             switch (new PasswordHasher<object?>().VerifyHashedPassword(null, gebruiker.versleuteld_wachtwoord, credential.Password) ){
                 //if it's correct sign the user in
                 case PasswordVerificationResult.Success:
@@ -74,14 +68,18 @@ namespace Stripboekensite.Pages
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Email, gebruiker.Gebruikersnaam),
-                new Claim(ClaimTypes.Name, gebruiker.naam)
+                new Claim(ClaimTypes.Name, gebruiker.naam),
+                new Claim(ClaimTypes.Role, gebruiker.rol)
             };
+            //create a new identity with the appropriate claims
             var identity = new ClaimsIdentity(claims, "MyCookieAuth");
+            
+            //create a claimsPrincipal and associate it with the identity
             ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);
-
+            //add it to the http context ass a cookie
             await HttpContext.SignInAsync("MyCookieAuth", claimsPrincipal);
         }
-
+        
         public class Credential
         {
             [Required]
