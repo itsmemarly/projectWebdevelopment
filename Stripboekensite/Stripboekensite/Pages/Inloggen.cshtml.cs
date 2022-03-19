@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -37,17 +38,23 @@ namespace Stripboekensite.Pages
             
            
             //check if the password is correct
+            //also this jank because I don't know how to use the authenticator stuff properly
+            AuthenticationOptions options = new AuthenticationOptions
+            {
+                RequireAuthenticatedSignIn = false
+            };
+            
             switch (new PasswordHasher<object?>().VerifyHashedPassword(null, gebruiker.versleuteld_wachtwoord, credential.Password) ){
                 //if it's correct sign the user in
                 case PasswordVerificationResult.Success:
-                    signInUser(gebruiker);
+                    SignInUser(gebruiker);
                     return RedirectToPage("/Index");
                 //if it isn't keep the user on the page
                 case PasswordVerificationResult.Failed:
                     return Page();
                 //if it's correct but the password needs to be rehashed, rehash the password and sign the user in
                 case PasswordVerificationResult.SuccessRehashNeeded:
-                    signInUser(gebruiker);
+                    SignInUser(gebruiker);
                     gebruiker.versleuteld_wachtwoord =
                         new PasswordHasher<object?>().HashPassword(null, credential.Password);
                     {
@@ -61,7 +68,7 @@ namespace Stripboekensite.Pages
             return Page();
         }
 
-        private async void signInUser(Gebruiker gebruiker)
+        private async void SignInUser(Gebruiker gebruiker)
         {
             //create a new security context
             var claims = new List<Claim>
@@ -70,7 +77,8 @@ namespace Stripboekensite.Pages
                 new Claim(ClaimTypes.Name, gebruiker.naam)
             };
             var identity = new ClaimsIdentity(claims, "MyCookieAuth");
-            ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal();
+            ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);
+
             await HttpContext.SignInAsync("MyCookieAuth", claimsPrincipal);
         }
 

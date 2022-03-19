@@ -43,14 +43,13 @@ public class GebruikerRepository
         return numOfEffectedRows == 1;
     }
     
-    //gives back if user name exists
+    //gives back true if user name exists in db
     public bool NameCheck(string gebruikersNaam)
     {
-        string sql = "SELECT * FROM gebruikers WHERE gebruikersnaam = @gebruikersNaam";
+        string sql = "SELECT COUNT(1) FROM gebruikers WHERE gebruikersnaam = @gebruikersNaam";
 
         using var connection = GetConnection();
-        var numOfEffectedRows  = connection.Execute(sql, gebruikersNaam);
-        return numOfEffectedRows == 1;
+        return connection.ExecuteScalar<bool>(sql, new {gebruikersNaam});
     }
 
     //gives back a list of gebruikers
