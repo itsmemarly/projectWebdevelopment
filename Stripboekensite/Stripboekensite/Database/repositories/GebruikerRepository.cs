@@ -49,7 +49,7 @@ public class GebruikerRepository
         string sql = "SELECT * FROM gebruikers WHERE gebruikersnaam = @gebruikersNaam";
 
         using var connection = GetConnection();
-        var numOfEffectedRows  = connection.Execute(sql, new { gebruikersNaam });
+        var numOfEffectedRows  = connection.Execute(sql, gebruikersNaam);
         return numOfEffectedRows == 1;
     }
 
