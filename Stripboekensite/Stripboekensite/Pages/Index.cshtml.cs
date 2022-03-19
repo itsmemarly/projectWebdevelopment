@@ -16,6 +16,7 @@ namespace Stripboekensite.Pages
         public List<GenreStripboek> stripboekgenreshowed = new List<GenreStripboek>();
         public List<GenreStripboek> searchresultss = new List<GenreStripboek>();
         public string message;
+        //int userid
 
         public IndexModel(ILogger<IndexModel> logger)
         {
@@ -26,6 +27,7 @@ namespace Stripboekensite.Pages
         {
             Genres = new GenreRepository().Get().ToList();
             GenreStripboeks = new JoinRepository().joingenrestripboek().ToList();
+            //de 6 moet straks nog op userid gezet worden
             gebruikerlijst = new JoinRepository().joingebrstripboekstripboeken(6).ToList();
             foreach (var gebruikstrip in gebruikerlijst)
             {
@@ -42,6 +44,7 @@ namespace Stripboekensite.Pages
 
         public void OnPostSearch(string search)
         {
+            //search gedoe
             message = "search";
             List<Stripboek> searchresults = new List<Stripboek>();
             List<GenreStripboek> ownedsearch = new List<GenreStripboek>();
