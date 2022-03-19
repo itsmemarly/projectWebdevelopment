@@ -27,8 +27,7 @@ public class GebruikerRepository
         string sql = "SELECT * FROM gebruikers WHERE Gebruikers_id = @gebruikerId";
 
         using var connection = GetConnection();
-        var numOfEffectedRows  = connection.Execute(sql, new {gebruikerId}); 
-        return numOfEffectedRows == 1;
+        return connection.ExecuteScalar<bool>(sql, new {gebruikerId}); 
     }
     
     //gives back if user name exists
@@ -37,8 +36,8 @@ public class GebruikerRepository
         string sql = "SELECT * FROM gebruikers WHERE gebruikersnaam = @name";
 
         using var connection = GetConnection();
-        var numOfEffectedRows  = connection.Execute(sql, new { name });
-        return numOfEffectedRows == 1;
+        var effectedbool  = connection.ExecuteScalar<bool>(sql, new { name });
+        return effectedbool;
     }
 
     //gives back a list of gebruikers

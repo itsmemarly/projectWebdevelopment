@@ -21,6 +21,14 @@ public class StripboekRepository
         var creator = connection.QuerySingle<Stripboek>(sql, new {stripboek_ID});
         return creator;
     }
+    
+    public bool checkid(int stripboek_ID)
+    {
+        string sql = "SELECT * FROM stripboeken WHERE stripboek_id = @stripboek_ID";
+
+        using var connection = GetConnection();
+        return connection.ExecuteScalar<bool>(sql, new {stripboek_ID});
+    }
 
     //gives back the list of all stripboeken
     public IEnumerable<Stripboek> Get()

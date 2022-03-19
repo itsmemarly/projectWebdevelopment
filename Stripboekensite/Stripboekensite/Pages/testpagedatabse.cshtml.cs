@@ -15,6 +15,9 @@ public class testpagedatabse : PageModel
     //test voor user toevoeging tot de database
     public void OnPostCreate(string naam)
     {
-        message = new GebruikerRepository().Get(66).naam;
+        if (new UitgeverRepository().checkid(1))
+        {
+            message = "true";
+        }
     }
 }

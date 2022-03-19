@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cc6b3258-e53a-4ecf-a99e-1db968094346" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Stripboekensite/Stripboekensite/Database/DbUtils.cs" afterDir="false" />
-    </list>
+    <list default="true" id="cc6b3258-e53a-4ecf-a99e-1db968094346" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,6 +44,7 @@
       <updated>1647434845931</updated>
       <workItem from="1647434850525" duration="3145000" />
       <workItem from="1647438065717" duration="66000" />
+      <workItem from="1647691644784" duration="8000" />
     </task>
     <servers />
   </component>

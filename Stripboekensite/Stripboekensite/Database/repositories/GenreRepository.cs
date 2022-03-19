@@ -32,6 +32,14 @@ public class GenreRepository
         var genre  = connection.QuerySingle<Genre>(sql, genreid);
         return genre;
     }
+    
+    public bool checkid(int genreid)
+    {
+        string sql = "SELECT * FROM genre where genre_id = @genreid";
+
+        using var connection = GetConnection();
+        return connection.ExecuteScalar<bool>(sql, genreid);;
+    }
 
     //adds a new genre
     public Genre Add(Genre genre)
