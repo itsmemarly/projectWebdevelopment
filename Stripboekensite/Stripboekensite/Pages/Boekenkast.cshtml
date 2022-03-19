@@ -1,0 +1,18 @@
+﻿@page
+@model Stripboekensite.Pages.BoekenkastModel
+@{
+}
+
+<!-- Alles netjes op een rij gezet, boekenkast pagina heeft een eigen zoekbalk -->
+ <div class="row">
+    <div class="form-outline col-8">    
+        <input type="search" id="ZoekBoekenkast" class="form-control col-8" placeholder="Typ hier..." aria-label="Search" />
+    </div>
+     <button class="btn btn-dark col-4" type="button">Zoeken</button>
+ </div>
+ <br/>
+
+ <!-- Deze button stuurt je door naar de pagina BoekToevoegen -->
+<div class="col-12">
+    <a class="btn btn-dark col-12" asp-area="" asp-page="/BoekToevoegen">Boek toevoegen</a>
+</div>
