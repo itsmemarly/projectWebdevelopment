@@ -22,6 +22,10 @@ namespace Stripboekensite
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSession();
+            services.AddAuthentication("MyCookieAuth").AddCookie("MyCookieAuth", options =>
+            {
+                options.Cookie.Name = "MyCookieAuth";
+            });
             services.AddRazorPages();
             services.AddRouting(options =>
             {
@@ -48,6 +52,7 @@ namespace Stripboekensite
 
             app.UseRouting();
             app.UseSession();
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

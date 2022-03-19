@@ -20,6 +20,14 @@ public class UitgeverRepository
         var uitgever = connection.QuerySingle<Uitgever>(sql, new { Uitgeverid });
         return uitgever;
     }
+    
+    public bool checkid(int Uitgeverid)
+    {
+        string sql = "SELECT * FROM uitgever WHERE uitgever_id = @Uitgeverid";
+
+        using var connection = GetConnection();
+        return connection.ExecuteScalar<bool>(sql, new { Uitgeverid });
+    }
 
     //gives back the list of uitgevers
     public IEnumerable<Uitgever> Get()

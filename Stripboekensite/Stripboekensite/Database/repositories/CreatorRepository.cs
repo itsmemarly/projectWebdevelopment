@@ -22,6 +22,14 @@ public class CreatorRepository
         return creator;
     }
 
+    public bool checkid(int Creator_ID)
+    {
+        string sql = "SELECT * FROM Creator WHERE creator_ID = @Creator_ID";
+
+        using var connection = GetConnection();
+        return connection.ExecuteScalar<bool>(sql, new { Creator_ID });;
+    }
+    
     //gives back a list of al creators 
     public IEnumerable<Creator> Get()
     {
@@ -31,6 +39,7 @@ public class CreatorRepository
         var Creators  = connection.Query<Creator>(sql);
         return Creators;
     }
+    
     
     //gives back a list of search results depending on naam using a string called search
     public IEnumerable<Creator> GetNames(string search)
@@ -79,6 +88,5 @@ public class CreatorRepository
         var updatedCreator = connection.QuerySingle<Creator>(sql, creator);
         return updatedCreator;
     }
-
     
 }

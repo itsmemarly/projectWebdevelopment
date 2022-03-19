@@ -22,6 +22,15 @@ public class ReeksRepository
         var reeks = connection.QuerySingle<Reeks>(sql, new { reeksid });
         return reeks;
     }
+    
+    //gives back whether asked id exists
+    public bool checkid(int reeksid)
+    {
+        string sql = "SELECT * FROM reeksen WHERE reeks_id = @reeksid";
+
+        using var connection = GetConnection();
+        return connection.ExecuteScalar<bool>(sql, new { reeksid });;
+    }
 
     //gives back a list of reeksen
     public IEnumerable<Reeks> Get()
