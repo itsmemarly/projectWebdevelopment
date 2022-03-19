@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Home page Stripboekenwebsite";
 }
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 
 
@@ -10,8 +11,8 @@
 <div class="row">
              <div class="form-outline col-8">    
                
-               <form asp-page-handler="Search" method="post" asp-for="search" >
-                 <input type="search" name="search" id="form1" class="form-control col-8" placeholder="Typ hier" aria-label="Search" />
+               <form asp-page-handler="Search" method="post">
+                 <input name="search" type="search"  id="form1" class="form-control col-8" placeholder="Typ hier" aria-label="Search" />
                </form>
              </div>
              

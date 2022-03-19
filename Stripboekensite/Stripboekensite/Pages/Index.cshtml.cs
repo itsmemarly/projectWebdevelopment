@@ -15,8 +15,13 @@ namespace Stripboekensite.Pages
         public List<GenreStripboek> GenreStripboeks = new List<GenreStripboek>();
         public List<GenreStripboek> stripboekgenreshowed = new List<GenreStripboek>();
         public List<GenreStripboek> searchresultss = new List<GenreStripboek>();
+        
+        public List<Stripboek> searchresults = new List<Stripboek>();
+        public List<GenreStripboek> ownedsearch = new List<GenreStripboek>();
+        
         public string message;
-        //int userid
+        public string querysearch;
+        //int userid through cookies
 
         public IndexModel(ILogger<IndexModel> logger)
         {
@@ -25,10 +30,43 @@ namespace Stripboekensite.Pages
 
         public void OnGet()
         {
+            userbookcheck(6);
+
+        }
+
+        public void OnPostSearch(string search)
+        {
+            userbookcheck(6);
+            
+            querysearch = "%" + search + "%";
+            //search gedoe
+            message = search;
+            if (new StripboekRepository().checkSearch(querysearch))
+            {
+                searchresults = new StripboekRepository().GetSearch(querysearch).ToList();
+                foreach (var stripboek in searchresults)
+                {
+                    foreach (var stripboekuser in stripboekgenreshowed)
+                    {
+                        
+                        if (stripboek.Stripboek_id == stripboekuser.Stripboek.Stripboek_id)
+                        {
+                            ownedsearch.Add(stripboekuser);
+                        }
+                    }
+                }
+                stripboekgenreshowed = new List<GenreStripboek>();
+                stripboekgenreshowed = ownedsearch;
+            }
+
+        }
+
+        public void userbookcheck(int userid)
+        {
             Genres = new GenreRepository().Get().ToList();
             GenreStripboeks = new JoinRepository().joingenrestripboek().ToList();
             //de 6 moet straks nog op userid gezet worden
-            gebruikerlijst = new JoinRepository().joingebrstripboekstripboeken(6).ToList();
+            gebruikerlijst = new JoinRepository().joingebrstripboekstripboeken(userid).ToList();
             foreach (var gebruikstrip in gebruikerlijst)
             {
                 foreach (var genrestripboek in GenreStripboeks)
@@ -39,31 +77,6 @@ namespace Stripboekensite.Pages
                     }
                 }
             }
-            
         }
-
-        public void OnPostSearch(string search)
-        {
-            //search gedoe
-            message = "search";
-            List<Stripboek> searchresults = new List<Stripboek>();
-            List<GenreStripboek> ownedsearch = new List<GenreStripboek>();
-            if (new StripboekRepository().checkSearch(search))
-            {
-                searchresults = new StripboekRepository().GetSearch(search).ToList();
-                foreach (var stripboek in searchresults)
-                {
-                    foreach (var stripboekuser in stripboekgenreshowed)
-                    {
-                        if (stripboek.Stripboek_id == stripboekuser.Stripboek.Stripboek_id)
-                        {
-                            searchresultss.Add(stripboekuser);
-                        }
-                    }
-                }
-            }
-        }
-
-        
     }
 }
