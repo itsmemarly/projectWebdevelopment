@@ -20,6 +20,18 @@ public class GebruikerRepository
         var gebruiker = connection.QuerySingle<Gebruiker>(sql, new {gebruikerId}); 
         return gebruiker;
     }
+    
+    //returns a gebruiker using it's username
+
+    public Gebruiker Get(string gebruikersNaam)
+    {
+        string sql = "SELECT * FROM gebruikers WHERE Gebruikersnaam = @gebruikersNaam";
+        
+        using var connection =  GetConnection();
+        Gebruiker gebruiker = connection.QuerySingle<Gebruiker>(sql, new {gebruikersNaam});
+        
+        return gebruiker;
+    }
 
     //gives back a specific gebruiker using its name
     public bool IdCheck(int gebruikerId )
@@ -30,14 +42,13 @@ public class GebruikerRepository
         return connection.ExecuteScalar<bool>(sql, new {gebruikerId}); 
     }
     
-    //gives back if user name exists
-    public bool NameCheck(string name)
+    //gives back true if user name exists in db
+    public bool NameCheck(string gebruikersNaam)
     {
-        string sql = "SELECT * FROM gebruikers WHERE gebruikersnaam = @name";
+        string sql = "SELECT COUNT(1) FROM gebruikers WHERE gebruikersnaam = @gebruikersNaam";
 
         using var connection = GetConnection();
-        var effectedbool  = connection.ExecuteScalar<bool>(sql, new { name });
-        return effectedbool;
+        return connection.ExecuteScalar<bool>(sql, new {gebruikersNaam});
     }
 
     //gives back a list of gebruikers
