@@ -19,6 +19,8 @@ namespace Stripboekensite.Pages
         public List<Stripboek> searchresults = new List<Stripboek>();
         public List<GenreStripboek> ownedsearch = new List<GenreStripboek>();
         
+        public int userid;
+        
         public string message;
         public string querysearch;
         //int userid through cookies
@@ -30,7 +32,9 @@ namespace Stripboekensite.Pages
 
         public void OnGet()
         {
-            userbookcheck(6);
+            var claims =ClaimsPrincipal.Current.Identities.First().Claims.ToList();
+            
+            userbookcheck(userid);
         }
 
         public void OnPostSearch(string search)
