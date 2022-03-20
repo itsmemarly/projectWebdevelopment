@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -69,7 +68,8 @@ namespace Stripboekensite.Pages
             {
                 new Claim(ClaimTypes.Email, gebruiker.Gebruikersnaam),
                 new Claim(ClaimTypes.Name, gebruiker.naam),
-                new Claim(ClaimTypes.Role, gebruiker.rol)
+                new Claim(ClaimTypes.Role, gebruiker.rol),
+                new Claim(ClaimTypes.NameIdentifier, gebruiker.Gebruiker_id.ToString())
             };
             //create a new identity with the appropriate claims
             var identity = new ClaimsIdentity(claims, "MyCookieAuth");
