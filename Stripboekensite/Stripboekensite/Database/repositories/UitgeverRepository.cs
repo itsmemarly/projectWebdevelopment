@@ -21,6 +21,7 @@ public class UitgeverRepository
         return uitgever;
     }
     
+    //checks whether id exist
     public bool checkid(int Uitgeverid)
     {
         string sql = "SELECT * FROM uitgever WHERE uitgever_id = @Uitgeverid";
@@ -28,7 +29,7 @@ public class UitgeverRepository
         using var connection = GetConnection();
         return connection.ExecuteScalar<bool>(sql, new { Uitgeverid });
     }
-
+    
     //gives back the list of uitgevers
     public IEnumerable<Uitgever> Get()
     {

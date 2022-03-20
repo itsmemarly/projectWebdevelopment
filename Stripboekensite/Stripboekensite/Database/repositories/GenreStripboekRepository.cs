@@ -44,7 +44,7 @@ public class GenreStripboekRepository
     //adds a new genre stripboek combination to database
     public GenreStripboek Add(GenreStripboek GenreStripboek)
     {
-        string sql = "INSERT INTO genre_Stripboeken (Genre_id,Stripboek_id) VALUES (@Genre_id,@Stripboek_id)";
+        string sql = "INSERT INTO genre_Stripboeken (Genre_id,Stripboek_id) VALUES (@Genre_id,@Stripboek_id); SELECT * from genre_stripboeken WHERE Stripboek_id = @Stripboek_id and Genre_id = @Genre_id";
         using var connection = GetConnection();
         var newGenreStripboek = connection.QuerySingle<GenreStripboek>(sql, GenreStripboek);
         return newGenreStripboek;

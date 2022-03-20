@@ -31,16 +31,19 @@ namespace Stripboekensite.Pages
         public void OnGet()
         {
             userbookcheck(6);
-
         }
 
         public void OnPostSearch(string search)
         {
             userbookcheck(6);
             
+            //sets string query to %searchvalue% needed for the Like query  
             querysearch = "%" + search + "%";
-            //search gedoe
+           
             message = "je zoekt op :" + search;
+            
+            //checks if there even is a value in the database if false message will say no search results
+            //if true added stripboek showed so the stripboek wil be showed on page
             if (new StripboekRepository().checkSearch(querysearch))
             {
                 searchresults = new StripboekRepository().GetSearch(querysearch).ToList();
@@ -67,10 +70,12 @@ namespace Stripboekensite.Pages
 
         public void userbookcheck(int userid)
         {
+            //gets all genres and the books that the current user has 
             Genres = new GenreRepository().Get().ToList();
             GenreStripboeks = new JoinRepository().joingenrestripboek().ToList();
-            //de 6 moet straks nog op userid gezet worden
             gebruikerlijst = new JoinRepository().joingebrstripboekstripboeken(userid).ToList();
+            
+            //checks whether the books in the genre are owned 
             foreach (var gebruikstrip in gebruikerlijst)
             {
                 foreach (var genrestripboek in GenreStripboeks)

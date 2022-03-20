@@ -72,6 +72,20 @@ public class StripboekRepository
         return nieuwstripboek;
     }
 
+    //adds a stripboek with al its variabkes to the database
+    public Stripboek AddWithoutReeks(Stripboek stripboek)
+    {
+        string sql = @"
+                INSERT INTO stripboeken (isbn, uitgave1e_druk, bladzijden, titel, expliciet, uitgever_id) 
+                VALUES (@isbn, @Uitgave1e_druk, @Bladzijden, @titel, @expleciet,@Uitgever_id); 
+                SELECT * FROM stripboeken WHERE stripboek_id = LAST_INSERT_ID()";
+
+        using var connection = GetConnection();
+        var nieuwstripboek = connection.QuerySingle<Stripboek>(sql, stripboek);
+        return nieuwstripboek;
+    }
+    
+    
     //deletes a stripboek using id
     public bool Delete(int stripboek_id)
     {
