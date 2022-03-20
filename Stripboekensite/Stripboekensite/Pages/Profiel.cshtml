@@ -2,27 +2,98 @@
 @model Stripboekensite.Pages.ProfielModel
 @{
 }
-<div class="container">
-  <!-- Content here -->
 
-</div>
   <div class="row">
 
     <div class="col-4">
-          <!--Wishlist tab-->
+          <!--Profiel tab-->
               <div class="card">
             
                     <h5 class="card-title text-center">Profiel tab</h5>
-                  
+                    
+                    <div class="mb-3 d-md-flex justify-content-md-center">
+                        <img src="~/example.jpg" style="border:dashed 2px; " width=100  height=100 class="rounded-circle">
+                    </div>
+
+                    <div class="mb-3 d-md-flex justify-content-md-end">
+                     
+                      <input type="text" class="form-control col-2" id="ShowName" placeholder="Naam">
+                    </div>
+
+                     <div class="mb-3 d-md-flex justify-content-md-end">
+                     
+                      <input type="text" class="form-control" id="ShowRole" placeholder="Rol">
+                    </div>
+
+                      <div class="mb-3 d-md-flex justify-content-md-end">
+                    
+                      <input type="text" class="form-control" id="ShowEmail" placeholder="Email">
+                    </div>
+
+                      <div class="mb-3 d-md-flex justify-content-md-end">
+                        
+                      <input type="text" class="form-control" id="ShowPassword" placeholder="Wachtwoord">
+                    </div>
+
+                     <div class="mb-3 d-md-flex justify-content-md-center">
+                         <button type="submit" class="btn btn-dark">Wijzigingen opslaan</button>
+                    </div>
+               
                   </div>
             </div>
 
       <div class="col-8">
-          <!--Wishlist tab-->
+          <!--Instellingen tab-->
               <div class="card">
             
                     <h5 class="card-title text-center">Instellingen tab</h5>
-                  
+
+                    <div class=" mb-3 d-md-flex row">
+                     <div class="col-6">
+                    <div class="mb-3 d-md-flex justify-content-md-center">
+                        <p>Wie mag uw wishlist bekijken?</p>
+                            </div>
+                            <div class="row mb-3 d-md-flex justify-content-md-center">
+                         <div class="mb-3 d-md-flex justify-content-md-center col-4">
+                        
+                         <input type="checkbox" class="btn-check" id="WishlistMe" checked autocomplete="off">
+                        <label class="btn btn-danger" for="WishlistMe">Alleen ik</label>
+                            </div>
+                         <div class="mb-3 d-md-flex justify-content-md-center col-1">
+                        <input type="checkbox" class="btn-check" id="WishlistFriends" checked autocomplete="off">
+                        <label class="btn btn-primary" for="WishlistFriends">Vrienden</label>
+                            </div>
+                         <div class="mb-3 d-md-flex justify-content-md-center col-4">
+                         <input type="checkbox" class="btn-check" id="WishlistEveryone" checked autocomplete="off">
+                        <label class="btn btn-success" for="WishlistEveryone">Iedereen</label>
+                            </div>
+                            </div>
+                            </div>
+
+                              <div class="col-6">
+                              <div class="mb-3 d-md-flex justify-content-md-center">
+                                 <p>Wie mag uw verzamelingen bekijken?</p>
+                             </div>
+                         <div class="row mb-3 d-md-flex justify-content-md-center">
+    
+                              <div class=" mb-3 d-md-flex justify-content-md-center col-4">
+                         <input type="checkbox" class="btn-check" id="CollectionMe" checked autocomplete="off">
+                        <label class="btn btn-danger" for="CollectionMe">Alleen ik</label>
+                        </div>
+
+                         <div class="mb-3 d-md-flex justify-content-md-center col-1">
+                        <input type="checkbox" class="btn-check" id="CollectionFriends" checked autocomplete="off">
+                        <label class="btn btn-primary" for="CollectionFriends">Vrienden</label>
+                    </div>
+                     <div class="mb-3 d-md-flex justify-content-md-center col-4">
+                         <input type="checkbox" class="btn-check" id="CollectionEveryone" checked autocomplete="off">
+                        <label class="btn btn-success" for="CollectionEveryone">Iedereen</label>
+                           </div>
+                            </div>
+                             </div>
+                 
+                    </div>
+                   
                   </div>
             </div>
       </div>
