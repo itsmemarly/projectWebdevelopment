@@ -2,7 +2,7 @@ namespace Stripboekensite;
 
 public class Gebruiker
 {
-    public int Gebruiker_id { get; set; }
+    public int Gebruikers_id { get; set; }
     
     public string Gebruikersnaam { get; set; }
     

@@ -63,13 +63,14 @@ namespace Stripboekensite.Pages
 
         private async void SignInUser(Gebruiker gebruiker)
         {
+            
             //create a new security context
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Email, gebruiker.Gebruikersnaam),
                 new Claim(ClaimTypes.Name, gebruiker.naam),
                 new Claim(ClaimTypes.Role, gebruiker.rol),
-                new Claim(ClaimTypes.NameIdentifier, gebruiker.Gebruiker_id.ToString())
+                new Claim(ClaimTypes.NameIdentifier , gebruiker.Gebruikers_id.ToString())
             };
             //create a new identity with the appropriate claims
             var identity = new ClaimsIdentity(claims, "MyCookieAuth");

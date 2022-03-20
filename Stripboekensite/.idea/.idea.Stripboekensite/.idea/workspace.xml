@@ -5,8 +5,12 @@
     <projectFile profileName="IIS Express">Stripboekensite/Stripboekensite.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bd768dc-e43b-4651-9a8e-1b5a9645b6c0" name="Changes" comment="toevoegen aan database">
+    <list default="true" id="0bd768dc-e43b-4651-9a8e-1b5a9645b6c0" name="Changes" comment="userid">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stripboekensite/Database/items/Gebruiker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Database/items/Gebruiker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/Account/login.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/Account/login.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/BoekToevoegen.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/BoekToevoegen.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/Index.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/Index.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/Index.cshtml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,6 +29,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/575c31ecc35a636b6f962cb71d53992552941a18982aae1c8e6c16305cc3761b/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Stripboekensite/Database/repositories/ReeksRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Alissa/RiderProjects/projectWebdevelopment/Stripboekensite/Stripboekensite/Pages/Index.cshtml.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Stripboekensite/Database/repositories/UitgeverRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Stripboekensite/Database/repositories/CreatorRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Stripboekensite/Pages/Profiel.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
@@ -106,7 +111,7 @@
       <workItem from="1647598737481" duration="103000" />
       <workItem from="1647602099265" duration="8731000" />
       <workItem from="1647712180658" duration="1533000" />
-      <workItem from="1647776243780" duration="9915000" />
+      <workItem from="1647776243780" duration="15878000" />
     </task>
     <task id="LOCAL-00001" summary="nvt">
       <created>1647551816154</created>
@@ -164,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647785740590</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="userid">
+      <created>1647786804847</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1647786804847</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,7 +206,8 @@
     <MESSAGE value="search optie werkt en wordt op scherm aangepast" />
     <MESSAGE value="message voor zoeken" />
     <MESSAGE value="toevoegen aan database" />
-    <option name="LAST_COMMIT_MESSAGE" value="toevoegen aan database" />
+    <MESSAGE value="userid" />
+    <option name="LAST_COMMIT_MESSAGE" value="userid" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -213,17 +226,17 @@
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Stripboekensite/Database/repositories/StripboekRepository.cs</url>
-          <line>70</line>
-          <properties documentPath="C:\Users\Alissa\RiderProjects\projectWebdevelopment\Stripboekensite\Stripboekensite\Database\repositories\StripboekRepository.cs" initialLine="70" containingFunctionPresentation="method 'Add'">
+          <url>file://$PROJECT_DIR$/Stripboekensite/Pages/BoekToevoegen.cshtml.cs</url>
+          <line>48</line>
+          <properties documentPath="C:\Users\Alissa\RiderProjects\projectWebdevelopment\Stripboekensite\Stripboekensite\Pages\BoekToevoegen.cshtml.cs" initialLine="48" containingFunctionPresentation="method 'OnPostAddStripboek'">
             <startOffsets>
-              <option value="2309" />
+              <option value="1746" />
             </startOffsets>
             <endOffsets>
-              <option value="2380" />
+              <option value="1795" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="31" />
+          <option name="timeStamp" value="50" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

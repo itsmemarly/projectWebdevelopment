@@ -32,14 +32,14 @@ namespace Stripboekensite.Pages
 
         public void OnGet()
         {
-            var claims =ClaimsPrincipal.Current.Identities.First().Claims.ToList();
-            
-            userbookcheck(userid);
+
+            userbookcheck();
+            //message = userid.ToString();
         }
 
         public void OnPostSearch(string search)
         {
-            userbookcheck(6);
+            userbookcheck();
             
             //sets string query to %searchvalue% needed for the Like query  
             querysearch = "%" + search + "%";
@@ -72,8 +72,19 @@ namespace Stripboekensite.Pages
 
         }
 
-        public void userbookcheck(int userid)
+        public void userbookcheck()
         {
+            List<Claim> claims = User.Claims.ToList();
+
+            foreach (var claim in claims)
+            {
+                if (claim.Type == ClaimTypes.NameIdentifier)
+                {
+                    message = claim.Value;
+                    userid = int.Parse(claim.Value);
+                }
+            }
+            
             //gets all genres and the books that the current user has 
             Genres = new GenreRepository().Get().ToList();
             GenreStripboeks = new JoinRepository().joingenrestripboek().ToList();
