@@ -80,7 +80,6 @@ namespace Stripboekensite.Pages
             {
                 if (claim.Type == ClaimTypes.NameIdentifier)
                 {
-                    message = claim.Value;
                     userid = int.Parse(claim.Value);
                 }
             }

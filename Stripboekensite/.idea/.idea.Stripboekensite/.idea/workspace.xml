@@ -5,14 +5,7 @@
     <projectFile profileName="IIS Express">Stripboekensite/Stripboekensite.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bd768dc-e43b-4651-9a8e-1b5a9645b6c0" name="Changes" comment="userid">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Database/items/Gebruiker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Database/items/Gebruiker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/Account/login.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/Account/login.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/BoekToevoegen.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/BoekToevoegen.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/Index.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/Index.cshtml.cs" afterDir="false" />
-    </list>
+    <list default="true" id="0bd768dc-e43b-4651-9a8e-1b5a9645b6c0" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,6 +26,7 @@
     <setting file="file://$PROJECT_DIR$/Stripboekensite/Database/repositories/UitgeverRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Stripboekensite/Database/repositories/CreatorRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Stripboekensite/Pages/Profiel.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Alissa/RiderProjects/projectWebdevelopment/Stripboekensite/Stripboekensite/Pages/BoekToevoegen.cshtml.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f4708639776589f5ac2739f6fcbfc67343b1f9dac51cc1dbfdb003eef77cc1c/Monitor.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ddc4ad1aec4632d9c87e3c9a0be83f97091187a6832a53fe96a3f15acf770/Boolean.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1ac3bf8d279e4572a77c8002c0c830f1171c00/e0/be7f3209/MySqlConnection.cs" root0="SKIP_HIGHLIGHTING" />
@@ -111,7 +105,7 @@
       <workItem from="1647598737481" duration="103000" />
       <workItem from="1647602099265" duration="8731000" />
       <workItem from="1647712180658" duration="1533000" />
-      <workItem from="1647776243780" duration="15878000" />
+      <workItem from="1647776243780" duration="16430000" />
     </task>
     <task id="LOCAL-00001" summary="nvt">
       <created>1647551816154</created>
@@ -176,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647786804847</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="login id, boekenkast wordt nu op ingelogd persoon en de nieuwe boeken worden nu aan de ingelogde gebruiker gekoppeld">
+      <created>1647793109007</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1647793109007</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,7 +208,8 @@
     <MESSAGE value="message voor zoeken" />
     <MESSAGE value="toevoegen aan database" />
     <MESSAGE value="userid" />
-    <option name="LAST_COMMIT_MESSAGE" value="userid" />
+    <MESSAGE value="login id, boekenkast wordt nu op ingelogd persoon en de nieuwe boeken worden nu aan de ingelogde gebruiker gekoppeld" />
+    <option name="LAST_COMMIT_MESSAGE" value="login id, boekenkast wordt nu op ingelogd persoon en de nieuwe boeken worden nu aan de ingelogde gebruiker gekoppeld" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -224,19 +226,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Stripboekensite/Pages/BoekToevoegen.cshtml.cs</url>
-          <line>48</line>
-          <properties documentPath="C:\Users\Alissa\RiderProjects\projectWebdevelopment\Stripboekensite\Stripboekensite\Pages\BoekToevoegen.cshtml.cs" initialLine="48" containingFunctionPresentation="method 'OnPostAddStripboek'">
-            <startOffsets>
-              <option value="1746" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1795" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="50" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
