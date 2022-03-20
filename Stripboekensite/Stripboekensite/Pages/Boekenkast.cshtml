@@ -83,5 +83,102 @@
     <div class="row">
         <div class="col-6 btn btn-primary">Mijn boekenkast</div>
     </div>
-</div>
+    
+    <div class="modal fade" id="OptionModal" tabindex="-1" aria-labelledby="OptionModalLabel" style="display: none;" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="OptionModalLabel">Welkom, hoe wilt u verder gaan?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Sluiten"></button>
+                  </div>
+                  <div class="modal-body">
+                        <div class="card">      
+                        <h5 class="card-title text-center">Kies de optie die bij u past:</h5>
+                      <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a href="#signin" class="nav-link active" data-bs-toggle="tab">Inloggen
+                               <span class="glyphicon glyphicon-question-sign"></span> 
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#signup" class="nav-link" data-bs-toggle="tab">Maak account aan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#guest" class="nav-link" data-bs-toggle="tab">Ga verder als gast</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                       
+                        <!--Login tab -->
+                        <div class="tab-pane fade show active" id="signin">
+                               <br />
+                                   <div>
+                                        <form class="text-center col-12">
+                                                <div class="alert alert-info" role="alert">
+                                                 Let op: Gebruikersnaam is uw email!
+                                                </div>
+    						                <input class="form-control center-block" type="email" name="" placeholder="Email">
+    						                <br>
+    						                <input class="form-control" type="password" name="" placeholder="Wachtwoord">
+    						                <br>
+    						                <button class="btn btn-primary btn-sm border-0 col-6" type="submit" name="submit">Log In</button>
+    					                </form>
+                                    </div>
+                                <br/>
+                        </div>
+    
+                        <!--Account aanmaken tab -->
+                        <div class="tab-pane fade" id="signup">
+                            <br/>
+                                <div>
+                                    <form class="text-center col-12">
+                                             <div class="alert alert-warning" role="alert">
+                                                     Let op: Gebruik niet dezelfde combinatie die u op andere website's gebruikt!
+                                             </div>
+                                        <input class="form-control" type="text" name="" placeholder="Naam">
+    						            <br/>
+    						            <input class="form-control center-block" type="email" name="" placeholder="Email">
+    						            <br/>
+    						            <input class="form-control" type="password" name="" placeholder="Wachtwoord">
+    						            <br/>
+    						            <button class="btn btn-primary btn-sm border-0 col-6" type="submit" name="submit">Maak account aan</button>
+    					            </form>
+                                </div>
+                            <br/>
+                        </div>
+    
+                        <!-- Gasten tab-->
+                        <div class="tab-pane fade" id="guest">
+                            <br/>
+                                <div>
+                                     <div class="alert alert-info col-12" role="alert">
+                                                Let op: Er gelden beperkingen wanneer u geen account heeft!
+                                                <br/>
+                                                <b>Beperkingen:</b> 
+                                           
+                                                 <ul>
+                                                  <li>U kunt geen eigen boekenlijst maken</li>
+                                                  <li>U kunt geen eigen wishlist maken</li>
+                                                  <li>U kunt geen eigen verzameling maken</li>
+                                                  <li>U kunt geen vrienden toevoegen</li>
+                                                </ul>
+                                                
+                                                </div>
+                                                <div class=" d-md-flex justify-content-md-center">
+                                                    <button type="button" class="btn btn-primary btn-sm border-0 text-center"> Ga verder als gast</button>
+                                                </div>
+                                </div>
+                            <br/>
+                        </div>
+    
+                    </div>
+                </div>
+          </div>
+                  </div>
+                  <div class="modal-footer">
+                 
+                  </div>
+                </div>
+              </div>
 
+</div>
