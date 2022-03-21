@@ -74,20 +74,22 @@ namespace Stripboekensite.Pages
             }
             else
             {
-                addedstripboek = new StripboekRepository().AddWithoutReeks(stripboek);
+                addedstripboek = new StripboekRepository().Add(stripboek);   
             }
+            
+
             
             //adds a genre stripboek connection to database
             GenreStripboek stripboekgenre = new GenreStripboek();
             stripboekgenre.Stripboek_id = addedstripboek.Stripboek_id;
             stripboekgenre.Genre_id = genreid;
-            GenreStripboek addedGenreStripboek = new GenreStripboekRepository().Add(stripboekgenre);
+            new GenreStripboekRepository().Add(stripboekgenre);
             
             //adds stripboek gebruiker connection to database
             Gebruikers_Stripboeken stripboekgebruiker = new Gebruikers_Stripboeken();
             stripboekgebruiker.Gebruiker_id = userid;
             stripboekgebruiker.stripboek_id = addedstripboek.Stripboek_id;
-            Gebruikers_Stripboeken addedstripboekgebruiker = new Gebruikers_StripboekenRepository().Add(stripboekgebruiker);
+            new Gebruikers_StripboekenRepository().Add(stripboekgebruiker);
         }
 
         public void setlists()

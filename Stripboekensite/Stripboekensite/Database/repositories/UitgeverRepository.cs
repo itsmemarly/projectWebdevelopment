@@ -11,16 +11,6 @@ public class UitgeverRepository
         return new DbUtils().GetDbConnection();
     }
 
-    //gives back a certain uitgever using their id
-    public Uitgever Get(int Uitgeverid)
-    {
-        string sql = "SELECT * FROM uitgever WHERE uitgever_id = @Uitgeverid";
-
-        using var connection = GetConnection();
-        var uitgever = connection.QuerySingle<Uitgever>(sql, new { Uitgeverid });
-        return uitgever;
-    }
-    
     //checks whether id exist
     public bool checkid(int Uitgeverid)
     {
@@ -53,7 +43,22 @@ public class UitgeverRepository
         return nieuwUitgever;
     }
     
-    //removes uitgever uit database
+
+    
+        
+    /*does not get used
+     
+         //gives back a certain uitgever using their id
+    public Uitgever Get(int Uitgeverid)
+    {
+        string sql = "SELECT * FROM uitgever WHERE uitgever_id = @Uitgeverid";
+
+        using var connection = GetConnection();
+        var uitgever = connection.QuerySingle<Uitgever>(sql, new { Uitgeverid });
+        return uitgever;
+    }
+     
+         //removes uitgever uit database
     public bool Delete(int uitgeverid)
     {
         string sql = @"DELETE FROM uitgever WHERE  uitgever_id = @uitgeverid";
@@ -75,5 +80,8 @@ public class UitgeverRepository
         var updateduitgever = connection.QuerySingle<Uitgever>(sql, uitgever);
         return updateduitgever;
     }
+     
+     
+     */
     
 }

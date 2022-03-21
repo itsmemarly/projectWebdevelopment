@@ -12,26 +12,6 @@ public class ReeksRepository
             return new DbUtils().GetDbConnection();
         }
     
-        
-    //gives back a specific reeks using its id
-    public Reeks Get(int reeksid)
-    {
-        string sql = "SELECT * FROM reeksen WHERE reeks_id = @reeksid";
-
-        using var connection = GetConnection();
-        var reeks = connection.QuerySingle<Reeks>(sql, new { reeksid });
-        return reeks;
-    }
-    
-    //gives back whether asked id exists
-    public bool checkid(int reeksid)
-    {
-        string sql = "SELECT * FROM reeksen WHERE reeks_id = @reeksid";
-
-        using var connection = GetConnection();
-        return connection.ExecuteScalar<bool>(sql, new { reeksid });;
-    }
-
     //gives back a list of reeksen
     public IEnumerable<Reeks> Get()
     {
@@ -55,7 +35,28 @@ public class ReeksRepository
         return nieuwReeks;
     }
     
-    //removes reeks from databse using id 
+
+    /* does not get used
+         //gives back a specific reeks using its id
+    public Reeks Get(int reeksid)
+    {
+        string sql = "SELECT * FROM reeksen WHERE reeks_id = @reeksid";
+
+        using var connection = GetConnection();
+        var reeks = connection.QuerySingle<Reeks>(sql, new { reeksid });
+        return reeks;
+    }
+    
+    //gives back whether asked id exists
+    public bool checkid(int reeksid)
+    {
+        string sql = "SELECT * FROM reeksen WHERE reeks_id = @reeksid";
+
+        using var connection = GetConnection();
+        return connection.ExecuteScalar<bool>(sql, new { reeksid });;
+    }
+     
+         //removes reeks from databse using id 
     public bool Delete(int reeksid)
     {
         string sql = @"DELETE FROM reeksen WHERE  reeks_id = @reeksid";
@@ -78,5 +79,7 @@ public class ReeksRepository
         var updatedreeks = connection.QuerySingle<Reeks>(sql, reeks);
         return updatedreeks;
     }
-
+     */
+    
+    
 }

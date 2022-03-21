@@ -11,6 +11,7 @@ public class CreatorStripboekenRepository
         return new DbUtils().GetDbConnection();
     }
     
+    /* does not get used 
     
     //gives back specifiek creator stripboek combination
     public CreatorStripboeken Get(int Creator_ID, int Stripboek_ID)
@@ -88,4 +89,5 @@ public class CreatorStripboekenRepository
         var updatedcreatorStripboeken = connection.QuerySingle<CreatorStripboeken>(sql, creatorStripboeken);
         return updatedcreatorStripboeken;
     }
+    */
 }

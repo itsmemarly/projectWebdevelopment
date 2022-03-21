@@ -3,43 +3,19 @@
 @{
     ViewData["Title"] = "Home page Stripboekenwebsite";
 }
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
-
-
-
-<div class="row">
-  <div class="form-outline col-8">    
-               
-    <form asp-page-handler="Search" method="post">
-      <input name="search" type="search"  id="form1" class="form-control col-8" placeholder="Typ hier" aria-label="Search" />
-    </form>
-  </div>
-      <br/>
-              <h1 class="clearfix">@Model.message</h1>
-           </div>
-      <br/>
-       
+<!-- Alles netjes op een rij gezet, boekenkast pagina heeft een eigen zoekbalk -->
+ <div class="row">
+   <form asp-page-handler="Search" method="post">
+     <input name="search" type="search"  id="form1" class="form-control col-8" placeholder="Typ hier" aria-label="Search" />
+   </form>
+                 <h1 class="clearfix">@Model.message</h1>
+ </div>
+ <br/>
 
  <!-- Deze button stuurt je door naar de pagina BoekToevoegen -->
 <div class="col-12">
-    <a class="btn btn-dark col-12" asp-area="" asp-page="/BoekToevoegen">Boek toevoegen</a>
-</div>
 
- <br/>
-
-<div class="col-12">
-    <!-- Accordion gebruiken voor verzameling tab-->
-    <div class="accordion" id="CollectionAccordion">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#CollectionOne" aria-expanded="false" aria-controls="CollectionOne">
-       Per categorie
-      </button>
-    </h2>
-    <div id="CollectionOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#CollectionAccordion">
-      <div class="accordion-body">
-        
         <div class="row mt-4 pb-4 pt-2 text-center">
           @foreach (var genre in @Model.Genres)
           {
@@ -52,8 +28,8 @@
                   <div class="card-body">
                     <h5 class="card-title">@stripboek.Stripboek.titel</h5>
                     <p class="card-text">test</p>
-                        <form asp-page-handler="Delete" method="post">
-                        <button name="stripboekid" value = "@stripboek.Stripboek.Stripboek_id"   class="btn btn-primary">Delete</button>
+                        <form asp-page-handler="Addtouser" method="post">
+                        <button name="stripboekid" value = "@stripboek.Stripboek.Stripboek_id"   class="btn btn-primary">add</button>
                         </form>
                   </div>
                 </div>
@@ -61,13 +37,5 @@
             }
           }
         </div>
-        
-        </div>
-      </div>
-    </div>
-    </div>
-  </div>
-<br/>
-
-
+</div>
 

@@ -18,4 +18,5 @@ public class Stripboek
         
         public Reeks reeks { get; set; }
         public Uitgever uitgever { get; set; }
+        
 }

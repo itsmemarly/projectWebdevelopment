@@ -11,7 +11,45 @@ public class StripboekRepository
         return new DbUtils().GetDbConnection();
     }
 
+    //gives back a list of search result depending on titel using a string called search
+    public IEnumerable<Stripboek> GetSearch(string search)
+    {
 
+        string sql = "SELECT * FROM stripboeken where titel like @search ";
+
+        using var connection = GetConnection();
+        var stripboeken = connection.Query<Stripboek>(sql,new {search});
+        return stripboeken;
+    }
+
+    //adds a stripboek with al its variabkes to the database
+    public Stripboek Add(Stripboek stripboek)
+    {
+        string sql;
+        if (stripboek.Reeks_id == 0)
+        {
+            sql = @"
+                INSERT INTO stripboeken (isbn, uitgave1e_druk, bladzijden, titel, expliciet, uitgever_id) 
+                VALUES (@isbn, @Uitgave1e_druk, @Bladzijden, @titel, @expleciet,@Uitgever_id); 
+                SELECT * FROM stripboeken WHERE stripboek_id = LAST_INSERT_ID()";
+        }
+        else
+        {
+            sql = @" 
+                INSERT INTO stripboeken (isbn, uitgave1e_druk, reeks_nr, bladzijden, titel, expliciet, uitgever_id, reeks_id) 
+                VALUES (@isbn, @Uitgave1e_druk, @Reeks_nr, @Bladzijden, @titel, @expleciet,@Uitgever_id, @Reeks_id);
+                
+                SELECT * FROM stripboeken WHERE stripboek_id = LAST_INSERT_ID();";
+        }
+
+        using var connection = GetConnection();
+        var nieuwstripboek = connection.QuerySingle<Stripboek>(sql, stripboek);
+        return nieuwstripboek;
+    }
+
+
+    /*does not get used
+     
     //gives back a specific stripboek using id
     public Stripboek Get(int stripboek_ID)
     {
@@ -39,53 +77,9 @@ public class StripboekRepository
         var stripboeken = connection.Query<Stripboek>(sql);
         return stripboeken;
     }
-
-    //gives back a list of search result depending on titel using a string called search
-    public IEnumerable<Stripboek> GetSearch(string search)
-    {
-
-        string sql = "SELECT * FROM stripboeken where titel like @search ";
-
-        using var connection = GetConnection();
-        var stripboeken = connection.Query<Stripboek>(sql,new {search});
-        return stripboeken;
-    }
-    public bool checkSearch(string search)
-    {
-        string sql = "SELECT * FROM stripboeken where titel like @search ";
-
-        using var connection = GetConnection();
-        var check = connection.ExecuteScalar<bool>(sql,new {search});
-        return check;
-    }
-
-    //adds a stripboek with al its variabkes to the database
-    public Stripboek Add(Stripboek stripboek)
-    {
-        string sql = @"
-                INSERT INTO stripboeken (isbn, uitgave1e_druk, reeks_nr, bladzijden, titel, expliciet, uitgever_id, reeks_id) 
-                VALUES (@isbn, @Uitgave1e_druk, @Reeks_nr, @Bladzijden, @titel, @expleciet,@Uitgever_id, @Reeks_id); 
-                SELECT * FROM stripboeken WHERE stripboek_id = LAST_INSERT_ID()";
-
-        using var connection = GetConnection();
-        var nieuwstripboek = connection.QuerySingle<Stripboek>(sql, stripboek);
-        return nieuwstripboek;
-    }
-
-    //adds a stripboek with al its variabkes to the database
-    public Stripboek AddWithoutReeks(Stripboek stripboek)
-    {
-        string sql = @"
-                INSERT INTO stripboeken (isbn, uitgave1e_druk, bladzijden, titel, expliciet, uitgever_id) 
-                VALUES (@isbn, @Uitgave1e_druk, @Bladzijden, @titel, @expleciet,@Uitgever_id); 
-                SELECT * FROM stripboeken WHERE stripboek_id = LAST_INSERT_ID()";
-
-        using var connection = GetConnection();
-        var nieuwstripboek = connection.QuerySingle<Stripboek>(sql, stripboek);
-        return nieuwstripboek;
-    }
-    
-    
+     
+     
+     
     //deletes a stripboek using id
     public bool Delete(int stripboek_id)
     {
@@ -109,4 +103,6 @@ public class StripboekRepository
         var updatedStripboek = connection.QuerySingle<Stripboek>(sql, stripboek);
         return updatedStripboek;
     }
+     
+     */
 }

@@ -22,7 +22,9 @@ public class GenreRepository
         var genres  = connection.Query<Genre>(sql);
         return genres;
     }
-    
+
+    /*
+         
     //gives back a specific genre its name
     public Genre Get(int genreid)
     {
@@ -33,15 +35,15 @@ public class GenreRepository
         return genre;
     }
     
-    public bool checkid(int genreid)
+         public bool checkid(int genreid)
     {
         string sql = "SELECT * FROM genre where genre_id = @genreid";
 
         using var connection = GetConnection();
         return connection.ExecuteScalar<bool>(sql, genreid);;
     }
-
-    //adds a new genre
+     
+         //adds a new genre
     public Genre Add(Genre genre)
     {
         string sql = "INSERT INTO genre (soort) VALUES (@Soort); SELECT * FROM genre WHERE genre_id = LAST_INSERT_ID()";
@@ -49,8 +51,8 @@ public class GenreRepository
         var newgenre = connection.QuerySingle<Genre>(sql, genre);
         return newgenre;
     }
-    
-    //deletes a genre using its id
+     
+      //deletes a genre using its id
     public bool Delete(int genreid)
     {
         string sql = @"DELETE FROM genre WHERE genre_id = @genreid";
@@ -58,8 +60,8 @@ public class GenreRepository
         var rowsaffected = connection.QuerySingle<int>(sql, genreid);
         return rowsaffected == 1;
     }
-
-    //updates a genre its name/soort
+     
+//updates a genre its name/soort
     public Genre Update(Genre genre)
     {
         string sql = @"
@@ -73,4 +75,5 @@ public class GenreRepository
         return updatedgenre;
         
     }
+     */
 }

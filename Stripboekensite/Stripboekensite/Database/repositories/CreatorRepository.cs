@@ -12,6 +12,7 @@ public class CreatorRepository
         return new DbUtils().GetDbConnection();
     }
     
+    /* does not get used
     //gives back a creator using its id
     public Creator Get(int Creator_ID)
     {
@@ -88,5 +89,5 @@ public class CreatorRepository
         var updatedCreator = connection.QuerySingle<Creator>(sql, creator);
         return updatedCreator;
     }
-    
+    */
 }
