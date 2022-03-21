@@ -5,18 +5,8 @@
     <projectFile profileName="IIS Express">Stripboekensite/Stripboekensite.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bd768dc-e43b-4651-9a8e-1b5a9645b6c0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Database/repositories/Gebruikers_StripboekenRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Database/repositories/Gebruikers_StripboekenRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/Aanmelden.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/Aanmelden.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/BoekToevoegen.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/BoekToevoegen.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/Boekenkast.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/Boekenkast.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/Boekenkast.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/Boekenkast.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/Index.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/Index.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Stripboekensite.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Stripboekensite.csproj" afterDir="false" />
+    <list default="true" id="0bd768dc-e43b-4651-9a8e-1b5a9645b6c0" name="Changes" comment="boekenkast add/search delete">
+      <change afterPath="$PROJECT_DIR$/Stripboekensite/sqlQueries.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +31,7 @@
     <setting file="file://$PROJECT_DIR$/Stripboekensite/Database/repositories/GebruikerRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Stripboekensite/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1ac3bf8d279e4572a77c8002c0c830f1171c00/e0/be7f3209/MySqlConnection.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Alissa/RiderProjects/projectWebdevelopment/Stripboekensite/Stripboekensite/Pages/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Stripboekensite/Database/repositories/ReeksRepository.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -62,6 +53,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="XThreadsFramesViewSplitterKey" value="0.6064982" />
+    <property name="database.data.extractors.current.export.id" value="SQL Inserts" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -120,6 +112,7 @@
       <workItem from="1647856361667" duration="773000" />
       <workItem from="1647857475556" duration="5418000" />
       <workItem from="1647866047903" duration="3977000" />
+      <workItem from="1647874396149" duration="456000" />
     </task>
     <task id="LOCAL-00001" summary="nvt">
       <created>1647551816154</created>
@@ -191,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647793109007</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="boekenkast add/search delete">
+      <created>1647874431638</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1647874431638</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,7 +223,8 @@
     <MESSAGE value="toevoegen aan database" />
     <MESSAGE value="userid" />
     <MESSAGE value="login id, boekenkast wordt nu op ingelogd persoon en de nieuwe boeken worden nu aan de ingelogde gebruiker gekoppeld" />
-    <option name="LAST_COMMIT_MESSAGE" value="login id, boekenkast wordt nu op ingelogd persoon en de nieuwe boeken worden nu aan de ingelogde gebruiker gekoppeld" />
+    <MESSAGE value="boekenkast add/search delete" />
+    <option name="LAST_COMMIT_MESSAGE" value="boekenkast add/search delete" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

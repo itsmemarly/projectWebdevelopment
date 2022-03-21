@@ -1,0 +1,188 @@
+﻿create table creator
+(
+    creator_ID   int auto_increment
+        primary key,
+    creator_naam varchar(255) not null
+);
+
+create table gebruikers
+(
+    Gebruikers_id          int auto_increment
+        primary key,
+    gebruikersnaam         varchar(255) not null,
+    versleuteld_wachtwoord varchar(255) not null,
+    rol                    varchar(255) not null,
+    naam                   varchar(255) not null,
+    constraint gebruikers_gebruikersnaam_uindex
+        unique (gebruikersnaam)
+);
+
+create table genre
+(
+    soort    varchar(255) not null,
+    genre_id int auto_increment
+        primary key
+);
+
+create table reeksen
+(
+    reeks_id    int auto_increment
+        primary key,
+    Reeks_titel varchar(255) not null,
+    aantal      int          not null
+);
+
+create table uitgever
+(
+    Naam        varchar(255) not null,
+    uitgever_id int auto_increment
+        primary key
+);
+
+create table stripboeken
+(
+    stripboek_id   int auto_increment
+        primary key,
+    isbn           varchar(255) null,
+    uitgave1e_druk int          null,
+    reeks_nr       int          null,
+    bladzijden     int          null,
+    titel          varchar(255) not null,
+    expliciet      tinyint(1)   not null,
+    uitgever_id    int          null,
+    reeks_id       int          null,
+    constraint stripboeken_ibfk_1
+        foreign key (reeks_id) references reeksen (reeks_id),
+    constraint stripboeken_uitgever_fk
+        foreign key (uitgever_id) references uitgever (uitgever_id)
+);
+
+create table creators_stripboeken
+(
+    stripboek_id int          not null,
+    creator_id   int          not null,
+    taak         varchar(255) not null,
+    primary key (stripboek_id, creator_id),
+    constraint creators_stripboeken_ibfk_1
+        foreign key (stripboek_id) references stripboeken (stripboek_id),
+    constraint creators_stripboeken_ibfk_2
+        foreign key (creator_id) references creator (creator_ID)
+);
+
+create index creator_id
+    on creators_stripboeken (creator_id);
+
+create table gebruikers_stripboeken
+(
+    Gebruiker_stripboek_ID int auto_increment
+        primary key,
+    Gebruikers_ID          int          not null,
+    stripboek_id           int          not null,
+    druk                   int          null,
+    uitgave                varchar(255) null,
+    bandlengte             float(10, 2) null,
+    plaats_gekocht         varchar(255) null,
+    prijs_gekocht          varchar(255) null,
+    staat                  varchar(255) null,
+    constraint gebruikers_stripboeken_ibfk_1
+        foreign key (Gebruikers_ID) references gebruikers (Gebruikers_id),
+    constraint gebruikers_stripboeken_ibfk_2
+        foreign key (stripboek_id) references stripboeken (stripboek_id)
+);
+
+create index Gebruikers_ID
+    on gebruikers_stripboeken (Gebruikers_ID);
+
+create index stripboek_id
+    on gebruikers_stripboeken (stripboek_id);
+
+create table genre_stripboeken
+(
+    Genre_id     int not null,
+    Stripboek_id int not null,
+    primary key (Genre_id, Stripboek_id),
+    constraint genre_stripboeken_genre_genre_id_fk
+        foreign key (Genre_id) references genre (genre_id),
+    constraint genre_stripboeken_stripboeken_stripboek_id_fk
+        foreign key (Stripboek_id) references stripboeken (stripboek_id)
+);
+
+create index reeks_id
+    on stripboeken (reeks_id);
+
+INSERT INTO database_stripboeken.creator (creator_ID, creator_naam) VALUES (1, 'Bas Rumor');
+INSERT INTO database_stripboeken.creator (creator_ID, creator_naam) VALUES (2, 'Gijs Wegen');
+INSERT INTO database_stripboeken.creator (creator_ID, creator_naam) VALUES (3, 'Maaike Hoofdman');
+INSERT INTO database_stripboeken.creator (creator_ID, creator_naam) VALUES (4, 'Jasmin van der Veen');
+INSERT INTO database_stripboeken.creator (creator_ID, creator_naam) VALUES (5, 'Max van Dijken');
+INSERT INTO database_stripboeken.creator (creator_ID, creator_naam) VALUES (6, 'Paul Biegel');
+INSERT INTO database_stripboeken.creator (creator_ID, creator_naam) VALUES (7, 'Mark Smeets');
+INSERT INTO database_stripboeken.creator (creator_ID, creator_naam) VALUES (8, 'Erik Kriek');
+INSERT INTO database_stripboeken.creator (creator_ID, creator_naam) VALUES (9, 'Gerrit de Jager');
+INSERT INTO database_stripboeken.creator (creator_ID, creator_naam) VALUES (10, 'Remco Polman');
+INSERT INTO database_stripboeken.creator (creator_ID, creator_naam) VALUES (11, 'Alan Moore');
+INSERT INTO database_stripboeken.creator (creator_ID, creator_naam) VALUES (12, 'Dave Gibbons');
+INSERT INTO database_stripboeken.creator (creator_ID, creator_naam) VALUES (13, 'Willy Vandersteen ');
+
+INSERT INTO database_stripboeken.reeksen (reeks_id, Reeks_titel, aantal) VALUES (1, 'elfquest', 88);
+INSERT INTO database_stripboeken.reeksen (reeks_id, Reeks_titel, aantal) VALUES (2, 'suske & wiske', 932);
+INSERT INTO database_stripboeken.reeksen (reeks_id, Reeks_titel, aantal) VALUES (3, 'Storm', 243);
+INSERT INTO database_stripboeken.reeksen (reeks_id, Reeks_titel, aantal) VALUES (4, 'Donald Duck Pocket', 855);
+INSERT INTO database_stripboeken.reeksen (reeks_id, Reeks_titel, aantal) VALUES (5, 'spiderman', 374);
+INSERT INTO database_stripboeken.reeksen (reeks_id, Reeks_titel, aantal) VALUES (6, 'askall', 0);
+
+INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('Amsterdamuitgeverij', 1);
+INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('De pizza boer op de hoek', 2);
+INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('LeeuwardeBoekHandel', 3);
+INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('Boom', 4);
+INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('Noordhoff', 5);
+INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('Altlas', 6);
+INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('Junior Press', 7);
+INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('De Geus', 8);
+INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('Uitgeverij L', 9);
+INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('Strip2000', 10);
+INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('DC Comics', 11);
+INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('Su Strips', 12);
+INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES (' Sanoma', 13);
+INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES (' Marvel Comics', 14);
+INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('oberon', 15);
+
+INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('Amsterdamuitgeverij', 1);
+INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('De pizza boer op de hoek', 2);
+INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('LeeuwardeBoekHandel', 3);
+INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('Boom', 4);
+INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('Noordhoff', 5);
+INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('Altlas', 6);
+INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('Junior Press', 7);
+INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('De Geus', 8);
+INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('Uitgeverij L', 9);
+INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('Strip2000', 10);
+INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('DC Comics', 11);
+INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('Su Strips', 12);
+INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES (' Sanoma', 13);
+INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES (' Marvel Comics', 14);
+INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('oberon', 15);
+
+INSERT INTO database_stripboeken.genre (soort, genre_id) VALUES ('fantasy', 1);
+INSERT INTO database_stripboeken.genre (soort, genre_id) VALUES ('Mystery', 2);
+INSERT INTO database_stripboeken.genre (soort, genre_id) VALUES ('history', 3);
+INSERT INTO database_stripboeken.genre (soort, genre_id) VALUES ('horror', 4);
+INSERT INTO database_stripboeken.genre (soort, genre_id) VALUES ('avontuur', 5);
+INSERT INTO database_stripboeken.genre (soort, genre_id) VALUES ('Superhelden', 6);
+
+INSERT INTO database_stripboeken.genre_stripboeken (Genre_id, Stripboek_id) VALUES (1, 1);
+INSERT INTO database_stripboeken.genre_stripboeken (Genre_id, Stripboek_id) VALUES (1, 2);
+INSERT INTO database_stripboeken.genre_stripboeken (Genre_id, Stripboek_id) VALUES (2, 2);
+INSERT INTO database_stripboeken.genre_stripboeken (Genre_id, Stripboek_id) VALUES (1, 3);
+INSERT INTO database_stripboeken.genre_stripboeken (Genre_id, Stripboek_id) VALUES (3, 5);
+INSERT INTO database_stripboeken.genre_stripboeken (Genre_id, Stripboek_id) VALUES (6, 6);
+INSERT INTO database_stripboeken.genre_stripboeken (Genre_id, Stripboek_id) VALUES (2, 7);
+INSERT INTO database_stripboeken.genre_stripboeken (Genre_id, Stripboek_id) VALUES (4, 7);
+INSERT INTO database_stripboeken.genre_stripboeken (Genre_id, Stripboek_id) VALUES (2, 8);
+INSERT INTO database_stripboeken.genre_stripboeken (Genre_id, Stripboek_id) VALUES (4, 8);
+INSERT INTO database_stripboeken.genre_stripboeken (Genre_id, Stripboek_id) VALUES (2, 9);
+INSERT INTO database_stripboeken.genre_stripboeken (Genre_id, Stripboek_id) VALUES (4, 9);
+INSERT INTO database_stripboeken.genre_stripboeken (Genre_id, Stripboek_id) VALUES (5, 10);
+INSERT INTO database_stripboeken.genre_stripboeken (Genre_id, Stripboek_id) VALUES (1, 12);
+
+
