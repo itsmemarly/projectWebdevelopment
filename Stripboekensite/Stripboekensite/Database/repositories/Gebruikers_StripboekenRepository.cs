@@ -23,6 +23,15 @@ public class Gebruikers_StripboekenRepository
         var gebrStripboeken = connection.QuerySingle<Gebruikers_Stripboeken>(sql, new { Gebruiker_stripboek_ID});
         return gebrStripboeken;
     }
+    
+    public Gebruikers_Stripboeken Get(int Gebruiker_ID, int stripboek_id)
+    {
+        string sql = "SELECT * FROM gebruikers_stripboeken WHERE Gebruikers_ID = @Gebruiker_ID and stripboek_id = @stripboek_id";
+
+        using var connection = GetConnection();
+        var gebrStripboek = connection.QuerySingle<Gebruikers_Stripboeken>(sql, new { Gebruiker_ID, stripboek_id});
+        return gebrStripboek;
+    }
 
     //get an ienumerable list of all the 'stripboeken' owned by users
     public IEnumerable<Stripboek> Get()
@@ -70,5 +79,13 @@ public class Gebruikers_StripboekenRepository
         var updatedverzameling = connection.QuerySingle<Gebruikers_Stripboeken>(sql, gebruikers_stripboeken);
         return updatedverzameling;
     }
+    
+    public bool Delete(int gebruikerstripboekid)
+    {
+        string sql = @"DELETE FROM gebruikers_stripboeken WHERE Gebruiker_stripboek_ID = @gebruikerstripboekid";
+        using var connection = GetConnection();
+        return connection.ExecuteScalar<bool>(sql, new {gebruikerstripboekid});
+    }
+    
 }
     

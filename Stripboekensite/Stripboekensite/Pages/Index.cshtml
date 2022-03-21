@@ -9,15 +9,14 @@
 
 
 <div class="row">
-             <div class="form-outline col-8">    
+  <div class="form-outline col-8">    
                
-               <form asp-page-handler="Search" method="post">
-                 <input name="search" type="search"  id="form1" class="form-control col-8" placeholder="Typ hier" aria-label="Search" />
-               </form>
-             </div>
-             
-             <button class="btn btn-dark col-4" type="button">Zoeken</button>
-             <h1 class="clearfix">@Model.message</h1>
+    <form asp-page-handler="Search" method="post">
+      <input name="search" type="search"  id="form1" class="form-control col-8" placeholder="Typ hier" aria-label="Search" />
+    </form>
+  </div>
+      <br/>
+              <h1 class="clearfix">@Model.message</h1>
            </div>
       <br/>
        
@@ -53,7 +52,9 @@
                   <div class="card-body">
                     <h5 class="card-title">@stripboek.Stripboek.titel</h5>
                     <p class="card-text">test</p>
-                    <a href="#" class="btn btn-primary">Meer informatie</a>
+                        <form asp-page-handler="Delete" method="post">
+                        <button name="stripboekid" value = "@stripboek.Stripboek.Stripboek_id"   class="btn btn-primary">Delete</button>
+                        </form>
                   </div>
                 </div>
               }

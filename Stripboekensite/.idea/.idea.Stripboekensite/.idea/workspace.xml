@@ -5,7 +5,19 @@
     <projectFile profileName="IIS Express">Stripboekensite/Stripboekensite.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bd768dc-e43b-4651-9a8e-1b5a9645b6c0" name="Changes" comment="" />
+    <list default="true" id="0bd768dc-e43b-4651-9a8e-1b5a9645b6c0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stripboekensite/Database/repositories/Gebruikers_StripboekenRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Database/repositories/Gebruikers_StripboekenRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/Aanmelden.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/Aanmelden.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/BoekToevoegen.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/BoekToevoegen.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/Boekenkast.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/Boekenkast.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/Boekenkast.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/Boekenkast.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/Index.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/Index.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stripboekensite/Stripboekensite.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Stripboekensite.csproj" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,24 +32,16 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/575c31ecc35a636b6f962cb71d53992552941a18982aae1c8e6c16305cc3761b/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Stripboekensite/Database/repositories/ReeksRepository.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Alissa/RiderProjects/projectWebdevelopment/Stripboekensite/Stripboekensite/Pages/Index.cshtml.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Stripboekensite/Database/repositories/UitgeverRepository.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Stripboekensite/Database/repositories/CreatorRepository.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Stripboekensite/Pages/Profiel.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Alissa/RiderProjects/projectWebdevelopment/Stripboekensite/Stripboekensite/Pages/BoekToevoegen.cshtml.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f4708639776589f5ac2739f6fcbfc67343b1f9dac51cc1dbfdb003eef77cc1c/Monitor.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ddc4ad1aec4632d9c87e3c9a0be83f97091187a6832a53fe96a3f15acf770/Boolean.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1ac3bf8d279e4572a77c8002c0c830f1171c00/e0/be7f3209/MySqlConnection.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4a25346369e972518e34d87b6b654a7d388f284e13f118d45bb3b515dde/PageHandlerExecutedContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/333717bd1cce3876d133e8e23428a3dca892c18641b7eb745fe17d1eed102cbc/ExecutorFactory.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1ac3bf8d279e4572a77c8002c0c830f1171c00/8e/a3383b62/MySqlCommand.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Stripboekensite/Pages/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Stripboekensite/Database/repositories/GebruikerRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Stripboekensite/Database/repositories/GenreRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Stripboekensite/Pages/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Stripboekensite/Database/repositories/CreatorRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Stripboekensite/Pages/Shared/_ValidationScriptsPartial.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b8c56d5b036f2a6fe79726c905c982bb3e77beec6526d3695d5daf1286da/SqlMapper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Stripboekensite/Database/repositories/UitgeverRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Stripboekensite/Pages/Profiel.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Stripboekensite/Database/repositories/GebruikerRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Stripboekensite/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1ac3bf8d279e4572a77c8002c0c830f1171c00/e0/be7f3209/MySqlConnection.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Stripboekensite/Database/repositories/ReeksRepository.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -52,11 +56,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="XThreadsFramesViewSplitterKey" value="0.6064982" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Stripboekensite">
@@ -67,6 +73,7 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
+      <browser name="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
       <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="1" />
@@ -90,6 +97,10 @@
         <option name="Build" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue=".NET Launch Settings Profile.Stripboekensite" />
+      <item itemvalue=".NET Launch Settings Profile.Stripboekensite: IIS Express" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -106,6 +117,9 @@
       <workItem from="1647602099265" duration="8731000" />
       <workItem from="1647712180658" duration="1533000" />
       <workItem from="1647776243780" duration="16430000" />
+      <workItem from="1647856361667" duration="773000" />
+      <workItem from="1647857475556" duration="5418000" />
+      <workItem from="1647866047903" duration="3977000" />
     </task>
     <task id="LOCAL-00001" summary="nvt">
       <created>1647551816154</created>
@@ -227,7 +241,24 @@
           </properties>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Stripboekensite/Database/repositories/Gebruikers_StripboekenRepository.cs</url>
+          <line>31</line>
+          <properties documentPath="C:\Users\Alissa\RiderProjects\projectWebdevelopment\Stripboekensite\Stripboekensite\Database\repositories\Gebruikers_StripboekenRepository.cs" initialLine="31" containingFunctionPresentation="method 'Get'">
+            <startOffsets>
+              <option value="1056" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1163" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

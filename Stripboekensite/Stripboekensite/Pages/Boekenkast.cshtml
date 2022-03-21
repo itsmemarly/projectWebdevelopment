@@ -5,14 +5,34 @@
 
 <!-- Alles netjes op een rij gezet, boekenkast pagina heeft een eigen zoekbalk -->
  <div class="row">
-    <div class="form-outline col-8">    
-        <input type="search" id="ZoekBoekenkast" class="form-control col-8" placeholder="Typ hier..." aria-label="Search" />
-    </div>
-     <button class="btn btn-dark col-4" type="button">Zoeken</button>
+          <form asp-page-handler="Search" method="post">
+           <input name="search" type="search"  id="form1" class="form-control col-8" placeholder="Typ hier" aria-label="Search" />
+         </form>
  </div>
  <br/>
 
  <!-- Deze button stuurt je door naar de pagina BoekToevoegen -->
 <div class="col-12">
-    <a class="btn btn-dark col-12" asp-area="" asp-page="/BoekToevoegen">Boek toevoegen</a>
+
+        <div class="row mt-4 pb-4 pt-2 text-center">
+          @foreach (var genre in @Model.Genres)
+          {
+            <div>@genre.Soort</div>
+            @foreach (var stripboek in @Model.stripboekgenreshowed)
+            {
+              @if (stripboek.genre.genre_id == genre.genre_id)
+              {
+                <div class="card col-4 mt-2" style="width: 18rem; margin:3rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">@stripboek.Stripboek.titel</h5>
+                    <p class="card-text">test</p>
+                        <form asp-page-handler="Addtouser" method="post">
+                        <button name="stripboekid" value = "@stripboek.Stripboek.Stripboek_id"   class="btn btn-primary">add</button>
+                        </form>
+                  </div>
+                </div>
+              }
+            }
+          }
+        </div>
 </div>

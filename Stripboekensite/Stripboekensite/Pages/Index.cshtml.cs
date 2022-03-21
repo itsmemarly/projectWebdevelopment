@@ -72,17 +72,21 @@ namespace Stripboekensite.Pages
 
         }
 
+        public void OnPostDelete(int stripboekid)
+        {
+            userbookcheck();
+            Gebruikers_Stripboeken gebruikersStripboeken = new Gebruikers_Stripboeken();
+            gebruikersStripboeken = new Gebruikers_StripboekenRepository().Get(userid, stripboekid);
+            if (new Gebruikers_StripboekenRepository().Delete(gebruikersStripboeken.Gebruiker_stripboek_ID))
+            {
+                userbookcheck();
+            }
+
+        }
+        
         public void userbookcheck()
         {
-            List<Claim> claims = User.Claims.ToList();
-
-            foreach (var claim in claims)
-            {
-                if (claim.Type == ClaimTypes.NameIdentifier)
-                {
-                    userid = int.Parse(claim.Value);
-                }
-            }
+            useridget();
             
             //gets all genres and the books that the current user has 
             Genres = new GenreRepository().Get().ToList();
@@ -101,5 +105,19 @@ namespace Stripboekensite.Pages
                 }
             }
         }
+
+        public void useridget()
+        {
+            List<Claim> claims = User.Claims.ToList();
+
+            foreach (var claim in claims)
+            {
+                if (claim.Type == ClaimTypes.NameIdentifier)
+                {
+                    userid = int.Parse(claim.Value);
+                }
+            }
+        }
+        
     }
 }
