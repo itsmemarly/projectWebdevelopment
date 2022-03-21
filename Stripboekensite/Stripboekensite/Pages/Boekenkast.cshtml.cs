@@ -53,8 +53,7 @@ namespace Stripboekensite.Pages
             
             //checks if there even is a value in the database if false message will say no search results
             //if true added stripboek showed so the stripboek wil be showed on page
-            if (new StripboekRepository().checkSearch(querysearch))
-            {
+           
                 searchresults = new StripboekRepository().GetSearch(querysearch).ToList();
                 foreach (var stripboek in searchresults)
                 {
@@ -68,11 +67,10 @@ namespace Stripboekensite.Pages
                 }
                 stripboekgenreshowed = new List<GenreStripboek>();
                 stripboekgenreshowed = ownedsearch;
-            }
-            else
-            {
-                message = "geen zoek resultaat voor:" + search;
-            }
+            
+
+                //message = "geen zoek resultaat voor:" + search;
+            
 
         }
         

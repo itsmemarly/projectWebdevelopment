@@ -147,21 +147,17 @@ INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES (' Sanoma',
 INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES (' Marvel Comics', 14);
 INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('oberon', 15);
 
-INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('Amsterdamuitgeverij', 1);
-INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('De pizza boer op de hoek', 2);
-INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('LeeuwardeBoekHandel', 3);
-INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('Boom', 4);
-INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('Noordhoff', 5);
-INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('Altlas', 6);
-INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('Junior Press', 7);
-INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('De Geus', 8);
-INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('Uitgeverij L', 9);
-INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('Strip2000', 10);
-INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('DC Comics', 11);
-INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('Su Strips', 12);
-INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES (' Sanoma', 13);
-INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES (' Marvel Comics', 14);
-INSERT INTO database_stripboeken.uitgever (Naam, uitgever_id) VALUES ('oberon', 15);
+INSERT INTO database_stripboeken.stripboeken (stripboek_id, isbn, uitgave1e_druk, reeks_nr, bladzijden, titel, expliciet, uitgever_id, reeks_id) VALUES (1, '11111111111', 1886, null, 14, 'de baas', 1, 1, null);
+INSERT INTO database_stripboeken.stripboeken (stripboek_id, isbn, uitgave1e_druk, reeks_nr, bladzijden, titel, expliciet, uitgever_id, reeks_id) VALUES (2, '22222222222', 2002, 14, 65, 'de diamand', 0, 1, null);
+INSERT INTO database_stripboeken.stripboeken (stripboek_id, isbn, uitgave1e_druk, reeks_nr, bladzijden, titel, expliciet, uitgever_id, reeks_id) VALUES (3, '33333333333', 2012, 2, 56, 'winkeldieven', 0, 2, null);
+INSERT INTO database_stripboeken.stripboeken (stripboek_id, isbn, uitgave1e_druk, reeks_nr, bladzijden, titel, expliciet, uitgever_id, reeks_id) VALUES (4, '44444444444', 1997, 23, 64, 'storm', 0, 4, null);
+INSERT INTO database_stripboeken.stripboeken (stripboek_id, isbn, uitgave1e_druk, reeks_nr, bladzijden, titel, expliciet, uitgever_id, reeks_id) VALUES (5, '55555555555', 2016, 197, 190, 'elfenquest', 0, 3, null);
+INSERT INTO database_stripboeken.stripboeken (stripboek_id, isbn, uitgave1e_druk, bladzijden, titel, expliciet, uitgever_id)VALUES  (6, '9781401248192', 1986, 448, 'Watchmen', 1, 11);
+INSERT INTO database_stripboeken.stripboeken (stripboek_id, isbn, uitgave1e_druk, reeks_nr, bladzijden, titel, expliciet, uitgever_id, reeks_id)VALUES (7,  '9789002275180', 1945, 1, 48, 'Suske en Wiske 1 - Geduvel op de heide',  0, 12, 2);
+INSERT INTO database_stripboeken.stripboeken (stripboek_id, isbn, uitgave1e_druk, reeks_nr, bladzijden, titel, expliciet, uitgever_id, reeks_id)VALUES (8,  '9789002246227' , 1970, 101, 56, 'Suske en Wiske 101 - De kaartendans', 0, 12, 2);
+INSERT INTO database_stripboeken.stripboeken (stripboek_id, isbn, uitgave1e_druk, reeks_nr, bladzijden, titel, expliciet, uitgever_id, reeks_id)VALUES (9,  '9789002231186', 1998, 255, 45, 'Suske en Wiske 255 - De mompelende mummie', 0, 12, 2);
+INSERT INTO database_stripboeken.stripboeken (stripboek_id, isbn, uitgave1e_druk, reeks_nr, bladzijden, titel, expliciet, uitgever_id, reeks_id)VALUES (10, '9789463055338', 2021, 314, 256, 'Donald Duck Pocket 314 - De tirannieke trainer', 0, 13, 4);
+INSERT INTO database_stripboeken.stripboeken (stripboek_id, isbn, uitgave1e_druk, reeks_nr, bladzijden, titel, expliciet, uitgever_id, reeks_id)VALUES (11, '9780785128861', 2009, 2, 344, 'Ultimate Spider-man Ultimate Collection - Book 2', 0, 14, 5);
 
 INSERT INTO database_stripboeken.genre (soort, genre_id) VALUES ('fantasy', 1);
 INSERT INTO database_stripboeken.genre (soort, genre_id) VALUES ('Mystery', 2);
