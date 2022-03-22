@@ -45,8 +45,7 @@ namespace Stripboekensite.Pages
                 //if it's correct sign the user in
                 case PasswordVerificationResult.Success:
                     SignInUser(gebruiker);
-                    RedirectToPage("/Index");
-                    return null;
+                    return RedirectToPage("/Index");
                 //if it isn't keep the user on the page
                 case PasswordVerificationResult.Failed:
                     ModelState.AddModelError("LogOnError", "The user name or password provided is incorrect.");

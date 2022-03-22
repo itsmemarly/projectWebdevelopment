@@ -5,20 +5,22 @@
 }
 <div class="row">
 	<div class="card">
-		 <form class="text-center col-12" method="post">
-			 <div class="text-danger" asp-validation-summary="ModelOnly"></div>
-			 <div class="text-danger">@Html.ValidationMessage("LogOnError")</div> 
+		<form class="text-center col-12" method="post">
+			<div class="text-danger" asp-validation-summary="ModelOnly"></div>
+			<div class="text-danger">@Html.ValidationMessage("LogOnError")</div> 
 			<div class="alert alert-info" role="alert">
 				<strong>Let op:</strong>  Gebruikersnaam is uw email!
 			</div>
 			<input class="form-control" type="email" placeholder="Email" asp-for="credential.UserName">
-			 <span class="text-danger" asp-validation-for="credential.UserName"></span>
-			 <br/>
-             <input class="form-control" type="password" placeholder="Wachtwoord" asp-for="credential.Password">
+			<span class="text-danger" asp-validation-for="credential.UserName"></span>
+			<br/>
+			<input class="form-control" type="password" placeholder="Wachtwoord" asp-for="credential.Password">
 			<span class="text-danger" asp-validation-for="credential.Password"></span>
 			<br>
-			<button class="btn btn-primary btn-sm border-0 col-6" type="submit" name="submit">Log In</button>
+			<button class="btn btn-primary btn-sm border-0 col-3" type="submit" name="submit">Log In</button>
+			<button class="btn btn-secondary btn-sm border-0 col-3" asp-area="" asp-page="/Aanmelden">Aanmelden</button>
 		</form>
+
 	</div>
 </div>
 

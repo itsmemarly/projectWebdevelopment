@@ -11,8 +11,8 @@
 		<input class="form-control" type="text" placeholder="Naam" asp-for="gebruikerData.naam">
 		<span class="text-danger" asp-validation-for="gebruikerData.naam"></span>
 		<br/>
-		<input class="form-control" type="date" placeholder="Geboortedatum" >
-		<span class="text-danger" ></span>
+		<input class="form-control" type="date" placeholder="Geboortedatum" asp-for="gebruikerData.geboorteDatum">
+		<span class="text-danger" asp-validation-for="gebruikerData.geboorteDatum"></span>
 		<br/>
 		<input class="form-control center-block" type="email" placeholder="Email" asp-for="gebruikerData.gebruikersnaam">
 		<span class="text-danger" asp-validation-for="gebruikerData.gebruikersnaam"></span>

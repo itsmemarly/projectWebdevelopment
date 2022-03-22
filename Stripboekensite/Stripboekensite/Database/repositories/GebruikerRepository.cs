@@ -39,8 +39,8 @@ public class GebruikerRepository
 
 
              string sql = @"
-                INSERT INTO gebruikers (Gebruikersnaam, versleuteld_wachtwoord,rol,naam) 
-                VALUES (@Gebruikersnaam,@versleuteld_wachtwoord, @rol, @naam); 
+                INSERT INTO gebruikers (Gebruikersnaam, versleuteld_wachtwoord,rol,naam, Geboorte_datum) 
+                VALUES (@Gebruikersnaam,@versleuteld_wachtwoord, @rol, @naam, @Geboorte_datum); 
                 SELECT * FROM gebruikers WHERE Gebruikers_id = LAST_INSERT_ID()";
 
         using var connection = GetConnection();
