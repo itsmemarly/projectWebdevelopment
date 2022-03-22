@@ -29,7 +29,7 @@ namespace Stripboekensite.Pages
                 gebruiker.rol = "Gebruiker";
 
                 gebruikerRepository.Add(gebruiker);
-                return RedirectToPage("/inloggen");
+                return RedirectToPage("/Profiel");
             }
 
             return Page();

@@ -1,15 +1,15 @@
-﻿@page
+@page
 @model Stripboekensite.Pages.BoekToevoegenModel
 @{
 }
 
 <div class="col-12">
-    <form>
+    <form asp-page-handler="AddStripboek" method="post">
         <h5>Voeg een nieuw boek toe</h5>
         <!--Titel van het boek-->
         <div class="mb-3">
     <label for="BookTitle" class="form-label">Naam van het boek</label>
-    <input type="text" class="form-control" id="BookTitle" />
+    <input type="text" name="titel" class="form-control" id="BookTitle" />
   </div>
 
         <!-- Browse door computer en upload gekozen afbeelding -->
@@ -23,30 +23,30 @@
         <!-- ISBN nummer-->
   <div class="mb-3">
     <label for="ISBN" class="form-label">ISBN-nummer</label>
-    <input type="text" class="form-control" id="ISBN" />
+    <input type="text" name="isbn" class="form-control" id="ISBN" />
   </div>
 
   <!--Eerste druk (Jaar)-->
    <div class="mb-3">
     <label for="FirstBook" class="form-label">Jaar van eerste druk</label>
-    <input type="number" class="form-control" id="FirstBook" />
+    <input type="number" name="jaar1druk" class="form-control" id="FirstBook" />
   </div>
 
   <!--Uitgever (Naam)-->
    <div class="mb-3">
     <label for="Creator" class="form-label">Naam van uitgever</label>
-    <input type="text" class="form-control" id="Creator" autocomplete="on" />
+    <input type="text" name="uitgever" class="form-control" id="Creator" autocomplete="on" />
   </div>
 
   <!--Expliciet boek (Ja/Nee)-->
    <div class="mb-3">
-    <label for="ExplicitBook" class="form-label">Is dit boek expliciet?</label>
+    <label for="ExplicitBook" class="form-label">Is dit boek expliciet?(18+)</label>
 
     <div class="btn-group form-control col-3" role="group" id="ExplicitBook">
-  <input type="radio" class="btn-check" name="btnradio" id="Explicit" autocomplete="off" checked>
+  <input type="radio" class="btn-check" name="expleciet" value="1" id="Explicit" autocomplete="off" checked>
   <label class="btn btn-outline-dark" for="Explicit">Ja</label>
 
-  <input type="radio" class="btn-check " name="btnradio" id="NotExplicit" autocomplete="off">
+  <input type="radio" class="btn-check " name="expleciet" value="0" id="NotExplicit" autocomplete="off">
   <label class="btn btn-outline-dark" for="NotExplicit">Nee</label>
 
 </div>
@@ -55,35 +55,36 @@
   <!--Aantal bladzijden-->
    <div class="mb-3">
     <label for="PageNumber" class="form-label">Aantal bladzijden</label>
-    <input type="number" class="form-control" id="PageNumber" />
+    <input type="number" name="paginas" class="form-control" id="PageNumber" />
   </div>
 
   <!--Reeks naam-->
    <div class="mb-3">
     <label for="BookSeries" class="form-label">Naam van Reeks</label>
-    <input type="text" class="form-control" id="BookSeries" autocomplete="on" />
+    <input type="text" name="reeksnaam" class="form-control" id="BookSeries" autocomplete="on" />
   </div>
 
   <!--Reeks nummer-->
    <div class="mb-3">
     <label for="SeriesNumber" class="form-label">Nummer van reeks</label>
-    <input type="number" class="form-control" id="SeriesNumber" />
+    <input type="number" name="reeksnum" class="form-control" id="SeriesNumber" />
   </div>
 
   <!--Categorie van boek (Dropdown met categorie)-->
    <div class="mb-3">
     <label for="BookCategory" class="form-label">Zoek de juiste categorie </label>
    
-    <select class="form-control" id="BookCategory">
-      <option value="Catx">Category x</option>
-      <option value="Caty">Category y</option>
-      <option value="Catz">Category z</option>
-     
-    </select>
+       <select class="form-control" id="BookCategory" name="genreid">
+           @foreach (var genre in @Model.Genres)
+           {
+               <option value=@genre.genre_id>@genre.Soort</option>
+           }
+
+       </select>
   </div>
 
 
-  <button type="submit" class="btn btn-dark">Opslaan</button>
+ <!--- <button type="submit" class="btn btn-dark">Opslaan</button>-->
   <button type="submit" class="btn btn-dark">Opslaan & Toevoegen aan verzameling</button>
 </form>
 </div>
