@@ -8,10 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bd768dc-e43b-4651-9a8e-1b5a9645b6c0" name="Changes" comment="comments">
-      <change afterPath="$PROJECT_DIR$/Stripboekensite/Pages/_IndividueelBoek.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0bd768dc-e43b-4651-9a8e-1b5a9645b6c0" name="Changes" comment="niet boeiend" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -105,7 +102,7 @@
       <workItem from="1647598737481" duration="103000" />
       <workItem from="1647602099265" duration="8731000" />
       <workItem from="1647712180658" duration="1533000" />
-      <workItem from="1647846267363" duration="3992000" />
+      <workItem from="1647846267363" duration="4670000" />
     </task>
     <task id="LOCAL-00001" summary="nvt">
       <created>1647551816154</created>
@@ -142,7 +139,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647720332724</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="niet boeiend">
+      <created>1647930697448</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1647930697448</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,7 +173,8 @@
     <MESSAGE value="naam verzameling naar gebruikers_stripboeken" />
     <MESSAGE value="genre per user zichtbaar (nog niet helemaal op user) zoek optie meebezig" />
     <MESSAGE value="comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="comments" />
+    <MESSAGE value="niet boeiend" />
+    <option name="LAST_COMMIT_MESSAGE" value="niet boeiend" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
