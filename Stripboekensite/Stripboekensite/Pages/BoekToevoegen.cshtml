@@ -27,10 +27,35 @@
   </div>
 
   <!--Eerste druk (Jaar)-->
-   <div class="mb-3">
-    <label for="FirstBook" class="form-label">Jaar van eerste druk</label>
-    <input type="number" name="jaar1druk" class="form-control" id="FirstBook" />
-  </div>
+        <div class="mb-3">
+            <label for="FirstBook" class="form-label">Jaar van eerste druk</label>
+            <input type="number" name="jaar1druk" class="form-control" id="FirstBook" />
+        </div>
+        <!--Creator (Schrijver)-->
+           <div class="mb-3">
+            <label for="CreatorWriter" class="form-label">Naam van schrijver</label>
+             <input class="form-control" list="datalistCreatorWriter" id="CreatorWriter" placeholder="Kies de gewenste schrijver">
+               <datalist id="datalistCreatorWriter">
+                                
+                                @foreach (var genre in @Model.Genres)
+                                {
+                                    <option value=@genre.genre_id>@genre.Soort</option>
+                                }
+               </datalist>
+          </div>
+        <!--Creator (Tekenaar)-->
+           <div class="mb-3">
+            <label for="CreatorDrawing" class="form-label">Naam van Tekenaar</label>
+             <input class="form-control" list="datalistCreatorDrawing" id="CreatorDrawing" placeholder="Kies de gewenste tekenaar">
+                            <datalist id="datalistCreatorDrawing">
+                                
+                                @foreach (var genre in @Model.Genres)
+                                {
+                                    <option value=@genre.genre_id>@genre.Soort</option>
+                                }
+                
+                            </datalist>
+          </div>
 
   <!--Uitgever (Naam)-->
    <div class="mb-3">
@@ -89,15 +114,17 @@
   <!--Categorie van boek (Dropdown met categorie)-->
         <div class="mb-3">
             <label for="BookCategory" class="form-label">Zoek de juiste categorie </label>
-            <input class="form-control" list="datalistCategory" id="BookCategory" multiple placeholder="Kies de gewenste categorie">
-                       <datalist id="datalistCategory" multiple="multiple">
-                           
+            <ul class="list-group" id="BookCategory">
+                            
                           @foreach (var genre in @Model.Genres)
                            {
-                               <option value=@genre.genre_id>@genre.Soort</option>
+                               <li class="list-group-item">
+                                   <input class="form-check-input me-1" type="checkbox" value=@genre.genre_id>@genre.Soort
+                               </li>
+                            
                            }
            
-                       </datalist>
+                       </ul>
         </div>
 
         <!--- <button type="submit" class="btn btn-dark">Opslaan</button>-->
