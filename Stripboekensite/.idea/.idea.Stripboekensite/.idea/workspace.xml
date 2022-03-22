@@ -9,14 +9,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bd768dc-e43b-4651-9a8e-1b5a9645b6c0" name="Changes" comment="niet boeiend">
-      <change afterPath="$PROJECT_DIR$/Stripboekensite/Pages/Account/logout.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Stripboekensite/Pages/Account/logout.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Stripboekensite/Pages/Shared/_LayoutAnon.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Stripboekensite/Pages/Shared/_LayoutModerator.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Stripboekensite/Pages/Shared/_LayoutUser.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/_ViewStart.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/_ViewStart.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/Account/login.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/Account/login.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/Account/login.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/Account/login.cshtml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stripboekensite/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/appsettings.Development.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stripboekensite/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/appsettings.json" afterDir="false" />
     </list>

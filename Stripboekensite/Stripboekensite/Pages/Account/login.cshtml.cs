@@ -21,7 +21,7 @@ namespace Stripboekensite.Pages
             if (!ModelState.IsValid)
             {
                 
-                return Page();
+                return null;
             }
             
             //make a db connection and get the user from db
@@ -30,7 +30,11 @@ namespace Stripboekensite.Pages
                 GebruikerRepository gebruikersRep = new GebruikerRepository();
                 
                 //check if the user exists
-                if (!gebruikersRep.NameCheck(credential.UserName)) return Page();
+                if (!gebruikersRep.NameCheck(credential.UserName))
+                {
+                    ModelState.AddModelError("LogOnError", "The user name or password provided is incorrect.");
+                    return null;
+                }
                 
                 gebruiker = gebruikersRep.Get(credential.UserName);
             }
@@ -41,10 +45,12 @@ namespace Stripboekensite.Pages
                 //if it's correct sign the user in
                 case PasswordVerificationResult.Success:
                     SignInUser(gebruiker);
-                    return RedirectToPage("/Index");
+                    RedirectToPage("/Index");
+                    return null;
                 //if it isn't keep the user on the page
                 case PasswordVerificationResult.Failed:
-                    return Page();
+                    ModelState.AddModelError("LogOnError", "The user name or password provided is incorrect.");
+                    return null;
                 //if it's correct but the password needs to be rehashed, rehash the password and sign the user in
                 case PasswordVerificationResult.SuccessRehashNeeded:
                     SignInUser(gebruiker);
@@ -58,7 +64,7 @@ namespace Stripboekensite.Pages
                     return RedirectToPage("/Index");
             }
 
-            return Page();
+            return null;
         }
 
         private async void SignInUser(Gebruiker gebruiker)
@@ -85,9 +91,13 @@ namespace Stripboekensite.Pages
         {
             [Required]
             [DataType(DataType.EmailAddress)]
+            [Display(Name = "Email Address")]
+            
             public string UserName { get; set; }
             [Required]
             [DataType(DataType.Password)]
+            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [Display(Name = "Password")]  
             public string Password { get; set; }
         }
     }
