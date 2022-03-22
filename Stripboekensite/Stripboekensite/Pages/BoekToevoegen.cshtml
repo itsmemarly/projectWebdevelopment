@@ -1,4 +1,4 @@
-@page
+﻿@page
 @model Stripboekensite.Pages.BoekToevoegenModel
 @{
 }
@@ -35,7 +35,15 @@
   <!--Uitgever (Naam)-->
    <div class="mb-3">
     <label for="Creator" class="form-label">Naam van uitgever</label>
-    <input type="text" name="uitgever" class="form-control" id="Creator" autocomplete="on" />
+     <input class="form-control" list="datalistCreator" id="Creator" placeholder="Kies de gewenste uitgever">
+                    <datalist id="datalistCreator">
+                        
+                        @foreach (var genre in @Model.Genres)
+                        {
+                            <option value=@genre.genre_id>@genre.Soort</option>
+                        }
+        
+                    </datalist>
   </div>
 
   <!--Expliciet boek (Ja/Nee)-->
@@ -61,7 +69,15 @@
   <!--Reeks naam-->
    <div class="mb-3">
     <label for="BookSeries" class="form-label">Naam van Reeks</label>
-    <input type="text" name="reeksnaam" class="form-control" id="BookSeries" autocomplete="on" />
+     <input class="form-control" list="datalistSeries" id="BookSeries" placeholder="Kies de gewenste reeks">
+                <datalist id="datalistSeries">
+                    
+                    @foreach (var genre in @Model.Genres)
+                    {
+                        <option value=@genre.genre_id>@genre.Soort</option>
+                    }
+    
+                </datalist>
   </div>
 
   <!--Reeks nummer-->
@@ -71,20 +87,20 @@
   </div>
 
   <!--Categorie van boek (Dropdown met categorie)-->
-   <div class="mb-3">
-    <label for="BookCategory" class="form-label">Zoek de juiste categorie </label>
-   
-       <select class="form-control" id="BookCategory" name="genreid">
-           @foreach (var genre in @Model.Genres)
-           {
-               <option value=@genre.genre_id>@genre.Soort</option>
-           }
+        <div class="mb-3">
+            <label for="BookCategory" class="form-label">Zoek de juiste categorie </label>
+            <input class="form-control" list="datalistCategory" id="BookCategory" multiple placeholder="Kies de gewenste categorie">
+                       <datalist id="datalistCategory" multiple="multiple">
+                           
+                          @foreach (var genre in @Model.Genres)
+                           {
+                               <option value=@genre.genre_id>@genre.Soort</option>
+                           }
+           
+                       </datalist>
+        </div>
 
-       </select>
-  </div>
-
-
- <!--- <button type="submit" class="btn btn-dark">Opslaan</button>-->
+        <!--- <button type="submit" class="btn btn-dark">Opslaan</button>-->
   <button type="submit" class="btn btn-dark">Opslaan & Toevoegen aan verzameling</button>
 </form>
 </div>
