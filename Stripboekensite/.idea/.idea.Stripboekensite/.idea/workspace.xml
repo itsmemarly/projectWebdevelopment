@@ -9,9 +9,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bd768dc-e43b-4651-9a8e-1b5a9645b6c0" name="Changes" comment="niet boeiend">
+      <change afterPath="$PROJECT_DIR$/Stripboekensite/Pages/BekijkBoeken.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Stripboekensite/Pages/BekijkBoeken.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Stripboekensite/Pages/BekijkCategorie.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Stripboekensite/Pages/BekijkCategorie.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Stripboekensite/Pages/BekijkGebruikers.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Stripboekensite/Pages/BekijkGebruikers.cshtml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/Aanmelden.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/Aanmelden.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/BoekToevoegen.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/BoekToevoegen.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/Dashboard.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/Dashboard.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

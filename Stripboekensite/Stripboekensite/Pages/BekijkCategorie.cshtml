@@ -1,0 +1,31 @@
+﻿@page
+@model Stripboekensite.Pages.BekijkCategorie
+
+@{
+
+}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css"></link>
+
+<!-- Deze pagina is bedoeld voor moderators -->
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Categorie</th>
+        <th scope="col">Updaten</th>
+        <th scope="col">Verwijderen</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row" class="CategoryID">1</th>
+        <td  class="CategoryName" contenteditable="true">Titel</td>
+        
+        <td class="UpdateCategory"><button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button></td>
+        <td class="DeleteCategory"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
+   
+    </tr>
+   
+    </tbody>
+</table>

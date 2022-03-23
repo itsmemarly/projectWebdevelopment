@@ -1,0 +1,50 @@
+﻿@page
+@model Stripboekensite.Pages.BekijkBoeken
+
+@{
+
+}
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css"></link>
+
+<!-- Deze pagina is bedoeld voor moderators -->
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Titel</th>
+        <th scope="col">ISBN</th>
+        <th scope="col">Uitgever</th>
+        <th scope="col">Schrijver</th>
+        <th scope="col">Tekenaar</th>
+        <th scope="col">Uitgave 1e druk</th>
+        <th scope="col">Reeks #</th>
+        <th scope="col">Reeks nr.</th>
+        <th scope="col">Bladzijden</th>
+        <th scope="col">Expliciet</th>
+        <th scope="col">Updaten</th>
+        <th scope="col">Verwijderen</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row" class="BookID">1</th>
+        <td  class="BookTitle" contenteditable="true">Titel</td>
+        <td  class="BookISBN" contenteditable="true">7438383889</td>
+        <td  class="BookPublisher" contenteditable="true">Naam x</td>
+        <td  class="BookWriter" contenteditable="true">Naam y</td>
+        <td  class="BookIllustrator" contenteditable="true">Naam z</td>
+        <td  class="BookFirstCopy" contenteditable="true">2013</td>
+        <td  class="BookSeriesID" contenteditable="true">7</td>
+        <td  class="BookSeries" contenteditable="true">xyz</td>
+        <td  class="BookPages" contenteditable="true">123</td>
+        <td  class="BookExplicit" contenteditable="true">True</td>
+
+        <td class="UpdateBook"><button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button></td>
+        <td class="DeleteBook"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
+   
+    </tr>
+   
+    </tbody>
+</table>

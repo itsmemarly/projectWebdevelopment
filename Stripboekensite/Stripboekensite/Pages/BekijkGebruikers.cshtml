@@ -1,0 +1,47 @@
+﻿@page
+@model Stripboekensite.Pages.BekijkGebruikers
+
+@{
+    
+}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css"></link>
+
+<!-- Deze pagina is bedoeld voor moderators -->
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Naam</th>
+        <th scope="col">Geboortedatum</th>
+        <th scope="col">Email</th>
+        <th scope="col">Wachtwoord</th>
+        <th scope="col">Rol</th>
+        <th scope="col">Updaten</th>
+        <th scope="col">Verwijderen</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row" class="UserID">1</th>
+        <td  class="UserName" contenteditable="true">Truus</td>
+        <td  class="UserDateOfBirth" contenteditable="true">12/09/2022</td>
+        <td  class="UserEmail" contenteditable="true">Truus@gmail.com</td>
+        <td  class="UserPassword" contenteditable="true">Truus123</td>
+        <td  class="UserRole" contenteditable="true">Moderator</td>
+        <td class="UpdateUser"><button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button></td>
+        <td class="DeleteUser"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
+   
+    </tr>
+    <tr>
+        <th scope="row" class="UserID">2</th>
+        <td  class="UserName" contenteditable="true">Henk</td>
+        <td  class="UserDateOfBirth" contenteditable="true">12/09/2022</td>
+        <td  class="UserEmail" contenteditable="true">Henk@gmail.com</td>
+        <td  class="UserPassword" contenteditable="true">Henk456</td>
+        <td  class="UserRole" contenteditable="true">Gebruiker</td>
+        <td class="UpdateUser"><button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button></td>
+        <td class="DeleteUser"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
+    </tr>
+    </tbody>
+</table>
