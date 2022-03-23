@@ -34,24 +34,24 @@
         <!--Creator (Schrijver)-->
            <div class="mb-3">
             <label for="CreatorWriter" class="form-label">Naam van schrijver</label>
-             <input class="form-control" list="datalistCreatorWriter" id="CreatorWriter" placeholder="Kies de gewenste schrijver">
+             <input class="form-control" name="schrijvernaam" list="datalistCreatorWriter" id="CreatorWriter" placeholder="Kies de gewenste schrijver">
                <datalist id="datalistCreatorWriter">
                                 
-                                @foreach (var genre in @Model.Genres)
+                                @foreach (var creator in @Model.creators)
                                 {
-                                    <option value=@genre.genre_id>@genre.Soort</option>
+                                    <option value=@creator.Creator_naam>@creator.Creator_naam</option>
                                 }
                </datalist>
           </div>
         <!--Creator (Tekenaar)-->
            <div class="mb-3">
             <label for="CreatorDrawing" class="form-label">Naam van Tekenaar</label>
-             <input class="form-control" list="datalistCreatorDrawing" id="CreatorDrawing" placeholder="Kies de gewenste tekenaar">
+             <input class="form-control" name="tekenaarnaam" list="datalistCreatorDrawing" id="CreatorDrawing" placeholder="Kies de gewenste tekenaar">
                             <datalist id="datalistCreatorDrawing">
                                 
-                                @foreach (var genre in @Model.Genres)
+                                @foreach (var creator in @Model.creators)
                                 {
-                                    <option value=@genre.genre_id>@genre.Soort</option>
+                                    <option value=@creator.Creator_naam>@creator.Creator_naam</option>
                                 }
                 
                             </datalist>
@@ -60,12 +60,12 @@
   <!--Uitgever (Naam)-->
    <div class="mb-3">
     <label for="Creator" class="form-label">Naam van uitgever</label>
-     <input class="form-control" list="datalistCreator" id="Creator" placeholder="Kies de gewenste uitgever">
+     <input class="form-control" list="datalistCreator" id="Creator" placeholder="Kies de gewenste uitgever"  name = "uitgever">
                     <datalist id="datalistCreator">
                         
-                        @foreach (var genre in @Model.Genres)
+                        @foreach (var uitgever in @Model.uitgevers)
                         {
-                            <option value=@genre.genre_id>@genre.Soort</option>
+                            <option value=@uitgever.Naam>@uitgever.Naam</option>
                         }
         
                     </datalist>
@@ -94,12 +94,12 @@
   <!--Reeks naam-->
    <div class="mb-3">
     <label for="BookSeries" class="form-label">Naam van Reeks</label>
-     <input class="form-control" list="datalistSeries" id="BookSeries" placeholder="Kies de gewenste reeks">
+     <input class="form-control" list="datalistSeries" id="BookSeries" placeholder="Kies de gewenste reeks" name = "reeksnaam">
                 <datalist id="datalistSeries">
                     
-                    @foreach (var genre in @Model.Genres)
+                    @foreach (var reeks in @Model.reeksen)
                     {
-                        <option value=@genre.genre_id>@genre.Soort</option>
+                        <option value=@reeks.Reeks_titel >@reeks.Reeks_titel</option>
                     }
     
                 </datalist>
@@ -119,7 +119,7 @@
                           @foreach (var genre in @Model.Genres)
                            {
                                <li class="list-group-item">
-                                   <input class="form-check-input me-1" type="checkbox" value=@genre.genre_id>@genre.Soort
+                                   <input name = "genreids" class="form-check-input me-1" type="checkbox" value=@genre.genre_id>@genre.soort
                                </li>
                             
                            }

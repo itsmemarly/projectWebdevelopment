@@ -6,6 +6,8 @@ public class Gebruiker
     
     public string Gebruikersnaam { get; set; }
     
+    public DateTime Geboorte_datum { get; set; }
+    
     public string versleuteld_wachtwoord { get; set; }
     
     public string rol { get; set; }

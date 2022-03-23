@@ -22,6 +22,7 @@ namespace Stripboekensite.Pages
 
                 Gebruiker gebruiker = new Gebruiker();
                 gebruiker.naam = gebruikerData.naam;
+                gebruiker.Geboorte_datum = gebruikerData.geboorteDatum;
                 gebruiker.Gebruikersnaam = gebruikerData.gebruikersnaam;
                 gebruiker.versleuteld_wachtwoord =
                     new PasswordHasher<object?>().HashPassword(null, gebruikerData.password);
@@ -41,6 +42,11 @@ namespace Stripboekensite.Pages
             [Display(Name = "Name")] 
             [StringLength(32, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 1)]
             public string naam { get; set; }
+            
+            [Required]
+            [Display(Name="Age")]
+            [DataType(DataType.Date)]
+            public DateTime geboorteDatum { get; set; }
             
             [Required]
             [DataType(DataType.EmailAddress)]

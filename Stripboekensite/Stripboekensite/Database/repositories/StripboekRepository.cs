@@ -15,7 +15,7 @@ public class StripboekRepository
     public IEnumerable<Stripboek> GetSearch(string search)
     {
 
-        string sql = "SELECT * FROM stripboeken where titel like @search ";
+        string sql = "SELECT * FROM stripboeken where titel like @search";
 
         using var connection = GetConnection();
         var stripboeken = connection.Query<Stripboek>(sql,new {search});

@@ -23,7 +23,6 @@ namespace Stripboekensite.Pages
 
         public void OnGet()
         {
-
             userbookcheck();
             //message = userid.ToString();
         }

@@ -10,6 +10,8 @@ namespace Stripboekensite.Pages
         public Stripboek stripboek = new Stripboek();
         public List<Uitgever> uitgevers = new List<Uitgever>();
         public List<Reeks> reeksen = new List<Reeks>();
+        public List<Creator> creators = new List<Creator>();
+        //public List<int> genreids { get; set; }
 
         //id of current user
         public int userid;
@@ -21,7 +23,7 @@ namespace Stripboekensite.Pages
 
         }
         
-        public void OnPostAddStripboek(string titel, string isbn, int jaar1druk,string uitgever, int expleciet, int paginas, string reeksnaam, int reeksnum, int genreid)
+        public void OnPostAddStripboek(string titel, string isbn, int jaar1druk,string uitgever, int expleciet, int paginas, string reeksnaam, int reeksnum,string schrijvernaam, string tekenaarnaam, List<int> genreids)
         {
             setlists();
             //sets al variabels of stripboek
@@ -57,7 +59,6 @@ namespace Stripboekensite.Pages
                     if (reeks.Reeks_titel.ToLower() == reeksnaam.ToLower())
                     {
                         stripboek.Reeks_id = reeks.Reeks_id;
-                        addedstripboek = new StripboekRepository().Add(stripboek);
                         break;
                     }
                 }
@@ -68,28 +69,41 @@ namespace Stripboekensite.Pages
                     Reeks newrReeks = new Reeks();
                     newrReeks.Reeks_titel = reeksnaam;
                     stripboek.Reeks_id = new ReeksRepository().Add(newrReeks).Reeks_id;
-                    addedstripboek = new StripboekRepository().Add(stripboek);
                 }
 
             }
-            else
-            {
-                addedstripboek = new StripboekRepository().Add(stripboek);   
-            }
-            
 
-            
-            //adds a genre stripboek connection to database
-            GenreStripboek stripboekgenre = new GenreStripboek();
-            stripboekgenre.Stripboek_id = addedstripboek.Stripboek_id;
-            stripboekgenre.Genre_id = genreid;
-            new GenreStripboekRepository().Add(stripboekgenre);
-            
+            addedstripboek = new StripboekRepository().Add(stripboek);   
+           
             //adds stripboek gebruiker connection to database
             Gebruikers_Stripboeken stripboekgebruiker = new Gebruikers_Stripboeken();
             stripboekgebruiker.Gebruiker_id = userid;
             stripboekgebruiker.stripboek_id = addedstripboek.Stripboek_id;
             new Gebruikers_StripboekenRepository().Add(stripboekgebruiker);
+
+            if (schrijvernaam != null )
+            {
+                taakcreator(schrijvernaam, "schrijver", addedstripboek);
+            }
+
+            if (tekenaarnaam != null)
+            {
+                taakcreator(tekenaarnaam, "tekenaar", addedstripboek);
+
+            }
+            
+            List<GenreStripboek> genrelist = new List<GenreStripboek>();
+            foreach (var genreid in genreids)
+            {
+                //adds a genre stripboek connection to database
+                GenreStripboek stripboekgenre = new GenreStripboek();
+                stripboekgenre.Stripboek_id = addedstripboek.Stripboek_id;
+                stripboekgenre.Genre_id = genreid;
+                genrelist.Add(stripboekgenre);
+                //new GenreStripboekRepository().Add(stripboekgenre);
+            }
+
+            new GenreStripboekRepository().Add(genrelist);
         }
 
         public void setlists()
@@ -110,7 +124,37 @@ namespace Stripboekensite.Pages
             Genres = new GenreRepository().Get().ToList();
             reeksen = new ReeksRepository().Get().ToList();
             uitgevers = new UitgeverRepository().Get().ToList();
+            creators = new CreatorRepository().Get().ToList();
         }
+
+        public void taakcreator(string naam, string taak, Stripboek stripboek)
+        {
+            CreatorStripboeken creatorstrip = new CreatorStripboeken();
+            foreach (var creator in creators)
+            {
+                if (creator.Creator_naam.ToLower() == naam.ToLower())
+                {
+                    creatorstrip.Stripboek_id = stripboek.Stripboek_id;
+                    creatorstrip.Creator_id = creator.Creator_id;
+                    creatorstrip.taak = taak;
+                    break;
+                }
+            }
+
+            if (creatorstrip.Creator_id == 0)
+            {
+                Creator creator = new Creator();
+                creator.Creator_naam = naam;
+                Creator newcreator = new CreatorRepository().Add(creator);
+                creators.Add(newcreator);
+                
+                creatorstrip.Stripboek_id = stripboek.Stripboek_id;
+                creatorstrip.Creator_id = newcreator.Creator_id;
+                creatorstrip.taak = taak;
+            }
+            new CreatorStripboekenRepository().Add(creatorstrip);
+        }
+        
         
     }
 }

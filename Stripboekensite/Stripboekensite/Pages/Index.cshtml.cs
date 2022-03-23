@@ -30,34 +30,37 @@ namespace Stripboekensite.Pages
         
         public void OnGet()
         {
-            userbookcheck();
+            bookcheck();
 
         }
-        
-        
-        public void userbookcheck()
+
+        public void bookcheck()
         {
             useridget();
             
             //gets all genres and the books that the current user has 
-            Genres = new GenreRepository().Get().ToList();
+            //Genres = new GenreRepository().Get().ToList();
             GenreStripboeks = new JoinRepository().joingenrestripboek().ToList();
 
             //checks whether the books in the genre are owned 
             foreach (var genrestripboek in GenreStripboeks)
-            { 
-                stripboekgenreshowed.Add(genrestripboek);
+            {
 
+                if (!Genres.Contains(genrestripboek.genre))
+                {
+                    Genres.Add(genrestripboek.genre);
+                }
+                stripboekgenreshowed.Add(genrestripboek);
+            
             }
         }
 
         public void OnPostSearch(string search)
         {
-            userbookcheck();
+            bookcheck();
             
             //sets string query to %searchvalue% needed for the Like query  
             querysearch = "%" + search + "%";
-           
             message = "je zoekt op :" + search;
             
             //checks if there even is a value in the database if false message will say no search results
@@ -74,7 +77,7 @@ namespace Stripboekensite.Pages
                         }
                     }
                 }
-                stripboekgenreshowed = new List<GenreStripboek>();
+                
                 stripboekgenreshowed = searchresultgenres;
 
                 if (searchresultgenres.Count == 0 )
@@ -86,7 +89,7 @@ namespace Stripboekensite.Pages
         
         public void OnPostAddtouser(int stripboekid)
         {
-            userbookcheck();
+            bookcheck();
             
             Gebruikers_Stripboeken gebruikersStripboeken = new Gebruikers_Stripboeken();
             gebruikersStripboeken.Gebruiker_id = userid;
