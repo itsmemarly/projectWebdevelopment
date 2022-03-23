@@ -13,6 +13,7 @@ create table gebruikers
     versleuteld_wachtwoord varchar(255) not null,
     rol                    varchar(255) not null,
     naam                   varchar(255) not null,
+    Geboorte_datum         date         null,
     constraint gebruikers_gebruikersnaam_uindex
         unique (gebruikersnaam)
 );
@@ -59,15 +60,17 @@ create table stripboeken
 
 create table creators_stripboeken
 (
-    stripboek_id int          not null,
-    creator_id   int          not null,
-    taak         varchar(255) not null,
-    primary key (stripboek_id, creator_id),
-    constraint creators_stripboeken_ibfk_1
-        foreign key (stripboek_id) references stripboeken (stripboek_id),
-    constraint creators_stripboeken_ibfk_2
-        foreign key (creator_id) references creator (creator_ID)
+    creators_stripboek_id int auto_increment
+        primary key,
+    Stripboek_id          int          not null,
+    Creator_id            int          not null,
+    taak                  varchar(255) null,
+    constraint creators_stripboeken_creator_creator_ID_fk
+        foreign key (Creator_id) references creator (creator_ID),
+    constraint creators_stripboeken_stripboeken_stripboek_id_fk
+        foreign key (Stripboek_id) references stripboeken (stripboek_id)
 );
+
 
 create index creator_id
     on creators_stripboeken (creator_id);

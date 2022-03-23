@@ -2,6 +2,7 @@
 
 public class CreatorStripboeken
 {
+    public int creators_stripboek_id { get; set; }
     public int Stripboek_id { get; set; }
     public int Creator_id { get; set; }
     public string taak { get; set; }

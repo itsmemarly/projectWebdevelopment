@@ -19,6 +19,20 @@ public class GenreStripboekRepository
         var newGenreStripboek = connection.QuerySingle<GenreStripboek>(sql, GenreStripboek);
         return newGenreStripboek;
     }
+    
+    public List<GenreStripboek> Add(List<GenreStripboek> GenreStripboek)
+    {
+        string sql = "INSERT INTO genre_Stripboeken (Genre_id,Stripboek_id) VALUES (@Genre_id,@Stripboek_id); SELECT * from genre_stripboeken WHERE Stripboek_id = @Stripboek_id and Genre_id = @Genre_id";
+        using var connection = GetConnection();
+        List<GenreStripboek> newGenreStripboeken= new List<GenreStripboek>();
+        
+        foreach (var genreStripboek in GenreStripboek)
+        {
+            var newGenreStripboek = connection.QuerySingle<GenreStripboek>(sql, genreStripboek);
+            newGenreStripboeken.Add(newGenreStripboek);
+        }
+        return newGenreStripboeken;
+    }
 
     
     /* does not get used

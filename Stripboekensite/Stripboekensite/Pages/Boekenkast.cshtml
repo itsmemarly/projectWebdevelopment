@@ -43,7 +43,7 @@
         <div class="row mt-4 pb-4 pt-2 text-center">
           @foreach (var genre in @Model.Genres)
           {
-            <div>@genre.Soort</div>
+            <div>@genre.soort</div>
             @foreach (var stripboek in @Model.stripboekgenreshowed)
             {
               @if (stripboek.genre.genre_id == genre.genre_id)

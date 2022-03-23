@@ -13,19 +13,19 @@ public class JoinRepository
     
     public IEnumerable<GenreStripboek> joingenrestripboek()
     {
-        var sql = @"select  e.soort, e.genre_id,p.stripboek_id, p.isbn, p.uitgave1e_druk, p.reeks_nr, p.bladzijden, p.titel, p.expliciet, p.uitgever_id, p.reeks_id
+        var sql =
+            @"select     e.soort, e.genre_id, p.stripboek_id, p.isbn, p.uitgave1e_druk, p.reeks_nr, p.bladzijden, p.titel, p.expliciet, p.uitgever_id, p.reeks_id
                 from genre_stripboeken c
                 inner join genre e on c.Genre_id = e.genre_id
-                inner join stripboeken p on c.Stripboek_id = p.stripboek_id
-";
+                inner join stripboeken p on c.Stripboek_id = p.stripboek_id";
         using var connection = GetConnection();
-        var GenreStripboeken =connection.Query<GenreStripboek,Genre, Stripboek, GenreStripboek>(sql, (GenreStripboek,Genre,Stripboek) =>
+        var GenreStripboeken =connection.Query<GenreStripboek,Genre, Stripboek, GenreStripboek>(sql, (GenreStripboek,genre,Stripboek) =>
             {
-                GenreStripboek.genre = Genre;
+                GenreStripboek.genre = genre;
                 GenreStripboek.Stripboek = Stripboek;
                 return GenreStripboek;
             }, 
-            splitOn: "Genre_id, Stripboek_id").ToList();
+            splitOn: "Genre_id, Stripboek_id");
 
         return GenreStripboeken;
     }
@@ -42,15 +42,16 @@ public class JoinRepository
                 return Gebruikers_Stripboek;
             }, 
             new {id}, 
-            splitOn: "Stripboek_id").ToList();
+            splitOn: "Stripboek_id");
 
         return stripboeken;
     }
     
+    
     /*does not get used
      
          //join method that return a list with al the stripboeken en creators
-    public IEnumerable<CreatorStripboeken> Joincreatorstripboek()
+       public IEnumerable<CreatorStripboeken> Joincreatorstripboek()
     {
         var sql = @"select p.taak,c.stripboek_id, c.isbn, c.uitgave1e_druk, c.reeks_nr, c.bladzijden, c.titel, c.expliciet, c.uitgever_id, c.reeks_id, e.creator_ID, e.creator_naam 
                 from creators_stripboeken p
