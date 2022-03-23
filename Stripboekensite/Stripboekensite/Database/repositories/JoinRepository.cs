@@ -14,18 +14,19 @@ public class JoinRepository
     public IEnumerable<GenreStripboek> joingenrestripboek()
     {
         var sql =
-            @"select     e.soort, e.genre_id, p.stripboek_id, p.isbn, p.uitgave1e_druk, p.reeks_nr, p.bladzijden, p.titel, p.expliciet, p.uitgever_id, p.reeks_id
+            @"select  e.genre_id, e.soort, p.stripboek_id, p.isbn, p.uitgave1e_druk, p.reeks_nr, p.bladzijden, p.titel, p.expliciet, p.uitgever_id, p.reeks_id
                 from genre_stripboeken c
                 inner join genre e on c.Genre_id = e.genre_id
                 inner join stripboeken p on c.Stripboek_id = p.stripboek_id";
         using var connection = GetConnection();
-        var GenreStripboeken =connection.Query<GenreStripboek,Genre, Stripboek, GenreStripboek>(sql, (GenreStripboek,genre,Stripboek) =>
+        var GenreStripboeken = connection.Query<Genre, Stripboek, GenreStripboek>(sql, (Genre, Stripboek) =>
             {
-                GenreStripboek.genre = genre;
-                GenreStripboek.Stripboek = Stripboek;
-                return GenreStripboek;
+                var genreStripboek = new GenreStripboek();
+                genreStripboek.genre = Genre;
+                genreStripboek.Stripboek = Stripboek;
+                return genreStripboek;
             }, 
-            splitOn: "Genre_id, Stripboek_id");
+            splitOn: "stripboek_id").ToList();
 
         return GenreStripboeken;
     }
