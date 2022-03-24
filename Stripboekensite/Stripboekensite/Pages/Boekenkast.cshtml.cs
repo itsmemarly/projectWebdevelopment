@@ -7,80 +7,96 @@ namespace Stripboekensite.Pages
     public class BoekenkastModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
+        
+        //s
         public List<Gebruikers_Stripboeken> gebruikerlijst = new List<Gebruikers_Stripboeken>();
-        public List<Genre> Genres = new List<Genre>();
         public List<GenreStripboek> GenreStripboeks = new List<GenreStripboek>();
+        
+        //the lists that will show the items on the page
+        public List<Genre> Genres = new List<Genre>();
         public List<GenreStripboek> stripboekgenreshowed = new List<GenreStripboek>();
+        public List<Gebruikers_Stripboeken> gebruikerlijstshow = new List<Gebruikers_Stripboeken>();
 
+        
         public List<Stripboek> searchresults = new List<Stripboek>();
-        public List<GenreStripboek> ownedsearch = new List<GenreStripboek>();
+
         
         public int userid;
-        
         public string message;
         public string querysearch;
-        //int userid through cookies
+
 
         public void OnGet()
         {
             userbookcheck();
-            //message = userid.ToString();
         }
 
+        //search option
         public void OnPostSearch(string search)
         {
             userbookcheck();
             
             //sets string query to %searchvalue% needed for the Like query  
             querysearch = "%" + search + "%";
-           
-            message = "je zoekt op :" + search;
+            message = "je zoekt op : " + search;
             
-            //checks if there even is a value in the database if false message will say no search results
-            //if true added stripboek showed so the stripboek wil be showed on page
+            List<GenreStripboek> ownedsearch = new List<GenreStripboek>();
             searchresults = new StripboekRepository().GetSearch(querysearch).ToList();
+            List<Gebruikers_Stripboeken> searchresultsstripboekuser = new List<Gebruikers_Stripboeken>();
+            
             foreach (var stripboek in searchresults)
             {
+                //checks if user owns stripboek and then sets the searchresult list for the genrestripboek connection
                 foreach (var stripboekuser in stripboekgenreshowed)
                 {
-                        
                     if (stripboek.Stripboek_id == stripboekuser.Stripboek.Stripboek_id)
                     {
                         ownedsearch.Add(stripboekuser);
                     }
                 }
+                
+                //checks if user owns stripboek and then sets the searchresult list for the userstripboek connection
+                foreach (var stripboekuser in gebruikerlijstshow)
+                {
+                    if (stripboek.Stripboek_id == stripboekuser.Stripboek.Stripboek_id)
+                    {
+                        searchresultsstripboekuser.Add(stripboekuser);
+                    }
+                }
             }
-                stripboekgenreshowed = new List<GenreStripboek>();
-                stripboekgenreshowed = ownedsearch;
 
+            //replaces the list to the search results
+            gebruikerlijstshow  = searchresultsstripboekuser;
+            stripboekgenreshowed = ownedsearch;
+
+            //geeft een message weer als er geen zoek resultaat is
             if(ownedsearch.Count==0)
             {
-                message = "geen zoek resultaat voor:" + search;
+                message = "geen zoek resultaat voor :" + search;
             }
 
         }
 
+        //deletes the usersm stripboek
         public void OnPostDelete(int stripboekid)
         {
             userbookcheck();
-            Gebruikers_Stripboeken gebruikersStripboeken = new Gebruikers_Stripboeken();
-            gebruikersStripboeken = new Gebruikers_StripboekenRepository().Get(userid, stripboekid);
-            if (new Gebruikers_StripboekenRepository().Delete(gebruikersStripboeken.Gebruiker_stripboek_ID))
+            if (new Gebruikers_StripboekenRepository().Delete(stripboekid))
             {
                 userbookcheck();
             }
 
         }
         
+        //sets all the list and gets data from database
         public void userbookcheck()
         {
             useridget();
             
             //gets all genres and the books that the current user has 
-            Genres = new GenreRepository().Get().ToList();
             GenreStripboeks = new JoinRepository().joingenrestripboek().ToList();
             gebruikerlijst = new JoinRepository().joingebrstripboekstripboeken(userid).ToList();
-            
+            gebruikerlijstshow = gebruikerlijst;
             //checks whether the books in the genre are owned 
             foreach (var gebruikstrip in gebruikerlijst)
             {
@@ -88,12 +104,18 @@ namespace Stripboekensite.Pages
                 {
                     if (gebruikstrip.Stripboek.Stripboek_id == genrestripboek.Stripboek.Stripboek_id)
                     {
+                        if (!Genres.Any(genr => genr.genre_id ==genrestripboek.genre.genre_id))
+                        {
+                            Genres.Add(genrestripboek.genre);
+                        }
+                        
                         stripboekgenreshowed.Add(genrestripboek);
                     }
                 }
             }
         }
 
+        //gets the userinfo from claim list
         public void useridget()
         {
             List<Claim> claims = User.Claims.ToList();

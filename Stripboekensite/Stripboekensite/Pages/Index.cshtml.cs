@@ -39,14 +39,14 @@ namespace Stripboekensite.Pages
             useridget();
             
             //gets all genres and the books that the current user has 
-            //Genres = new GenreRepository().Get().ToList();
             GenreStripboeks = new JoinRepository().joingenrestripboek().ToList();
+
 
             //checks whether the books in the genre are owned 
             foreach (var genrestripboek in GenreStripboeks)
             {
 
-                if (!Genres.Contains(genrestripboek.genre))
+                if (!Genres.Any(genr => genr.genre_id ==genrestripboek.genre.genre_id))
                 {
                     Genres.Add(genrestripboek.genre);
                 }
