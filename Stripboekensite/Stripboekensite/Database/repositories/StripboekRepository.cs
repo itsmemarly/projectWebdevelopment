@@ -46,6 +46,16 @@ public class StripboekRepository
         var nieuwstripboek = connection.QuerySingle<Stripboek>(sql, stripboek);
         return nieuwstripboek;
     }
+    
+    //gives back the list of all stripboeken
+    public IEnumerable<Stripboek> Get()
+    {
+        string sql = "SELECT * FROM stripboeken";
+
+        using var connection = GetConnection();
+        var stripboeken = connection.Query<Stripboek>(sql);
+        return stripboeken;
+    }
 
 
     /*does not get used
@@ -68,18 +78,6 @@ public class StripboekRepository
         return connection.ExecuteScalar<bool>(sql, new {stripboek_ID});
     }
 
-    //gives back the list of all stripboeken
-    public IEnumerable<Stripboek> Get()
-    {
-        string sql = "SELECT * FROM stripboeken";
-
-        using var connection = GetConnection();
-        var stripboeken = connection.Query<Stripboek>(sql);
-        return stripboeken;
-    }
-     
-     
-     
     //deletes a stripboek using id
     public bool Delete(int stripboek_id)
     {

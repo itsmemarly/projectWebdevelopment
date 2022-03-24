@@ -15,12 +15,10 @@
         <th scope="col">#</th>
         <th scope="col">Titel</th>
         <th scope="col">ISBN</th>
-        <th scope="col">Uitgever</th>
-        <th scope="col">Schrijver</th>
-        <th scope="col">Tekenaar</th>
+        <th scope="col">Uitgever ID</th>
         <th scope="col">Uitgave 1e druk</th>
-        <th scope="col">Reeks #</th>
-        <th scope="col">Reeks nr.</th>
+        <th scope="col">Reeks ID</th>
+        <th scope="col">Nr. in reeks.</th>
         <th scope="col">Bladzijden</th>
         <th scope="col">Expliciet</th>
         <th scope="col">Updaten</th>
@@ -28,23 +26,25 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <th scope="row" class="BookID">1</th>
-        <td  class="BookTitle" contenteditable="true">Titel</td>
-        <td  class="BookISBN" contenteditable="true">7438383889</td>
-        <td  class="BookPublisher" contenteditable="true">Naam x</td>
-        <td  class="BookWriter" contenteditable="true">Naam y</td>
-        <td  class="BookIllustrator" contenteditable="true">Naam z</td>
-        <td  class="BookFirstCopy" contenteditable="true">2013</td>
-        <td  class="BookSeriesID" contenteditable="true">7</td>
-        <td  class="BookSeries" contenteditable="true">xyz</td>
-        <td  class="BookPages" contenteditable="true">123</td>
-        <td  class="BookExplicit" contenteditable="true">True</td>
+    @foreach(var stripboek in @Model.Stripboeken)
+    {
+        <tr>
+            <th scope="row" class="BookID">@stripboek.Stripboek_id</th>
+            <td class="BookTitle" contenteditable="true">@stripboek.titel</td>
+            <td class="BookISBN" contenteditable="true">@stripboek.isbn</td>
+            <td class="BookPublisher" contenteditable="true">@stripboek.Uitgever_id</td>
+            <td class="BookFirstCopy" contenteditable="true">@stripboek.Uitgave1e_druk</td>
+            <td class="BookSeriesID" contenteditable="true">@stripboek.Reeks_id</td>
+            <td class="BookSeries" contenteditable="true">@stripboek.Reeks_nr</td>
+            <td class="BookPages" contenteditable="true">@stripboek.Bladzijden</td>
+            <td class="BookExplicit" contenteditable="true">@stripboek.expleciet</td>
 
-        <td class="UpdateBook"><button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button></td>
-        <td class="DeleteBook"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
-   
-    </tr>
-   
+            <td class="UpdateBook"><button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button></td>
+            <td class="DeleteBook"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
+
+        </tr>
+    }
+    
+
     </tbody>
 </table>
