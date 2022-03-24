@@ -31,40 +31,45 @@
 <div class="col-12">
     <!-- Accordion gebruiken voor verzameling tab-->
     <div class="accordion" id="CollectionAccordion">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#CollectionOne" aria-expanded="false" aria-controls="CollectionOne">
-       Per categorie
-      </button>
-    </h2>
-    <div id="CollectionOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#CollectionAccordion">
-      <div class="accordion-body">
-        
-        <div class="row mt-4 pb-4 pt-2 text-center">
-          @foreach (var genre in @Model.Genres)
-          {
-            <div>@genre.soort</div>
-            @foreach (var stripboek in @Model.stripboekgenreshowed)
-            {
-              @if (stripboek.genre.genre_id == genre.genre_id)
+      <h5>Per categorie</h5>
+      
+              @foreach (var genre in @Model.Genres)
               {
-                <div class="card col-4 mt-2" style="width: 18rem; margin:3rem;">
-                  <div class="card-body">
-                    <h5 class="card-title">@stripboek.Stripboek.titel</h5>
-                    <p class="card-text">test</p>
-                        <form asp-page-handler="Delete" method="post">
-                        <button name="stripboekid" value = "@stripboek.Stripboek.Stripboek_id"   class="btn btn-primary">Delete</button>
-                        </form>
+                <div class="accordion-item">
+                <h2 class="accordion-header" id="@genre.genre_id">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#@genre.soort" aria-expanded="false" aria-controls="CollectionOne">
+                        @genre.soort 
+                  </button>
+                </h2>
+                <div id="@genre.soort" class="accordion-collapse collapse" aria-labelledby="@genre.genre_id" data-bs-parent="#CollectionAccordion">
+                <div class="accordion-body">
+
+                  <div class="row mt-4 pb-4 pt-2 text-center">
+               
+                @foreach (var stripboek in @Model.stripboekgenreshowed)
+                {
+                  @if (stripboek.genre.genre_id == genre.genre_id)
+                  {
+                    
+                           <div class="card col-4 mt-2" style="width: 18rem; margin:3rem;">
+                             <div class="card-body">
+                               <h5 class="card-title">@stripboek.Stripboek.titel</h5>
+                               <p class="card-text">test</p>
+                               <form asp-page-handler="Delete" method="post">
+                                 <button name="stripboekid" value="@stripboek.Stripboek.Stripboek_id" class="btn btn-primary">Delete</button>
+                               </form>
+                             </div>
+                           </div>
+                               
+                  }
+                }
                   </div>
-                </div>
+                                           
+                                                     </div>
+                                                   </div>
+                                                 </div>
               }
-            }
-          }
-        </div>
-        
-        </div>
-      </div>
-    </div>
+      
     </div>
   </div>
 <br/>

@@ -25,12 +25,18 @@
               @if (stripboek.genre.genre_id == genre.genre_id)
               {
                 <div class="card col-4 mt-2" style="width: 18rem; margin:3rem;">
+                   <div class="view overlay">
+                        <img class="card-img-top" src="~/example.jpg" alt="Card image cap">
+                        <a href="#">
+                          <div class="mask rgba-white-slight"></div>
+                        </a>
+                      </div>
                   <div class="card-body">
                     <h5 class="card-title">@stripboek.Stripboek.titel</h5>
                     <p class="card-text">test</p>
-                        <form asp-page-handler="Addtouser" method="post">
-                        <button name="stripboekid" value = "@stripboek.Stripboek.Stripboek_id"   class="btn btn-primary">add</button>
-                        </form>
+                    <form asp-page-handler="Addtouser" method="post">
+                      <button name="stripboekid" value="@stripboek.Stripboek.Stripboek_id" class="btn btn-primary">add</button>
+                    </form>
                   </div>
                 </div>
               }
