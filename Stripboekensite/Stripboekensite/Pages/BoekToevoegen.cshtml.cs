@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Stripboekensite.Pages
 {
+    [Authorize(Roles = "Moderator")]
     public class BoekToevoegenModel : PageModel
     {
         public List<Genre> Genres = new List<Genre>();
