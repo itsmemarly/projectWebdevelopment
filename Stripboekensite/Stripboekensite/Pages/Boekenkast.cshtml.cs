@@ -20,7 +20,7 @@ namespace Stripboekensite.Pages
         
         public List<Stripboek> searchresults = new List<Stripboek>();
 
-        
+        //variabels
         public int userid;
         public string message;
         public string querysearch;
