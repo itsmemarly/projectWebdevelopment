@@ -26,16 +26,16 @@ public class JoinRepository
                 genreStripboek.Stripboek = Stripboek;
                 return genreStripboek;
             }, 
-            splitOn: "stripboek_id").ToList();
+            splitOn: "stripboek_id");
 
         return GenreStripboeken;
     }
 
     public IEnumerable<Gebruikers_Stripboeken> joingebrstripboekstripboeken(int id)
     {
-        var sql = @"select c.stripboek_id, c.isbn, c.uitgave1e_druk, c.reeks_nr, c.bladzijden, c.titel, c.expliciet, p.Gebruikers_ID, p.stripboek_id, p.druk, p.uitgave, p.bandlengte, p.plaats_gekocht, p.prijs_gekocht, p.staat
+        var sql = @"select  p.Gebruiker_stripboek_ID, p.druk, p.uitgave, p.bandlengte, p.plaats_gekocht, p.prijs_gekocht, p.staat, c.stripboek_id, c.isbn, c.uitgave1e_druk, c.reeks_nr, c.bladzijden, c.titel, c.expliciet
                 from gebruikers_stripboeken p 
-                inner join stripboeken c on c.stripboek_id = p.stripboek_id where Gebruikers_ID = @id";
+                left join stripboeken c on c.stripboek_id = p.stripboek_id where Gebruikers_ID = @id";
         using var connection = GetConnection();
         var stripboeken =connection.Query<Gebruikers_Stripboeken, Stripboek, Gebruikers_Stripboeken>(sql, (Gebruikers_Stripboek, stripboek) =>
             {
