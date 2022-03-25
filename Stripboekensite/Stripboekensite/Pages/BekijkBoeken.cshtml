@@ -2,7 +2,7 @@
 @model Stripboekensite.Pages.BekijkBoeken
 
 @{
-
+    
 }
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
@@ -15,14 +15,10 @@
         <th scope="col">#</th>
         <th scope="col">Titel</th>
         <th scope="col">ISBN</th>
-        <th scope="col">Uitgever ID</th>
         <th scope="col">Uitgave 1e druk</th>
-        <th scope="col">Reeks ID</th>
-        <th scope="col">Nr. in reeks.</th>
         <th scope="col">Bladzijden</th>
         <th scope="col">Expliciet</th>
-        <th scope="col">Updaten</th>
-        <th scope="col">Verwijderen</th>
+        <th scope="col">Bewerken</th>
     </tr>
     </thead>
     <tbody>
@@ -30,17 +26,16 @@
     {
         <tr>
             <th scope="row" class="BookID">@stripboek.Stripboek_id</th>
-            <td class="BookTitle" contenteditable="true">@stripboek.titel</td>
-            <td class="BookISBN" contenteditable="true">@stripboek.isbn</td>
-            <td class="BookPublisher" contenteditable="true">@stripboek.Uitgever_id</td>
-            <td class="BookFirstCopy" contenteditable="true">@stripboek.Uitgave1e_druk</td>
-            <td class="BookSeriesID" contenteditable="true">@stripboek.Reeks_id</td>
-            <td class="BookSeries" contenteditable="true">@stripboek.Reeks_nr</td>
-            <td class="BookPages" contenteditable="true">@stripboek.Bladzijden</td>
-            <td class="BookExplicit" contenteditable="true">@stripboek.expleciet</td>
-
-            <td class="UpdateBook"><button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button></td>
-            <td class="DeleteBook"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
+            <td class="BookTitle" contenteditable="false">@stripboek.titel</td>
+            <td class="BookISBN" contenteditable="false">@stripboek.isbn</td>
+            <td class="BookFirstCopy" contenteditable="false">@stripboek.Uitgave1e_druk</td>
+            <td class="BookPages" contenteditable="false">@stripboek.Bladzijden</td>
+            <td class="BookExplicit" contenteditable="false">@stripboek.expleciet</td>
+            
+            <td class="UpdateBook"><form>
+                 <input type="hidden" name="id" value=@stripboek.Stripboek_id />
+                <button class="btn btn-success" type="submit"><i class="fas fa-edit"></i></button>
+            </form></td>
 
         </tr>
     }

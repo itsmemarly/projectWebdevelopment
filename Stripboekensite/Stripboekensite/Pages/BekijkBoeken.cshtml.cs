@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System.Threading.Tasks.Dataflow;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Stripboekensite.Pages;
@@ -7,9 +9,18 @@ namespace Stripboekensite.Pages;
 public class BekijkBoeken : PageModel
 {
     public List<Stripboek> Stripboeken = new List<Stripboek>();
-    public void OnGet()
+
+    public IActionResult OnGet(string id)
     {
-        StripboekRepository stripboekRepository = new StripboekRepository();
-        Stripboeken = stripboekRepository.Get().ToList();
+        if (id != null)
+        {
+            return RedirectToPage("/BoekBewerken", new {stripboek_id = id});
+        }
+        else
+        {
+            StripboekRepository stripboekRepository = new StripboekRepository();
+            Stripboeken = stripboekRepository.Get().ToList();
+            return null;
+        }
     }
 }
