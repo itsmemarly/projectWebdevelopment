@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Stripboekensite.Pages
 {
-    [Authorize(Roles = "Moderator")]
+    [Authorize(Roles = Gebruiker.GebruikersRollen.Moderator)]
     public class BoekToevoegenModel : PageModel
     {
         public List<Genre> Genres = new List<Genre>();

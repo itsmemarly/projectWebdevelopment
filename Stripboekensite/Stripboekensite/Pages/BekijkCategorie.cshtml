@@ -21,10 +21,14 @@
     @foreach (var Genre in @Model.Genres)
     {
         <tr>
-            <th scope="row" class="CategoryID">@Genre.genre_id</th>
-            <td class="CategoryName" contenteditable="true">@Genre.soort</td>
-
-            <td class="UpdateCategory"><button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button></td>
+            <form method="post">
+                <input name="genre_id" value="@Genre.genre_id" type="hidden"/>
+                <th scope="row" class="CategoryID">@Genre.genre_id</th>
+                <td class="CategoryName"><input name="soort" value="@Genre.soort"/></td>
+    
+                <td class="UpdateCategory"><button type="submit" class="btn btn-success"><i class="fas fa-save"></i></button></td>
+            </form>
+            
             <td class="DeleteCategory"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
 
         </tr>

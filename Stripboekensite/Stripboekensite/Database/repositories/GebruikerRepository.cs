@@ -63,7 +63,7 @@ public class GebruikerRepository
     {
         string sql = @"
             UPDATE gebruikers SET 
-                gebruikersnaam = @gebruikersnaam 
+                gebruikersnaam = @gebruikersnaam, naam = @naam, rol = @rol, Geboorte_datum = @Geboorte_datum
             WHERE Gebruikers_id = @gebruikers_id;
             SELECT * FROM gebruikers WHERE Gebruikers_id = @gebruikers_id";
 

@@ -24,15 +24,19 @@
     <tbody>
     @foreach (var Gebruiker in @Model.Gebruikers)
         {
-            <tr>
-                <th scope="row" class="UserID">1</th>
-                <td class="UserName" contenteditable="true">@Gebruiker.naam</td>
-                <td class="UserDateOfBirth" contenteditable="true">@Gebruiker.Geboorte_datum.Date.ToString("yyyy MMMM dd")</td>
-                <td class="UserEmail" contenteditable="true">@Gebruiker.Gebruikersnaam</td>
-                <td class="UserRole" contenteditable="true">@Gebruiker.rol</td>
-                <td class="UpdateUser"><button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button></td>
-                <td class="DeleteUser"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
-            </tr>
+            <form method="post">
+                <tr>
+                     <input type="hidden" name="gebruiker_id" value="@Gebruiker.Gebruikers_id"/>       
+                    <th scope="row" name="id" class="UserID">@Gebruiker.Gebruikers_id</th>
+                    <td class="UserName"><input name="gebruikersNaam" value="@Gebruiker.naam" type="text"/></td>
+                    <td class="UserDateOfBirth"><input  name="geboorte_datum" value="@Gebruiker.Geboorte_datum.Date.ToString("yyyy-MM-dd")" type="date"/></td>
+                    <td class="UserEmail"><input name="email"value="@Gebruiker.Gebruikersnaam" type="text"/></td>
+                    <td class="UserRole"> <select name="rol" asp-for="@Gebruiker.rol" asp-items="@Model.rolOpties"></select></td>
+                    <td class="UpdateUser"><button type="submit" class="btn btn-success"><i class="fas fa-save"></i></button></td>
+                            
+                    <td class="DeleteUser"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
+                </tr>
+            </form>
         }
     </tbody>
 </table>

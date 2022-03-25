@@ -1,10 +1,11 @@
-﻿@{
+﻿@using Stripboekensite
+@{
 
-    if (User.IsInRole("Gebruiker"))
+    if (User.IsInRole(Gebruiker.GebruikersRollen.Gebruiker))
     {
         Layout = "Shared/_LayoutUser";
     }
-    else if (User.IsInRole("Moderator"))
+    else if (User.IsInRole(Gebruiker.GebruikersRollen.Moderator))
     {
         Layout = "Shared/_LayoutModerator";
         User.Claims.ToList();

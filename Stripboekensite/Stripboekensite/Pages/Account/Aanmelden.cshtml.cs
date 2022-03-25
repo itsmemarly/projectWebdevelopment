@@ -27,7 +27,7 @@ namespace Stripboekensite.Pages
                 gebruiker.versleuteld_wachtwoord =
                     new PasswordHasher<object?>().HashPassword(null, gebruikerData.password);
 
-                gebruiker.rol = "Gebruiker";
+                gebruiker.rol = Gebruiker.GebruikersRollen.Gebruiker;
 
                 gebruikerRepository.Add(gebruiker);
                 return RedirectToPage("/Profiel");

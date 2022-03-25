@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Stripboekensite.Pages;
 
-[Authorize(Roles = "Moderator")]
+[Authorize(Roles = Gebruiker.GebruikersRollen.Moderator)]
 public class BekijkBoeken : PageModel
 {
     public List<Stripboek> Stripboeken = new List<Stripboek>();

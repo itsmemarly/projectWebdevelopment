@@ -22,6 +22,21 @@ public class GenreRepository
         var genres  = connection.Query<Genre>(sql);
         return genres;
     }
+    
+    //updates a genre its name/soort
+    public Genre Update(Genre genre)
+    {
+        string sql = @"
+                UPDATE genre SET 
+                    soort = @soort 
+                WHERE genre_id = @genre_id;
+                SELECT * FROM genre WHERE genre_id = @genre_id";
+        
+        using var connection = GetConnection();
+        var updatedgenre = connection.QuerySingle<Genre>(sql, genre);
+        return updatedgenre;
+        
+    }
 
     /*
          
@@ -61,19 +76,6 @@ public class GenreRepository
         return rowsaffected == 1;
     }
      
-//updates a genre its name/soort
-    public Genre Update(Genre genre)
-    {
-        string sql = @"
-                UPDATE genre SET 
-                    soort = @Soort 
-                WHERE genre_id = @GenreId;
-                SELECT * FROM genre WHERE genre_id = @GenreId";
-        
-        using var connection = GetConnection();
-        var updatedgenre = connection.QuerySingle<Genre>(sql, genre);
-        return updatedgenre;
-        
-    }
+
      */
 }

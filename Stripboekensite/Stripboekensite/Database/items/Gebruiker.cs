@@ -13,4 +13,10 @@ public class Gebruiker
     public string rol { get; set; }
     
     public string naam { get; set; }
+
+    public static class GebruikersRollen
+    {
+        public const string Gebruiker = "Gebruiker";
+        public const string Moderator = "Moderator";
+    }
 }
