@@ -75,6 +75,7 @@ namespace Stripboekensite.Pages
                 new Claim(ClaimTypes.Email, gebruiker.Gebruikersnaam),
                 new Claim(ClaimTypes.Name, gebruiker.naam),
                 new Claim(ClaimTypes.Role, gebruiker.rol),
+                new Claim(ClaimTypes.DateOfBirth, gebruiker.Geboorte_datum.Date.ToString()),
                 new Claim(ClaimTypes.NameIdentifier , gebruiker.Gebruikers_id.ToString())
             };
             //create a new identity with the appropriate claims

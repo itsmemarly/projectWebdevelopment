@@ -12,13 +12,49 @@ public class StripboekRepository
     }
 
     //gives back a list of search result depending on titel using a string called search
-    public IEnumerable<Stripboek> GetSearch(string search)
+    public IEnumerable<Stripboek> GetSearch(string search, int searchtype)
     {
-
-        string sql = "SELECT * FROM stripboeken where titel like @search";
-
+        string sql;
         using var connection = GetConnection();
-        var stripboeken = connection.Query<Stripboek>(sql,new {search});
+        IEnumerable<Stripboek> stripboeken = new List<Stripboek>();
+        
+        if (searchtype == 1)
+        {
+            sql = "SELECT * FROM stripboeken where titel like @search";
+        }
+        else if (searchtype == 2)
+        {
+            //search on creator name
+            sql =
+                @"select c.stripboek_id, c.isbn, c.uitgave1e_druk, c.reeks_nr, c.bladzijden, c.titel, c.expliciet, c.uitgever_id, c.reeks_id
+                from creators_stripboeken p
+                inner join stripboeken c on p.stripboek_id = c.stripboek_id
+                inner join creator e on p.creator_id = e.creator_ID
+                where creator_naam like @search";
+        }
+        else if (searchtype==3)
+        {
+            //search on reeks name
+            sql = @"select c.stripboek_id, c.isbn, c.uitgave1e_druk, c.reeks_nr, c.bladzijden, c.titel, c.expliciet, c.uitgever_id, c.reeks_id
+                from stripboeken c
+                inner join reeksen p on c.reeks_id = p.reeks_id 
+                where Reeks_titel like @search";
+        }
+        else if (searchtype == 4)
+        {
+            //search on uitgever name
+            sql = @"select c.stripboek_id, c.isbn, c.uitgave1e_druk, c.reeks_nr, c.bladzijden, c.titel, c.expliciet, c.uitgever_id, c.reeks_id
+                from stripboeken c
+                inner join uitgever e on c.uitgever_id = e.uitgever_id
+                where Naam  like @search";
+        }
+        else
+        {
+            //fail save
+            sql = "SELECT * FROM stripboeken";
+        }
+        
+        stripboeken = connection.Query<Stripboek>(sql,new {search});
         return stripboeken;
     }
 
@@ -46,6 +82,16 @@ public class StripboekRepository
         var nieuwstripboek = connection.QuerySingle<Stripboek>(sql, stripboek);
         return nieuwstripboek;
     }
+    
+    //gives back the list of all stripboeken
+    public IEnumerable<Stripboek> Get()
+    {
+        string sql = "SELECT * FROM stripboeken";
+
+        using var connection = GetConnection();
+        var stripboeken = connection.Query<Stripboek>(sql);
+        return stripboeken;
+    }
 
 
     /*does not get used
@@ -68,18 +114,6 @@ public class StripboekRepository
         return connection.ExecuteScalar<bool>(sql, new {stripboek_ID});
     }
 
-    //gives back the list of all stripboeken
-    public IEnumerable<Stripboek> Get()
-    {
-        string sql = "SELECT * FROM stripboeken";
-
-        using var connection = GetConnection();
-        var stripboeken = connection.Query<Stripboek>(sql);
-        return stripboeken;
-    }
-     
-     
-     
     //deletes a stripboek using id
     public bool Delete(int stripboek_id)
     {

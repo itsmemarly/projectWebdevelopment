@@ -27,7 +27,7 @@ public class Gebruikers_StripboekenRepository
         string sql = @"
                 INSERT INTO gebruikers_stripboeken (druk, uitgave, bandlengte, plaats_gekocht, prijs_gekocht, staat, Gebruikers_ID, stripboek_id)
                 VALUES (@druk, @uitgave, @bandlengte, @plaats_gekocht, @prijs_gekocht, @staat, @Gebruiker_id, @stripboek_id); 
-                SELECT * FROM gebruikers_stripboeken WHERE Gebruikers_ID = @Gebruiker_id and stripboek_id= @stripboek_id";
+                SELECT * FROM gebruikers_stripboeken WHERE Gebruiker_stripboek_ID = LAST_INSERT_ID()";
 
         using var connection = GetConnection();
         var nieuwstripboekverzameling = connection.QuerySingle<Gebruikers_Stripboeken>(sql, gebruikers_stripboeken);

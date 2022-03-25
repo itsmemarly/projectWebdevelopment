@@ -24,6 +24,16 @@ public class GebruikerRepository
         return gebruiker;
     }
 
+    //gives back a list of gebruikers
+    public IEnumerable<Gebruiker> Get()
+    {
+        string sql = "SELECT * FROM gebruikers";
+
+        using var connection = GetConnection();
+        var gebruikers  = connection.Query<Gebruiker>(sql);
+        return gebruikers;
+    } 
+    
     //gives back true if user name exists in db
     public bool NameCheck(string gebruikersNaam)
     {
@@ -86,15 +96,7 @@ public class GebruikerRepository
         return connection.ExecuteScalar<bool>(sql, new {gebruikerId}); 
     }
      
-        //gives back a list of gebruikers
-    public IEnumerable<Gebruiker> Get()
-    {
-        string sql = "SELECT * FROM gebruikers";
-
-        using var connection = GetConnection();
-        var gebruikers  = connection.Query<Gebruiker>(sql);
-        return gebruikers;
-    } 
+       
      
 //deletes gebruiker using id
 public bool Delete(int GebruikersId)

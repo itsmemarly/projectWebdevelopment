@@ -18,14 +18,18 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <th scope="row" class="CategoryID">1</th>
-        <td  class="CategoryName" contenteditable="true">Titel</td>
-        
-        <td class="UpdateCategory"><button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button></td>
-        <td class="DeleteCategory"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
-   
-    </tr>
-   
+    @foreach (var Genre in @Model.Genres)
+    {
+        <tr>
+            <th scope="row" class="CategoryID">@Genre.genre_id</th>
+            <td class="CategoryName" contenteditable="true">@Genre.soort</td>
+
+            <td class="UpdateCategory"><button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button></td>
+            <td class="DeleteCategory"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
+
+        </tr>
+    }
+    
+
     </tbody>
 </table>
