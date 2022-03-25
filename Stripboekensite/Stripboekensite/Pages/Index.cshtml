@@ -7,9 +7,16 @@
 <!-- Alles netjes op een rij gezet, boekenkast pagina heeft een eigen zoekbalk -->
  <div class="row">
    <form asp-page-handler="Search" method="post">
-     <input name="search" type="search"  id="form1" class="form-control col-8" placeholder="Typ hier" aria-label="Search" />
-   </form>
-                 <h1 class="clearfix">@Model.message</h1>
+     <input name="search" type="search"  id="form1" class="form-control col-6" placeholder="Typ hier" aria-label="Search" />
+     <button class="btn btn-dark col-2" type="submit">search</button>
+     <select class="col-4 form-control" name="searchtype">
+     <option value="1">titel</option>
+     <option value="2">creator</option>
+     <option value="3">reeks</option>
+     <option value="4">uitgever</option>
+     </select>
+     </form>
+   <h1 class="clearfix">@Model.message</h1>
  </div>
  <br/>
 
