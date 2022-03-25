@@ -55,7 +55,7 @@ namespace Stripboekensite.Pages
             }
         }
 
-        public void OnPostSearch(string search)
+        public void OnPostSearch(string search,int searchtype)
         {
             bookcheck();
             
@@ -66,7 +66,7 @@ namespace Stripboekensite.Pages
             //checks if there even is a value in the database if false message will say no search results
             //if true added stripboek showed so the stripboek wil be showed on page
            
-                searchresults = new StripboekRepository().GetSearch(querysearch).ToList();
+                searchresults = new StripboekRepository().GetSearch(querysearch,searchtype).ToList();
                 foreach (var stripboek in searchresults)
                 {
                     foreach (var stripboekuser in stripboekgenreshowed)

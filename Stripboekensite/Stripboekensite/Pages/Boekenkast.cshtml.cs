@@ -32,7 +32,7 @@ namespace Stripboekensite.Pages
         }
 
         //search option
-        public void OnPostSearch(string search)
+        public void OnPostSearch(string search,int searchtype)
         {
             userbookcheck();
             
@@ -41,7 +41,7 @@ namespace Stripboekensite.Pages
             message = "je zoekt op : " + search;
             
             List<GenreStripboek> ownedsearch = new List<GenreStripboek>();
-            searchresults = new StripboekRepository().GetSearch(querysearch).ToList();
+            searchresults = new StripboekRepository().GetSearch(querysearch, searchtype).ToList();
             List<Gebruikers_Stripboeken> searchresultsstripboekuser = new List<Gebruikers_Stripboeken>();
             
             foreach (var stripboek in searchresults)
