@@ -33,9 +33,27 @@ public class GenreStripboekRepository
         }
         return newGenreStripboeken;
     }
-
+    
+    //deletes a genre stripboek combination by genre id
+    public void DeleteByGenreID(int genreid)
+    {
+        string sql = @"DELETE FROM genre_Stripboeken WHERE genre_id = @genreid";
+        using var connection = GetConnection();
+        var rowsaffected = connection.Execute(sql, new{ genreid});
+    }
     
     /* does not get used
+     
+     
+     //deletes a genre stripboek combination
+    public bool Delete(int genreid, int stripboekid)
+    {
+        string sql = @"DELETE FROM genre_Stripboeken WHERE genre_id = @genreid and stripboek_id = @stripboekid";
+        using var connection = GetConnection();
+        var rowsaffected = connection.QuerySingle<int>(sql, new{ genreid, stripboekid });
+        return rowsaffected == 1;
+    }
+    
 //gives back a list of al genrestripboek
     public IEnumerable<GenreStripboek> Get()
     {

@@ -23,7 +23,7 @@ public class BekijkGebruikers : PageModel
         Gebruikers = gebruikerRepository.Get().ToList();
     }
 
-    public IActionResult OnPost(string gebruiker_id, string gebruikersNaam, string geboorte_datum, string email, string rol)
+    public IActionResult OnPostEdit(string gebruiker_id, string gebruikersNaam, string geboorte_datum, string email, string rol)
     {
         Gebruiker gebruiker = new Gebruiker();
         gebruiker.naam = gebruikersNaam;
@@ -34,6 +34,27 @@ public class BekijkGebruikers : PageModel
 
         GebruikerRepository gebruikerRepository = new GebruikerRepository();
         gebruikerRepository.Update(gebruiker);
+        return RedirectToPage("/BekijkGebruikers");
+    }
+
+    public IActionResult OnPostDelete(string id)
+    {
+        //Todo maybe combine these two querries into one. This looks promising: https://stackoverflow.com/questions/4839905/mysql-delete-from-multiple-tables-with-one-query
+        
+        int gebruikers_id = Int32.Parse(id);
+        {
+            //first delete all books the person owns
+            var gebruikersStripboekenRepository = new Gebruikers_StripboekenRepository();
+            gebruikersStripboekenRepository.DeleteGebruiker(gebruikers_id);
+        }
+
+        {
+            //then delete the user
+            var gebruikerRepository = new GebruikerRepository();
+            gebruikerRepository.Delete(gebruikers_id);
+        }
+        
+        
         return RedirectToPage("/BekijkGebruikers");
     }
 }

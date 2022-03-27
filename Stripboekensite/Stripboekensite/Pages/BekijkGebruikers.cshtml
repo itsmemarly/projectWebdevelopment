@@ -23,20 +23,69 @@
     </thead>
     <tbody>
     @foreach (var Gebruiker in @Model.Gebruikers)
-        {
-            <form method="post">
-                <tr>
-                     <input type="hidden" name="gebruiker_id" value="@Gebruiker.Gebruikers_id"/>       
-                    <th scope="row" name="id" class="UserID">@Gebruiker.Gebruikers_id</th>
-                    <td class="UserName"><input name="gebruikersNaam" value="@Gebruiker.naam" type="text"/></td>
-                    <td class="UserDateOfBirth"><input  name="geboorte_datum" value="@Gebruiker.Geboorte_datum.Date.ToString("yyyy-MM-dd")" type="date"/></td>
-                    <td class="UserEmail"><input name="email"value="@Gebruiker.Gebruikersnaam" type="text"/></td>
-                    <td class="UserRole"> <select name="rol" asp-for="@Gebruiker.rol" asp-items="@Model.rolOpties"></select></td>
-                    <td class="UpdateUser"><button type="submit" class="btn btn-success"><i class="fas fa-save"></i></button></td>
-                            
-                    <td class="DeleteUser"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
-                </tr>
+    {
+            
+        <tr>
+            <th scope="row" name="id" class="UserID">@Gebruiker.Gebruikers_id</th>
+            <form method="post" asp-page-handler="Edit">
+                <input type="hidden" name="gebruiker_id" value="@Gebruiker.Gebruikers_id"/>
+                <td class="UserName"><input name="gebruikersNaam" value="@Gebruiker.naam" type="text"/></td>
+                <td class="UserDateOfBirth"><input name="geboorte_datum" value="@Gebruiker.Geboorte_datum.Date.ToString("yyyy-MM-dd")" type="date"/></td>
+                <td class="UserEmail"><input name="email"value="@Gebruiker.Gebruikersnaam" type="text"/></td>
+                <td class="UserRole"> <select name="rol" asp-for="@Gebruiker.rol" asp-items="@Model.rolOpties"></select></td>
+                <td class="UpdateUser"><button type="submit" class="btn btn-success"><i class="fas fa-save"></i></button></td>
             </form>
-        }
+            
+            <td class="DeleteUser"><button type="button" class="btn btn-danger" onclick="deleteConfirm('@Gebruiker.naam', '@Gebruiker.Gebruikers_id')" ><i class="far fa-trash-alt"></i></button></td>
+        </tr>
+            
+    }
     </tbody>
 </table>
+
+<!--bootstrap pop up confirmation dialog-->
+<div class="modal fade" id="delete-conformation" tabindex="-1" role="dialog" aria-labelledby="deleteconformation">
+    
+    <div class="modal-dialog" style="width:501px !important;margin:0 auto;">
+        <div class="modal-content">
+            <div class="modal-header" style="background:#d9534f;color:white;">
+                <h4 class="modal-title" id="delete-conformation">
+                    Delete Confirmation
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <span>
+                                Are you sure you want to delete?
+                            </span>
+                            <strong id="deletedValueName">
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <form method="post" asp-page-handler="Delete">
+                        <input type="hidden" id="id" name="id"/>
+                        <input type="submit" class="btn btn-danger" value="Delete"/>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        //this is only display bootstrap modal pop up dialog
+        var deleteConfirm = function (name, id) {
+            $('#deletedValueName').text(name);
+            $('#id').val(id);
+            $('#delete-conformation').modal('show');
+        }
+    </script>
+}

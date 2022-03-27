@@ -37,6 +37,15 @@ public class GenreRepository
         return updatedgenre;
         
     }
+    
+    //deletes a genre using its id
+    public bool DeleteGenre(int genre_id)
+    {
+        string sql = @"DELETE FROM genre WHERE genre_id = @genre_id";
+        using var connection = GetConnection();
+        return connection.ExecuteScalar<bool>(sql, new {genre_id});
+    }
+
 
     /*
          
@@ -65,17 +74,7 @@ public class GenreRepository
         using var connection = GetConnection();
         var newgenre = connection.QuerySingle<Genre>(sql, genre);
         return newgenre;
-    }
-     
-      //deletes a genre using its id
-    public bool Delete(int genreid)
-    {
-        string sql = @"DELETE FROM genre WHERE genre_id = @genreid";
-        using var connection = GetConnection();
-        var rowsaffected = connection.QuerySingle<int>(sql, genreid);
-        return rowsaffected == 1;
-    }
-     
+    }      
 
      */
 }

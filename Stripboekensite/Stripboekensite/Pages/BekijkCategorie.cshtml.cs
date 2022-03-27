@@ -15,7 +15,7 @@ public class BekijkCategorie : PageModel
         Genres = genreRepository.Get().ToList();
     }
 
-    public IActionResult OnPost(string soort, string genre_id)
+    public IActionResult OnPostUpdate(string soort, string genre_id)
     {
         Genre genre = new Genre();
         genre.genre_id = Int32.Parse(genre_id);
@@ -25,5 +25,22 @@ public class BekijkCategorie : PageModel
         genreRepository.Update(genre);
 
         return RedirectToPage("BekijkCategorie");
+    }
+
+    public IActionResult OnPostDelete(string id)
+    {
+        int genreId = Int32.Parse(id);
+        {
+            //delete references to genre
+            var genreStripboekRepository = new GenreStripboekRepository();
+            genreStripboekRepository.DeleteByGenreID(genreId);
+        }
+
+        {
+            //delete the genre
+            var genreRepository = new GenreRepository();
+            genreRepository.DeleteGenre(genreId);
+        }
+        return RedirectToPage("/BekijkCategorie");
     }
 }

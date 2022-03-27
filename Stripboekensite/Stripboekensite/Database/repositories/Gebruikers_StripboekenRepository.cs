@@ -33,12 +33,19 @@ public class Gebruikers_StripboekenRepository
         var nieuwstripboekverzameling = connection.QuerySingle<Gebruikers_Stripboeken>(sql, gebruikers_stripboeken);
         return nieuwstripboekverzameling;
     }
-
+    
     public bool Delete(int gebruikerstripboekid)
     {
         string sql = @"DELETE FROM gebruikers_stripboeken WHERE Gebruiker_stripboek_ID = @gebruikerstripboekid";
         using var connection = GetConnection();
         return connection.ExecuteScalar<bool>(sql, new {gebruikerstripboekid});
+    }
+    
+    public bool DeleteGebruiker(int gebruikers_id)
+    {
+        string sql = @"DELETE FROM gebruikers_stripboeken WHERE Gebruikers_ID = @gebruikers_id";
+        using var connection = GetConnection();
+        return connection.ExecuteScalar<bool>(sql, new {gebruikers_id});
     }
     
     

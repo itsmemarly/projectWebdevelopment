@@ -72,6 +72,16 @@ public class GebruikerRepository
         return updatedgebruiker;
     }
     
+    //deletes gebruiker using id
+    public bool Delete(int GebruikersId)
+    {
+        string sql = @"DELETE FROM gebruikers WHERE Gebruikers_id = @GebruikersId";
+
+        using var connection = GetConnection();
+        int numOfEffectedRows = connection.Execute(sql, new { GebruikersId });
+        return numOfEffectedRows == 1;
+    }
+    
     
     
     
