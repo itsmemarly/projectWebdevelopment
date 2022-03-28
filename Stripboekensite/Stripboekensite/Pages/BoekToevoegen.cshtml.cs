@@ -13,11 +13,8 @@ namespace Stripboekensite.Pages
         public List<Uitgever> uitgevers = new List<Uitgever>();
         public List<Reeks> reeksen = new List<Reeks>();
         public List<Creator> creators = new List<Creator>();
-        //public List<int> genreids { get; set; }
-
-        //id of current user
         public int userid;
-        
+
         public void OnGet()
         {
             setlists();
@@ -75,13 +72,7 @@ namespace Stripboekensite.Pages
 
             }
 
-            addedstripboek = new StripboekRepository().Add(stripboek);   
-           
-            //adds stripboek gebruiker connection to database
-            Gebruikers_Stripboeken stripboekgebruiker = new Gebruikers_Stripboeken();
-            stripboekgebruiker.Gebruiker_id = userid;
-            stripboekgebruiker.stripboek_id = addedstripboek.Stripboek_id;
-            new Gebruikers_StripboekenRepository().Add(stripboekgebruiker);
+            addedstripboek = new StripboekRepository().Add(stripboek);
 
             if (schrijvernaam != null )
             {
@@ -132,6 +123,7 @@ namespace Stripboekensite.Pages
         public void taakcreator(string naam, string taak, Stripboek stripboek)
         {
             CreatorStripboeken creatorstrip = new CreatorStripboeken();
+            
             foreach (var creator in creators)
             {
                 if (creator.Creator_naam.ToLower() == naam.ToLower())

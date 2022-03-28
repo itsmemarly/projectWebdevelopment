@@ -33,6 +33,20 @@ public class GenreStripboekRepository
         }
         return newGenreStripboeken;
     }
+
+    public void Delete(List<GenreStripboek> GenreStripboek)
+    {
+        string sql = @"DELETE FROM genre_Stripboeken WHERE genre_id = @Genre_id and stripboek_id = @Stripboek_id";
+        List<GenreStripboek> empty= new List<GenreStripboek>();
+        
+        using var connection = GetConnection();
+        foreach (var genreStripboek in GenreStripboek)
+        {
+            var rowsaffected = connection.Execute(sql, genreStripboek);
+
+        }
+        
+    }
     
     //deletes a genre stripboek combination by genre id
     public void DeleteByGenreID(int genreid)
@@ -43,17 +57,6 @@ public class GenreStripboekRepository
     }
     
     /* does not get used
-     
-     
-     //deletes a genre stripboek combination
-    public bool Delete(int genreid, int stripboekid)
-    {
-        string sql = @"DELETE FROM genre_Stripboeken WHERE genre_id = @genreid and stripboek_id = @stripboekid";
-        using var connection = GetConnection();
-        var rowsaffected = connection.QuerySingle<int>(sql, new{ genreid, stripboekid });
-        return rowsaffected == 1;
-    }
-    
 //gives back a list of al genrestripboek
     public IEnumerable<GenreStripboek> Get()
     {

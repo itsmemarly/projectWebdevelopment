@@ -10,6 +10,16 @@ public class StripboekRepository
     {
         return new DbUtils().GetDbConnection();
     }
+     
+    //gives back a specific stripboek using id
+    public Stripboek Get(int stripboek_ID)
+    {
+        string sql = "SELECT * FROM stripboeken WHERE stripboek_id = @stripboek_ID";
+
+        using var connection = GetConnection();
+        var creator = connection.QuerySingle<Stripboek>(sql, new {stripboek_ID});
+        return creator;
+    }
 
     //gives back a list of search result depending on titel using a string called search
     public IEnumerable<Stripboek> GetSearch(string search, int searchtype)
@@ -92,28 +102,35 @@ public class StripboekRepository
         var stripboeken = connection.Query<Stripboek>(sql);
         return stripboeken;
     }
+    
+    //updates a stripboek their titel
+    public Stripboek Update(Stripboek stripboek)
+    {
+        string sql;
+        if (stripboek.Reeks_id == 0)
+        {
+            sql = @"
+                UPDATE stripboeken SET 
+                    titel = @titel, isbn = @isbn, uitgave1e_druk= @Uitgave1e_druk, bladzijden=@Bladzijden, expliciet= @expleciet, uitgever_id =@Uitgever_id
+                WHERE stripboek_id = @Stripboek_id;
+                SELECT * FROM stripboeken WHERE stripboek_id = @Stripboek_id";
+        }
+        else
+        {
+            sql = @"
+                UPDATE stripboeken SET 
+                    titel = @titel, isbn = @isbn,reeks_id = @Reeks_id, reeks_nr = @reeks_nr, uitgave1e_druk= @Uitgave1e_druk, bladzijden=@Bladzijden, expliciet= @expleciet, uitgever_id =@Uitgever_id
+                WHERE stripboek_id = @Stripboek_id;
+                SELECT * FROM stripboeken WHERE stripboek_id = @Stripboek_id";
+        }
+
+        using var connection = GetConnection();
+        var updatedStripboek = connection.QuerySingle<Stripboek>(sql, stripboek);
+        return updatedStripboek;
+    }
 
 
     /*does not get used
-     
-    //gives back a specific stripboek using id
-    public Stripboek Get(int stripboek_ID)
-    {
-        string sql = "SELECT * FROM stripboeken WHERE stripboek_id = @stripboek_ID";
-
-        using var connection = GetConnection();
-        var creator = connection.QuerySingle<Stripboek>(sql, new {stripboek_ID});
-        return creator;
-    }
-    
-    public bool checkid(int stripboek_ID)
-    {
-        string sql = "SELECT * FROM stripboeken WHERE stripboek_id = @stripboek_ID";
-
-        using var connection = GetConnection();
-        return connection.ExecuteScalar<bool>(sql, new {stripboek_ID});
-    }
-
     //deletes a stripboek using id
     public bool Delete(int stripboek_id)
     {
