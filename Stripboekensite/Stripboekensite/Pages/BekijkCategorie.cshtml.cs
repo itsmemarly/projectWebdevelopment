@@ -15,6 +15,7 @@ public class BekijkCategorie : PageModel
         Genres = genreRepository.Get().ToList();
     }
 
+    //if the update button is clicked update the genre with the info from the form
     public IActionResult OnPostUpdate(string soort, string genre_id)
     {
         Genre genre = new Genre();
@@ -41,6 +42,7 @@ public class BekijkCategorie : PageModel
             var genreRepository = new GenreRepository();
             genreRepository.DeleteGenre(genreId);
         }
+        //refresh the page
         return RedirectToPage("/BekijkCategorie");
     }
 }

@@ -6,6 +6,7 @@ namespace Stripboekensite.Pages.Account;
 
 public class logout : PageModel
 {
+    //log the user out and redirect them to the home page
     public async Task<IActionResult> OnGetAsync()
     {
         await HttpContext.SignOutAsync();

@@ -18,11 +18,11 @@ public class BekijkGebruikers : PageModel
         rolOpties.Add( new SelectListItem {Value = Gebruiker.GebruikersRollen.Gebruiker, Text = Gebruiker.GebruikersRollen.Gebruiker});
         rolOpties.Add( new SelectListItem {Value = Gebruiker.GebruikersRollen.Moderator, Text = Gebruiker.GebruikersRollen.Moderator});
         
-        
         GebruikerRepository gebruikerRepository = new GebruikerRepository();
         Gebruikers = gebruikerRepository.Get().ToList();
     }
 
+    //make a new user, populate it with the info from the form and then udate the database with that user
     public IActionResult OnPostEdit(string gebruiker_id, string gebruikersNaam, string geboorte_datum, string email, string rol)
     {
         Gebruiker gebruiker = new Gebruiker();
@@ -54,7 +54,7 @@ public class BekijkGebruikers : PageModel
             gebruikerRepository.Delete(gebruikers_id);
         }
         
-        
+        //refresh the page
         return RedirectToPage("/BekijkGebruikers");
     }
 }
