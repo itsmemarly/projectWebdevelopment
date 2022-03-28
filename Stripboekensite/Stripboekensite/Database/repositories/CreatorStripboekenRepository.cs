@@ -34,6 +34,16 @@ public class CreatorStripboekenRepository
         return numOfEffectedRows == 1;
     }
     
+    //deletes creator stripboek combination
+    public bool DeleteByStripboek(int Stripboek_ID)
+    {
+        string sql = @"DELETE FROM creators_stripboeken WHERE stripboek_id = @Stripboek_ID";
+
+        using var connection = GetConnection();
+        int numOfEffectedRows = connection.Execute(sql, new {Stripboek_ID});
+        return numOfEffectedRows == 1;
+    }
+    
     /* does not get used 
     
     //gives back specifiek creator stripboek combination

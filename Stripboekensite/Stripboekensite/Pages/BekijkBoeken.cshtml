@@ -25,6 +25,7 @@
         <th scope="col">Bladzijden</th>
         <th scope="col">Expliciet</th>
         <th scope="col">Bewerken</th>
+        <th scope="col">Verwijderen</th>
     </tr>
     </thead>
     <tbody>
@@ -38,10 +39,13 @@
             <td class="BookPages" contenteditable="false">@stripboek.Bladzijden</td>
             <td class="BookExplicit" contenteditable="false">@stripboek.expleciet</td>
             
-            <td class="UpdateBook"><form>
-                 <input type="hidden" name="id" value=@stripboek.Stripboek_id />
+            <td class="UpdateBook"><form method="post" asp-page-handler="Edit">
+                <input type="hidden" name="id" value=@stripboek.Stripboek_id />
                 <button class="btn btn-success" type="submit"><i class="fas fa-edit"></i></button>
             </form></td>
+            <td class="DeleteBook">
+                <button class="btn btn-danger" type="button" onclick="deleteConfirm('@stripboek.titel', '@stripboek.Stripboek_id')"><i class="fas fa-trash-alt"></i></button>
+            </td>
 
         </tr>
     }
@@ -49,3 +53,51 @@
 
     </tbody>
 </table>
+
+<!--bootstrap pop up confirmation dialog-->
+<!--this code is reused, we can probably move it to some sort of shared resource but I don't know how to do that-->
+<div class="modal fade" id="delete-conformation" tabindex="-1" role="dialog" aria-labelledby="deleteconformation">
+    
+    <div class="modal-dialog" style="width:501px !important;margin:0 auto;">
+        <div class="modal-content">
+            <div class="modal-header" style="background:#d9534f;color:white;">
+                <h4 class="modal-title" id="delete-conformation">
+                    Delete Confirmation
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <span>
+                                Are you sure you want to delete: 
+                            </span>
+                            <strong id="deletedValueName">
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <form method="post" asp-page-handler="Delete">
+                        <input type="hidden" id="id" name="id"/>
+                        <input type="submit" class="btn btn-danger" value="Delete"/>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        //this is only display bootstrap modal pop up dialog
+        var deleteConfirm = function (name, id) {
+            $('#deletedValueName').text(name);
+            $('#id').val(id);
+            $('#delete-conformation').modal('show');
+        }
+    </script>
+}

@@ -48,6 +48,13 @@ public class Gebruikers_StripboekenRepository
         return connection.ExecuteScalar<bool>(sql, new {gebruikers_id});
     }
     
+    public bool DeleteStripboek(int stripboek_id)
+    {
+        string sql = @"DELETE FROM gebruikers_stripboeken WHERE stripboek_id = @stripboek_id";
+        using var connection = GetConnection();
+        return connection.ExecuteScalar<bool>(sql, new {stripboek_id});
+    }
+    
     
     /* does not get used
       //gives back specific gebruiker_stripboek stripboek combination

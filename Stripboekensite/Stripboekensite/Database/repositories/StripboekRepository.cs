@@ -128,7 +128,16 @@ public class StripboekRepository
         var updatedStripboek = connection.QuerySingle<Stripboek>(sql, stripboek);
         return updatedStripboek;
     }
+    
+    //deletes a stripboek using id
+    public bool Delete(int stripboek_id)
+    {
+        string sql = @"DELETE FROM stripboeken WHERE  stripboek_id = @stripboek_id";
 
+        using var connection = GetConnection();
+        int numOfEffectedRows = connection.Execute(sql, new {stripboek_id});
+        return numOfEffectedRows == 1;
+    }
 
     /*does not get used
     //deletes a stripboek using id
