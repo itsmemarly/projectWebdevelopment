@@ -87,15 +87,17 @@ namespace Stripboekensite.Pages
                 
         }
         
-        public void OnPostAddtouser(int stripboekid)
+        public IActionResult OnPostAddtouser(int stripboekid)
         {
-            bookcheck();
+            return RedirectToPage("/PersoonlijkeBoekGegevens", new {id = stripboekid});
             
-            Gebruikers_Stripboeken gebruikersStripboeken = new Gebruikers_Stripboeken();
+            //bookcheck();
+            
+            /*Gebruikers_Stripboeken gebruikersStripboeken = new Gebruikers_Stripboeken();
             gebruikersStripboeken.Gebruiker_id = userid;
             gebruikersStripboeken.stripboek_id = stripboekid;
 
-            Gebruikers_Stripboeken newgebruiker = new Gebruikers_StripboekenRepository().Add(gebruikersStripboeken);
+            Gebruikers_Stripboeken newgebruiker = new Gebruikers_StripboekenRepository().Add(gebruikersStripboeken); */
         }
         
         public void useridget()

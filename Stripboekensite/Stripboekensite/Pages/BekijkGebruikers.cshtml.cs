@@ -42,17 +42,15 @@ public class BekijkGebruikers : PageModel
         //Todo maybe combine these two querries into one. This looks promising: https://stackoverflow.com/questions/4839905/mysql-delete-from-multiple-tables-with-one-query
         
         int gebruikers_id = Int32.Parse(id);
-        {
-            //first delete all books the person owns
-            var gebruikersStripboekenRepository = new Gebruikers_StripboekenRepository();
-            gebruikersStripboekenRepository.DeleteGebruiker(gebruikers_id);
-        }
-
-        {
-            //then delete the user
-            var gebruikerRepository = new GebruikerRepository();
-            gebruikerRepository.Delete(gebruikers_id);
-        }
+        
+        //first delete all books the person owns
+        var gebruikersStripboekenRepository = new Gebruikers_StripboekenRepository();
+        gebruikersStripboekenRepository.DeleteGebruiker(gebruikers_id);
+    
+        //then delete the user
+        var gebruikerRepository = new GebruikerRepository();
+        gebruikerRepository.Delete(gebruikers_id);
+        
         
         //refresh the page
         return RedirectToPage("/BekijkGebruikers");
