@@ -11,8 +11,6 @@ public class BoekBewerken : PageModel
 {
     
 #region variabels
-
-    public BewerkItem bewerkitem;
     public List<Genre> Genres = new List<Genre>();
     public Stripboek stripboek = new Stripboek();
     public List<Uitgever> uitgevers = new List<Uitgever>();
@@ -28,8 +26,6 @@ public class BoekBewerken : PageModel
     
 #endregion
 
-    //11 + 14 database calls
-
     public void OnGet(int stripboek_id)
     {
 
@@ -40,138 +36,140 @@ public class BoekBewerken : PageModel
     }
 
     public void OnPostUpdateStripboek(int stripboek_id,string titel, string isbn, int jaar1druk,string uitgever, int expleciet, int paginas, string reeksnaam, int reeksnum,string schrijvernaam, string tekenaarnaam, List<int> genreids)
-    {
-        setlists(stripboek_id); //cals upon set list to re get al data from database
-        stripboek.Uitgever_id = stripboek.uitgever.Uitgever_id; //gets id from class object
-        if (stripboek.reeks != null)  //gets id from class object of class object exist
         {
-            stripboek.Reeks_id = stripboek.reeks.Reeks_id;
-        }
-        Stripboek addedstripboek = new Stripboek();
+            setlists(stripboek_id); //cals upon set list to re get all data from database
+            stripboek.Uitgever_id = stripboek.uitgever.Uitgever_id; //gets id from class object
+            if (stripboek.reeks != null)  //gets id from class object of class object exist
+            {
+                stripboek.Reeks_id = stripboek.reeks.Reeks_id;
+            }
+            Stripboek addedstripboek = new Stripboek();
             
-        //checks if anythings has been filled if nothing or 0 has been given as value, nothing will change
-        if (titel != null)
-        {
-            stripboek.titel = titel;
-        }
-        if (isbn != null)
-        {
+            //checks if anythings has been filled if nothing or 0 has been given as value, nothing will change
+            if (titel != null)
+            {
+                stripboek.titel = titel;
+            }
+            if (isbn != null)
+            {
                 stripboek.isbn = isbn;
-        }
-        if (jaar1druk != 0)
-        {
+            }
+            if (jaar1druk != 0)
+            {
                 stripboek.Uitgave1e_druk = jaar1druk;
-        } 
-        if (reeksnum != 0)
-        {
+            } 
+            if (reeksnum != 0)
+            {
                 stripboek.Reeks_nr = reeksnum;
-        }
-        if (paginas != 0)
-        {
+            }
+            if (paginas != 0)
+            {
                 stripboek.Bladzijden = paginas;
-        }
+            }
             
-        if (uitgever != null)
-        {
-            stripboek.Uitgever_id = 0;
-            foreach (var uitgevr in uitgevers)
+            if (uitgever != null)
             {
-                if (uitgevr.Naam.ToLower() == uitgever.ToLower())
+                stripboek.Uitgever_id = 0;
+                foreach (var uitgevr in uitgevers)
                 {
-                    stripboek.Uitgever_id = uitgevr.Uitgever_id;
+                    if (uitgevr.Naam.ToLower() == uitgever.ToLower())
+                    {
+                        stripboek.Uitgever_id = uitgevr.Uitgever_id;
+                    }
+                }
+                if (stripboek.Uitgever_id == 0)
+                {
+                    //creates a uitgever connection to stripboek if it does not exist
+                    Uitgever newuitgever = new Uitgever();
+                    newuitgever.Naam = uitgever;
+                    Uitgever newruitgever = new UitgeverRepository().Add(newuitgever);
+                    stripboek.Uitgever_id = newruitgever.Uitgever_id;
                 }
             }
-            if (stripboek.Uitgever_id == 0)
-            {
-                //creates a uitgever connection to stripboek if it does not exist
-                Uitgever newuitgever = new Uitgever();
-                newuitgever.Naam = uitgever;
-                Uitgever newruitgever = new UitgeverRepository().Add(newuitgever);
-                stripboek.Uitgever_id = newruitgever.Uitgever_id;
-            }
-        }
             
-        if (reeksnaam != null)
-        {
-            stripboek.Reeks_id = stripboek.reeks.Reeks_id;
-            stripboek.Reeks_id = 0;
-            foreach (var reeks in reeksen)
+            if (reeksnaam != null)
             {
-                if (reeks.Reeks_titel.ToLower() == reeksnaam.ToLower()) 
+                stripboek.Reeks_id = stripboek.reeks.Reeks_id;
+                stripboek.Reeks_id = 0;
+                foreach (var reeks in reeksen)
                 {
-                    stripboek.Reeks_id = reeks.Reeks_id;
-                    break;
+                    if (reeks.Reeks_titel.ToLower() == reeksnaam.ToLower())
+                    {
+                        stripboek.Reeks_id = reeks.Reeks_id;
+                        break;
+                    }
                 }
-            }
 
-            if (stripboek.Reeks_id == 0) 
+                if (stripboek.Reeks_id == 0)
+                {
+                    //checks whether there is a reeks and will add with reeks 
+                    Reeks newrReeks = new Reeks();
+                    newrReeks.Reeks_titel = reeksnaam;
+                    stripboek.Reeks_id = new ReeksRepository().Add(newrReeks).Reeks_id;
+                }
+
+            }
+            
+            stripboek.expleciet = expleciet; //has always a value and input field cannot be empty
+
+            addedstripboek = new StripboekRepository().Update(stripboek);
+
+            //stripboiek creator connections
+            if (schrijvernaam != null )
             {
-                //checks whether there is a reeks and will add with reeks 
-                Reeks newrReeks = new Reeks();
-                newrReeks.Reeks_titel = reeksnaam;
-                stripboek.Reeks_id = new ReeksRepository().Add(newrReeks).Reeks_id;
+                taakcreator(schrijvernaam, "schrijver", addedstripboek);
             }
 
+            if (tekenaarnaam != null)
+            {
+                taakcreator(tekenaarnaam, "tekenaar", addedstripboek);
+
+            }
+            
+            //genre stripboek connection
+            List<GenreStripboek> genrelist = new List<GenreStripboek>();
+            foreach (var genstrip in genrestripboeks)
+            {
+                genstrip.Stripboek_id = genstrip.Stripboek.Stripboek_id;
+                genstrip.Genre_id = genstrip.genre.genre_id;
+            }//sets id from class objects
+            new GenreStripboekRepository().Delete(genrestripboeks); //deletes entire stripboek genre list so new one can be made 
+            
+            foreach (var genreid in genreids)
+            {
+                //adds a genre stripboek connection to database
+                GenreStripboek stripboekgenre = new GenreStripboek();
+                stripboekgenre.Stripboek_id = addedstripboek.Stripboek_id;
+                stripboekgenre.Genre_id = genreid;
+                genrelist.Add(stripboekgenre);
+
+            } //adds each genre to genre list to be added to database
+            
+            new GenreStripboekRepository().Add(genrelist);
+            
+            
         }
-            
-        stripboek.expliciet = expleciet; //has always a value and input field cannot be empty
-
-        addedstripboek = new StripboekRepository().Update(stripboek);
-
-        //stripboiek creator connections
-        if (schrijvernaam != null )
-        {
-            taakcreator(schrijvernaam, "schrijver", addedstripboek);
-        }
-
-        if (tekenaarnaam != null)
-        {
-            taakcreator(tekenaarnaam, "tekenaar", addedstripboek);
-
-        }
-            
-        //genre stripboek connection
-        List<GenreStripboek> genrelist = new List<GenreStripboek>();
-        foreach (var genstrip in genrestripboeks)
-        {
-            genstrip.Stripboek_id = genstrip.Stripboek.Stripboek_id;
-            genstrip.Genre_id = genstrip.genre.genre_id;
-        }//sets id from class objects
-        new GenreStripboekRepository().Delete(genrestripboeks); //deletes entire stripboek genre list so new one can be made 
-            
-        foreach (var genreid in genreids)
-        {
-            //adds a genre stripboek connection to database
-            GenreStripboek stripboekgenre = new GenreStripboek();
-            stripboekgenre.Stripboek_id = addedstripboek.Stripboek_id;
-            stripboekgenre.Genre_id = genreid;
-            genrelist.Add(stripboekgenre);
-
-        } //adds each genre to genre list to be added to database
-            
-        new GenreStripboekRepository().Add(genrelist);
-    }
         
     /// <summary>
     /// gets all the data from database. set to list and gets data from specific stripboek using stripboek_id. own method because multiple uses not only onget
     /// </summary>
     /// <param name="stripboek_id"></param>
     public void setlists(int stripboek_id)
-    {
-        bewerkitem=new BewerkItemRepository().Get(stripboek_id);
-        
-        Genres = bewerkitem.Genres;
-        stripboek = bewerkitem.stripboek;
-        creators = bewerkitem.creators;
-        uitgevers = bewerkitem.uitgevers;
-        reeksen = bewerkitem.reeksen;
-        CreatorStripboeken = bewerkitem.CreatorStripboeken;
-        genrestripboeks = bewerkitem.genrestripboeks;
-
-    }
+        {
+            //set the list to values from database
+            Genres = new GenreRepository().Get().ToList();
+            reeksen = new ReeksRepository().Get().ToList();
+            uitgevers = new UitgeverRepository().Get().ToList();
+            creators = new CreatorRepository().Get().ToList();
+            
+            //gets predetermend values out of database
+            stripboek = new JoinRepository().joinStripboek(stripboek_id);
+            CreatorStripboeken = new JoinRepository().Joincreatorstripboek(stripboek_id).ToList();
+            genrestripboeks = new JoinRepository().joingenrestripboekid(stripboek_id).ToList();
+        }
 
     /// <summary>
-    /// adds creator stripboek connection. if creator does not exist, new creator will be made and addded to the database.
+    /// adds creator stripboek connection. if creator does not exist, new creator will be made and added to the database.
     /// removes creators with the same 'taak'
     /// </summary>
     /// <param name="naam"></param>
