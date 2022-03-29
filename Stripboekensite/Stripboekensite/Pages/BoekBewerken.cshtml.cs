@@ -37,7 +37,7 @@ public class BoekBewerken : PageModel
 
     public void OnPostUpdateStripboek(int stripboek_id,string titel, string isbn, int jaar1druk,string uitgever, int expleciet, int paginas, string reeksnaam, int reeksnum,string schrijvernaam, string tekenaarnaam, List<int> genreids)
         {
-            setlists(stripboek_id); //cals upon set list to re get al data from database
+            setlists(stripboek_id); //cals upon set list to re get all data from database
             stripboek.Uitgever_id = stripboek.uitgever.Uitgever_id; //gets id from class object
             if (stripboek.reeks != null)  //gets id from class object of class object exist
             {
@@ -169,7 +169,7 @@ public class BoekBewerken : PageModel
         }
 
     /// <summary>
-    /// adds creator stripboek connection. if creator does not exist, new creator will be made and addded to the database.
+    /// adds creator stripboek connection. if creator does not exist, new creator will be made and added to the database.
     /// removes creators with the same 'taak'
     /// </summary>
     /// <param name="naam"></param>
