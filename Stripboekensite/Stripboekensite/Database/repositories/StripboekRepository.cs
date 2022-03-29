@@ -68,7 +68,7 @@ public class StripboekRepository
         return stripboeken;
     }
 
-    //adds a stripboek with al its variabkes to the database
+    //adds a stripboek with al its variables to the database
     public Stripboek Add(Stripboek stripboek)
     {
         string sql;

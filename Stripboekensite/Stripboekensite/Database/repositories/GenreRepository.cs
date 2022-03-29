@@ -46,4 +46,12 @@ public class GenreRepository
         return connection.ExecuteScalar<bool>(sql, new {genre_id});
     }
     
+    //adds a new genre
+    public Genre Add(Genre genre)
+    {
+        string sql = "INSERT INTO genre (soort) VALUES (@Soort); SELECT * FROM genre WHERE genre_id = LAST_INSERT_ID()";
+        using var connection = GetConnection();
+        var newgenre = connection.QuerySingle<Genre>(sql, genre);
+        return newgenre;
+    }
 }

@@ -33,14 +33,19 @@ public class BekijkCategorie : PageModel
         int genreId = Int32.Parse(id);
         
         //delete references to genre
-        var genreStripboekRepository = new GenreStripboekRepository();
-        genreStripboekRepository.DeleteByGenreID(genreId);
-        
-        //delete the genre
-        var genreRepository = new GenreRepository();
-        genreRepository.DeleteGenre(genreId);
+        var joinRepository = new JoinRepository();
+        joinRepository.DeleteGenreAndReferences(genreId);
     
         //refresh the page
+        return RedirectToPage("/BekijkCategorie");
+    }
+
+    public IActionResult OnPostAdd(string genre_name)
+    {
+        var genreRepository = new GenreRepository();
+        Genre genre = new Genre();
+        genre.soort = genre_name;
+        genreRepository.Add(genre);
         return RedirectToPage("/BekijkCategorie");
     }
 }

@@ -1,0 +1,67 @@
+﻿@page
+@model Stripboekensite.Pages.BoekInfo
+
+@{
+    
+}
+
+<div class="row">
+    <div class="col-12 text-center">
+        <h5>Meer informtatie over @Model.stripboek.titel</h5>
+        <br/>
+    </div>
+    <!-- Afbeelding weergeven van de cover van het boek -->
+    <div class="col-6 h-100">
+        <img src="suske-en-wiske-de-treiterende-trien-2019.jpg" class="float-center" style="display:block; margin: auto;" alt="Suske & Wiske De treiterende trien 2019">
+    </div>
+
+    <!-- Algemene informatie van het boek weergeven-->
+    <div class="col-6">
+        <table class="table table-hover">
+            <tr>
+                <th>Titel</th>
+                <td>@Model.stripboek.titel</td>
+            </tr>
+            <tr>
+                <th>Schrijver</th>
+                <td>{Naam Schrijver}</td>
+            </tr>
+            <tr>
+                <th>Tekenaar</th>
+                <td>{Naam Tekenaar}</td>
+            </tr>
+            <tr>
+                <th>Reeks</th>
+                <td>{Naam Reeks}</td>
+            </tr>
+            <tr>
+                <th>Reeks nummer</th>
+                <td>@Model.stripboek.Reeks_nr</td>
+            </tr>
+            <tr>
+                <th>Aantal bladzijden</th>
+                <td>@Model.stripboek.Bladzijden</td>
+            </tr>
+            <tr>
+                <th>ISBN-nummer</th>
+                <td>@Model.stripboek.isbn</td>
+            </tr>
+            <tr>
+                <th>Uitgever</th>
+                <td>@Model.stripboek.uitgever.Naam</td>
+            </tr>
+            <tr>
+                <th>Expliciet</th>
+                <td>@Model.stripboek.expleciet</td>
+            </tr>
+            <tr>
+                <th>Uitgave 1e druk</th>
+                <td>@Model.stripboek.Uitgave1e_druk</td>
+            </tr>
+        </table>
+    </div>
+    
+    <!-- Informatie die persoon zelf heeft ingevuld over boek -->
+    
+    <!-- Meer boeken van deze reeks -->
+</div>
