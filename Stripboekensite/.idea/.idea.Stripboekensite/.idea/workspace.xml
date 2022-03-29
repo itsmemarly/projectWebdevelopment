@@ -7,6 +7,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b755ff3c-8ed1-4fe9-88ba-a3d1e8bdc880" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stripboekensite/Database/repositories/StripboekRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Database/repositories/StripboekRepository.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +84,7 @@
       <workItem from="1647598737481" duration="103000" />
       <workItem from="1647602099265" duration="8731000" />
       <workItem from="1647712180658" duration="2166000" />
+      <workItem from="1648561393642" duration="1571000" />
     </task>
     <task id="LOCAL-00001" summary="nvt">
       <created>1647551816154</created>
