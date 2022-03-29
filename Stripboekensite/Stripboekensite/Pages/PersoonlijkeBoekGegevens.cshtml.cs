@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Stripboekensite.Pages;
 
@@ -20,15 +23,17 @@ public class PersoonlijkeBoekGegevens : PageModel
         Gebruiker_stripboek_ID = id;
     }
     
-     public void OnPostUpdateGebruiker_Stripboek(int gebruiker_stripboek_id,int druk, string uitgave, float bandlengte,string plaats_gekocht, string prijs_gekocht, string staat, List<int> gebruikerids)
+     public void OnPostUpdateGebruiker_Stripboek(int Gebruiker_stripboek_ID,int druk, string uitgave, float bandlengte,string plaats_gekocht, string prijs_gekocht, string staat, List<int> gebruikerids)
         {
-            setlists(Gebruiker_stripboek_ID); // calls upon set list to re get all data from database
-            gebruikers_stripboeken.stripboek_id = gebruikers_stripboeken.stripboek_id; // gets id from class object
-            if (gebruikers_stripboeken.stripboek_id != null)  // gets id from class object if class object exists
-            {
-                gebruikers_stripboeken.stripboek_id = gebruikers_stripboeken.stripboek_id;
-            }
+            setlists(); // sets all variables of gebruikers_stripboeken
             Gebruikers_Stripboeken addedinfostripboek = new Gebruikers_Stripboeken();
+            gebruikers_stripboeken.Gebruiker_stripboek_ID = Gebruiker_stripboek_ID;
+            gebruikers_stripboeken.druk = druk;
+            gebruikers_stripboeken.uitgave = uitgave;
+            gebruikers_stripboeken.bandlengte = bandlengte;
+            gebruikers_stripboeken.plaats_gekocht = plaats_gekocht;
+            gebruikers_stripboeken.prijs_gekocht = prijs_gekocht;
+            gebruikers_stripboeken.staat = staat;
             
             //checks if anything has been filled and if nothing or 0 has been given as a value, nothing will change
             if (druk != 0)
@@ -57,9 +62,25 @@ public class PersoonlijkeBoekGegevens : PageModel
                 gebruikers_stripboeken.staat = staat;
             }
 
-            addedgebruikers_stripboeken = new Gebruikers_StripboekenRepository().Update(gebruikers_stripboeken);
+            addedinfostripboek = new Gebruikers_StripboekenRepository().Add(gebruikers_stripboeken);
    
         }
+     
+     public void setlists()
+     {
+         //var claims =ClaimsPrincipal.Current.Identities.First().Claims.ToList();
+         List<Claim> claims = User.Claims.ToList();
+
+         foreach (var claim in claims)
+         {
+             if (claim.Type == ClaimTypes.NameIdentifier)
+             {
+
+                 Gebruiker_stripboek_ID = int.Parse(claim.Value);
+             }
+         }
+         
+     }
 
 
 
