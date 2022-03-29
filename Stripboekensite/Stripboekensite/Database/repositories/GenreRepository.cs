@@ -53,30 +53,5 @@ public class GenreRepository
         using var connection = GetConnection();
         var newgenre = connection.QuerySingle<Genre>(sql, genre);
         return newgenre;
-    } 
-
-
-    /*
-         
-    //gives back a specific genre its name
-    public Genre Get(int genreid)
-    {
-        string sql = "SELECT * FROM genre where genre_id = @genreid";
-
-        using var connection = GetConnection();
-        var genre  = connection.QuerySingle<Genre>(sql, genreid);
-        return genre;
     }
-    
-         public bool checkid(int genreid)
-    {
-        string sql = "SELECT * FROM genre where genre_id = @genreid";
-
-        using var connection = GetConnection();
-        return connection.ExecuteScalar<bool>(sql, genreid);;
-    }
-     
-              
-
-     */
 }

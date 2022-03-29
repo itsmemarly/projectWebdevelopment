@@ -30,7 +30,7 @@ namespace Stripboekensite.Pages
             stripboek.titel = titel;
             stripboek.isbn = isbn;
             stripboek.Uitgave1e_druk = jaar1druk;
-            stripboek.expleciet = expleciet;
+            stripboek.expliciet = expleciet;
             stripboek.Bladzijden = paginas;
             stripboek.Reeks_nr = reeksnum;
 

@@ -4,24 +4,13 @@
     <projectFile profileName="Stripboekensite">Stripboekensite/Stripboekensite.csproj</projectFile>
     <projectFile profileName="IIS Express">Stripboekensite/Stripboekensite.csproj</projectFile>
   </component>
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bd768dc-e43b-4651-9a8e-1b5a9645b6c0" name="Changes" comment="">
+    <list default="true" id="b755ff3c-8ed1-4fe9-88ba-a3d1e8bdc880" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Database/repositories/CreatorStripboekenRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Database/repositories/CreatorStripboekenRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Database/repositories/GenreStripboekRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Database/repositories/GenreStripboekRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Database/repositories/JoinRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Database/repositories/JoinRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Database/repositories/StripboekRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Database/repositories/StripboekRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/BekijkBoeken.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/BekijkBoeken.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/BoekBewerken.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/BoekBewerken.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/BoekBewerken.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/BoekBewerken.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/BoekToevoegen.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/BoekToevoegen.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/Boekenkast.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/Boekenkast.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/testpagedatabse.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/testpagedatabse.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Stripboekensite.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Stripboekensite.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/PersoonlijkeBoekGegevens.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/PersoonlijkeBoekGegevens.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/PersoonlijkeBoekGegevens.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/PersoonlijkeBoekGegevens.cshtml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,31 +25,10 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/575c31ecc35a636b6f962cb71d53992552941a18982aae1c8e6c16305cc3761b/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c6ecd37839cf234019749482ed6ffa34c835430d549605fffeb2ff132a1e/TagHelperExecutionContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/198a6261cebc324728dcc4c178edc5f2894123f711722c80e8557cbfd27651/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Stripboekensite/Database/repositories/ReeksRepository.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Stripboekensite/Database/repositories/UitgeverRepository.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Stripboekensite/Database/repositories/CreatorRepository.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Stripboekensite/Pages/Profiel.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f4708639776589f5ac2739f6fcbfc67343b1f9dac51cc1dbfdb003eef77cc1c/Monitor.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1ac3bf8d279e4572a77c8002c0c830f1171c00/e0/be7f3209/MySqlConnection.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/333717bd1cce3876d133e8e23428a3dca892c18641b7eb745fe17d1eed102cbc/ExecutorFactory.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1ac3bf8d279e4572a77c8002c0c830f1171c00/8e/a3383b62/MySqlCommand.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Stripboekensite/Database/repositories/GebruikerRepository.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Stripboekensite/Pages/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Stripboekensite/Database/repositories/GenreRepository.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Stripboekensite/Pages/Shared/_ValidationScriptsPartial.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b8c56d5b036f2a6fe79726c905c982bb3e77beec6526d3695d5daf1286da/SqlMapper.cs" root0="SKIP_HIGHLIGHTING" />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="26VoBVvsFrkOLg0wdMq8EAMFM4U" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -71,12 +39,6 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="XThreadsFramesViewSplitterKey" value="0.6064982" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Stripboekensite">
@@ -114,7 +76,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0bd768dc-e43b-4651-9a8e-1b5a9645b6c0" name="Changes" comment="comments" />
+      <changelist id="b755ff3c-8ed1-4fe9-88ba-a3d1e8bdc880" name="Changes" comment="" />
       <created>1647517988245</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -124,13 +86,9 @@
       <workItem from="1647594678663" duration="3986000" />
       <workItem from="1647598737481" duration="103000" />
       <workItem from="1647602099265" duration="8731000" />
-      <workItem from="1647712180658" duration="1533000" />
-      <workItem from="1647846267363" duration="12843000" />
-      <workItem from="1648112986112" duration="5528000" />
-      <workItem from="1648198862199" duration="3543000" />
-      <workItem from="1648309140014" duration="595000" />
-      <workItem from="1648380550732" duration="19893000" />
-      <workItem from="1648458173079" duration="3887000" />
+      <workItem from="1647712180658" duration="2166000" />
+      <workItem from="1648561393642" duration="1752000" />
+      <workItem from="1648567624548" duration="3776000" />
     </task>
     <task id="LOCAL-00001" summary="nvt">
       <created>1647551816154</created>
@@ -153,49 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647602515312</updated>
     </task>
-    <task id="LOCAL-00004" summary="genre per user zichtbaar (nog niet helemaal op user) zoek optie meebezig">
-      <created>1647720004411</created>
+    <task id="LOCAL-00004" summary="join">
+      <created>1647713737021</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1647720004411</updated>
+      <updated>1647713737021</updated>
     </task>
-    <task id="LOCAL-00005" summary="comments">
-      <created>1647720332724</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1647720332724</updated>
-    </task>
-    <task id="LOCAL-00006" summary="niet boeiend">
-      <created>1647930697448</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1647930697448</updated>
-    </task>
-    <task id="LOCAL-00007" summary="boekenkast update">
-      <created>1648118120856</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1648118120856</updated>
-    </task>
-    <task id="LOCAL-00008" summary="//comments">
-      <created>1648118212296</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1648118212296</updated>
-    </task>
-    <task id="LOCAL-00009" summary="4 zoek opties : titel, creator, reeks uitgever">
-      <created>1648202053640</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1648202053640</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,40 +143,7 @@
     <MESSAGE value="nvt" />
     <MESSAGE value="volledige verzamelingrepository toegevoegd" />
     <MESSAGE value="naam verzameling naar gebruikers_stripboeken" />
-    <MESSAGE value="genre per user zichtbaar (nog niet helemaal op user) zoek optie meebezig" />
-    <MESSAGE value="comments" />
-    <MESSAGE value="niet boeiend" />
-    <MESSAGE value="boekenkast update" />
-    <MESSAGE value="//comments" />
-    <MESSAGE value="4 zoek opties : titel, creator, reeks uitgever" />
-    <option name="LAST_COMMIT_MESSAGE" value="4 zoek opties : titel, creator, reeks uitgever" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Stripboekensite/Pages/BekijkCategorie.cshtml</url>
-          <line>77</line>
-          <properties documentPath="C:\Users\Alissa\RiderProjects\projectWebdevelopment\Stripboekensite\Stripboekensite\Pages\BekijkCategorie.cshtml" initialLine="77" isMultiMethodBreakpoint="true">
-            <option name="multiMethodBreakpoint" value="true" />
-            <startOffsets>
-              <option value="-1" />
-            </startOffsets>
-            <endOffsets>
-              <option value="-1" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="77" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-    <pin-to-top-manager>
-      <pinned-members>
-        <PinnedItemInfo parentTag="Type#Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary" memberName="Count" />
-        <PinnedItemInfo parentTag="Type#Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary" memberName="ErrorCount" />
-        <PinnedItemInfo parentTag="Frame#Stripboekensite.JoinRepository.joingebrstripboekstripboeken" memberName="stripboeken" />
-        <PinnedItemInfo parentTag="Type#Stripboekensite.GenreStripboek" memberName="Stripboek" />
-      </pinned-members>
-    </pin-to-top-manager>
+    <MESSAGE value="join" />
+    <option name="LAST_COMMIT_MESSAGE" value="join" />
   </component>
 </project>

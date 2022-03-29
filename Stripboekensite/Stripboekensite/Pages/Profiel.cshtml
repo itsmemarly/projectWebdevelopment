@@ -10,39 +10,32 @@
               <div class="card">
             
                     <h5 class="card-title text-center">Profiel tab</h5>
-                    
-                    <div class="mb-3 d-md-flex justify-content-md-center">
-                        <img src="~/example.jpg" style="border:dashed 2px;" alt=""  width=100  height=100 class="rounded-circle">
-                    </div>
-                    <div class="mb-3 d-md-flex justify-content-md-end">
-                     
-                         <input class="form-control" type="file" id="showImage">
-                    </div>
-                    <div class="mb-3 d-md-flex justify-content-md-end">
-                     
-                        <span type="text" contenteditable="true" class="form-control col-2" id="ShowName"></span>
-                    </div>
 
-                     <div class="mb-3 d-md-flex justify-content-md-end">
-                     
-                         <span type="text" contenteditable="true" class="form-control" id="ShowRole" ></span>
-                    </div>
-
-                      <div class="mb-3 d-md-flex justify-content-md-end">
-                    
-                          <span type="text" contenteditable="true" class="form-control" id="ShowEmail" ></span>
-                    </div>
-
-                      <div class="mb-3 d-md-flex justify-content-md-end">
-                        
-                          <span type="text" contenteditable="true" class="form-control" id="ShowPassword"></span>
-                    </div>
-
-                     <div class="mb-3 d-md-flex justify-content-md-center">
-                         <button type="submit" class="btn btn-dark">Wijzigingen opslaan</button>
-                    </div>
-               
+                  <div class="mb-3 d-md-flex justify-content-md-center">
+                  <img src="~/example.jpg" style="border:dashed 2px;" alt="" width=100 height=100 class="rounded-circle">
+              </div>
+              
+              <form method="post" asp-page-handler="Edit">
+                  <input type="hidden" name="gebruiker_id" value="@Model.gebruiker.Gebruikers_id"/>
+                  
+                  <div class="mb-3 d-md-flex justify-content-md-end">
+                      <input class="form-control" type="file" id="showImage">
                   </div>
+                  
+                  <div class="mb-3 d-md-flex justify-content-md-end">
+                      <input class="form-control col-2" type="text" name="naam" value="@Model.gebruiker.naam">
+                  </div>
+                  
+                  <div class="mb-3 d-md-flex justify-content-md-end">
+                      <input class="form-control col-2" type="date" name="geboorteDatum" value="@Model.gebruiker.Geboorte_datum.Date.ToString("yyyy-MM-dd")">
+                  </div>
+                  
+                  <div class="mb-3 d-md-flex justify-content-md-center">
+                      <button type="submit" class="btn btn-dark">Wijzigingen opslaan</button>
+                  </div>
+              </form>
+
+              </div>
             </div>
 
       <div class="col-8">
@@ -54,7 +47,7 @@
                     <div class=" mb-3 d-md-flex row">
                      <div class="col-6">
                     <div class="mb-3 d-md-flex justify-content-md-center">
-                        <p>Wie mag uw wishlist bekijken?</p>
+                        <p>Wie mag uw boeken bekijken?</p>
                             </div>
                             <div class="row mb-3 d-md-flex justify-content-md-center">
                          <div class="mb-3 d-md-flex justify-content-md-center col-4">
@@ -73,27 +66,7 @@
                             </div>
                             </div>
 
-                              <div class="col-6">
-                              <div class="mb-3 d-md-flex justify-content-md-center">
-                                 <p>Wie mag uw verzamelingen bekijken?</p>
-                             </div>
-                         <div class="row mb-3 d-md-flex justify-content-md-center">
-    
-                              <div class=" mb-3 d-md-flex justify-content-md-center col-4">
-                         <input type="checkbox" class="btn-check" id="CollectionMe" checked autocomplete="off">
-                        <label class="btn btn-danger" for="CollectionMe">Alleen ik</label>
-                        </div>
-
-                         <div class="mb-3 d-md-flex justify-content-md-center col-1">
-                        <input type="checkbox" class="btn-check" id="CollectionFriends" checked autocomplete="off">
-                        <label class="btn btn-primary" for="CollectionFriends">Vrienden</label>
-                    </div>
-                     <div class="mb-3 d-md-flex justify-content-md-center col-4">
-                         <input type="checkbox" class="btn-check" id="CollectionEveryone" checked autocomplete="off">
-                        <label class="btn btn-success" for="CollectionEveryone">Iedereen</label>
-                           </div>
-                            </div>
-                             </div>
+                            
                  
                     </div>
                    

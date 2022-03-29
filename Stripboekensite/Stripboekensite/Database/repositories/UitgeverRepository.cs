@@ -11,15 +11,6 @@ public class UitgeverRepository
         return new DbUtils().GetDbConnection();
     }
 
-    //checks whether id exist
-    public bool checkid(int Uitgeverid)
-    {
-        string sql = "SELECT * FROM uitgever WHERE uitgever_id = @Uitgeverid";
-
-        using var connection = GetConnection();
-        return connection.ExecuteScalar<bool>(sql, new { Uitgeverid });
-    }
-    
     //gives back the list of uitgevers
     public IEnumerable<Uitgever> Get()
     {
@@ -43,45 +34,5 @@ public class UitgeverRepository
         return nieuwUitgever;
     }
     
-
-    
-        
-    /*does not get used
-     
-         //gives back a certain uitgever using their id
-    public Uitgever Get(int Uitgeverid)
-    {
-        string sql = "SELECT * FROM uitgever WHERE uitgever_id = @Uitgeverid";
-
-        using var connection = GetConnection();
-        var uitgever = connection.QuerySingle<Uitgever>(sql, new { Uitgeverid });
-        return uitgever;
-    }
-     
-         //removes uitgever uit database
-    public bool Delete(int uitgeverid)
-    {
-        string sql = @"DELETE FROM uitgever WHERE  uitgever_id = @uitgeverid";
-
-        using var connection = GetConnection();
-        int numOfEffectedRows = connection.Execute(sql, new { uitgeverid });
-        return numOfEffectedRows == 1;
-    }
-    //updates an uitgever their name
-    public Uitgever Update(Uitgever uitgever)
-    {
-        string sql = @"
-                UPDATE uitgever SET 
-                    Naam = @Naam 
-                WHERE uitgever_id = @Uitgever_id;
-                SELECT * FROM uitgever WHERE uitgever_id = @Uitgever_id";
-
-        using var connection = GetConnection();
-        var updateduitgever = connection.QuerySingle<Uitgever>(sql, uitgever);
-        return updateduitgever;
-    }
-     
-     
-     */
     
 }
