@@ -1,8 +1,9 @@
-﻿namespace Stripboekensite;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Stripboekensite;
 
 public class Gebruikers_Stripboeken
 {
-   
         public int Gebruiker_stripboek_ID { get; set; }
     
         public int Gebruiker_id { get; set; }
