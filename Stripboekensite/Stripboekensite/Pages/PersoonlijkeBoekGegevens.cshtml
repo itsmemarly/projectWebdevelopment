@@ -5,13 +5,13 @@
    
 }
 <div class="col-12">
-    <form asp-page-handler="" method="post">
+    <form asp-page-handler="Send" method="post">
         <h5>Voeg extra gegevens over uw boek toe</h5>
-        
+        <input name="stripboek_id" type="hidden" value="@Model.stripboek_id" />
         <!--Druk van het boek-->
         <div class="mb-3">
-            <label for="BookNumber" class="form-label">Welke druk is uw boek? :@Model.gebruikers_stripboeken.druk </label>
-            <input type="number" name="druk" class="form-control" id="BookNumber"/>
+            <label for="BookNumber" class="form-label">In welk jaar is uw boek gedrukt?</label>
+            <input type="number" name="druk" class="form-control" id="BookNumber" value="@Model.gebruikers_stripboeken.druk"/>
         </div>
 
         <!-- Uitgave van het boek-->
@@ -46,7 +46,7 @@
 
 
         <!--- <button type="submit" class="btn btn-dark">Opslaan</button>-->
-        <button type="submit" class="btn btn-dark" value=@Model.Gebruiker_stripboek_ID>Opslaan</button>
+        <button type="submit" class="btn btn-dark" value=@Model.stripboek_id>Opslaan</button>
     </form>
 </div>
 

@@ -4,15 +4,12 @@
     <projectFile profileName="Stripboekensite">Stripboekensite/Stripboekensite.csproj</projectFile>
     <projectFile profileName="IIS Express">Stripboekensite/Stripboekensite.csproj</projectFile>
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-<<<<<<< Updated upstream
-    <list default="true" id="b755ff3c-8ed1-4fe9-88ba-a3d1e8bdc880" name="Changes" comment="methode persoonlijkeBoekGegevens link database">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/PersoonlijkeBoekGegevens.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/PersoonlijkeBoekGegevens.cshtml.cs" afterDir="false" />
-=======
-    <list default="true" id="b755ff3c-8ed1-4fe9-88ba-a3d1e8bdc880" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/workspace.xml" afterDir="false" />
->>>>>>> Stashed changes
+    <list default="true" id="0bd768dc-e43b-4651-9a8e-1b5a9645b6c0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/BoekInfo.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/BoekInfo.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,33 +24,41 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-<<<<<<< Updated upstream
-=======
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Stripboekensite/Pages/Profiel.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Stripboekensite/Database/repositories/GebruikerRepository.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Stripboekensite/Database/repositories/GenreRepository.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Stripboekensite/Database/repositories/ReeksRepository.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Stripboekensite/Database/repositories/CreatorRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Stripboekensite/Pages/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Stripboekensite/Pages/Shared/_ValidationScriptsPartial.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Stripboekensite/Database/repositories/ReeksRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Stripboekensite/Database/repositories/GenreRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Stripboekensite/Database/repositories/CreatorRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Stripboekensite/Database/repositories/UitgeverRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Stripboekensite/Pages/Profiel.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
   </component>
->>>>>>> Stashed changes
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="26VoBVvsFrkOLg0wdMq8EAMFM4U" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="XThreadsFramesViewSplitterKey" value="0.6064982" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect" value="MySQL" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Stripboekensite">
@@ -91,7 +96,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b755ff3c-8ed1-4fe9-88ba-a3d1e8bdc880" name="Changes" comment="" />
+      <changelist id="0bd768dc-e43b-4651-9a8e-1b5a9645b6c0" name="Changes" comment="comments" />
       <created>1647517988245</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -101,18 +106,11 @@
       <workItem from="1647594678663" duration="3986000" />
       <workItem from="1647598737481" duration="103000" />
       <workItem from="1647602099265" duration="8731000" />
-<<<<<<< Updated upstream
-      <workItem from="1647712180658" duration="2166000" />
-      <workItem from="1648561393642" duration="1752000" />
-      <workItem from="1648567624548" duration="6795000" />
-=======
       <workItem from="1647712180658" duration="1533000" />
       <workItem from="1647846267363" duration="12843000" />
       <workItem from="1648112986112" duration="5528000" />
       <workItem from="1648198862199" duration="3543000" />
       <workItem from="1648545276107" duration="5843000" />
-      <workItem from="1648585419682" duration="1072000" />
->>>>>>> Stashed changes
     </task>
     <task id="LOCAL-00001" summary="nvt">
       <created>1647551816154</created>
@@ -135,21 +133,49 @@
       <option name="project" value="LOCAL" />
       <updated>1647602515312</updated>
     </task>
-    <task id="LOCAL-00004" summary="join">
-      <created>1647713737021</created>
+    <task id="LOCAL-00004" summary="genre per user zichtbaar (nog niet helemaal op user) zoek optie meebezig">
+      <created>1647720004411</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1647713737021</updated>
+      <updated>1647720004411</updated>
     </task>
-    <task id="LOCAL-00005" summary="methode persoonlijkeBoekGegevens link database">
-      <created>1648582194215</created>
+    <task id="LOCAL-00005" summary="comments">
+      <created>1647720332724</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1648582194215</updated>
+      <updated>1647720332724</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="niet boeiend">
+      <created>1647930697448</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1647930697448</updated>
+    </task>
+    <task id="LOCAL-00007" summary="boekenkast update">
+      <created>1648118120856</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1648118120856</updated>
+    </task>
+    <task id="LOCAL-00008" summary="//comments">
+      <created>1648118212296</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1648118212296</updated>
+    </task>
+    <task id="LOCAL-00009" summary="4 zoek opties : titel, creator, reeks uitgever">
+      <created>1648202053640</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1648202053640</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,8 +200,21 @@
     <MESSAGE value="nvt" />
     <MESSAGE value="volledige verzamelingrepository toegevoegd" />
     <MESSAGE value="naam verzameling naar gebruikers_stripboeken" />
-    <MESSAGE value="join" />
-    <MESSAGE value="methode persoonlijkeBoekGegevens link database" />
-    <option name="LAST_COMMIT_MESSAGE" value="methode persoonlijkeBoekGegevens link database" />
+    <MESSAGE value="genre per user zichtbaar (nog niet helemaal op user) zoek optie meebezig" />
+    <MESSAGE value="comments" />
+    <MESSAGE value="niet boeiend" />
+    <MESSAGE value="boekenkast update" />
+    <MESSAGE value="//comments" />
+    <MESSAGE value="4 zoek opties : titel, creator, reeks uitgever" />
+    <option name="LAST_COMMIT_MESSAGE" value="4 zoek opties : titel, creator, reeks uitgever" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Type#Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary" memberName="Count" />
+        <PinnedItemInfo parentTag="Type#Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary" memberName="ErrorCount" />
+        <PinnedItemInfo parentTag="Frame#Stripboekensite.JoinRepository.joingebrstripboekstripboeken" memberName="stripboeken" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

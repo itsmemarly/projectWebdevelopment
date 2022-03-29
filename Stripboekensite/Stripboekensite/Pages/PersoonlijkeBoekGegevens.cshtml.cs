@@ -9,25 +9,20 @@ public class PersoonlijkeBoekGegevens : PageModel
 {
     #region variabels
     public Gebruikers_Stripboeken gebruikers_stripboeken = new Gebruikers_Stripboeken();
-
-    public Stripboek Stripboek = new Stripboek();
-    
-    public int stripid { get; set; }
-
+    public int stripboek_id { get; set;}
     #endregion
     
-    // gets id from cookie
-    public int Gebruiker_stripboek_ID { get; set;}
+    
     public void OnGet(int id)
     {
-        Gebruiker_stripboek_ID = id;
+        stripboek_id = id;
     }
     
-     public void OnPostUpdateGebruiker_Stripboek(int Gebruiker_stripboek_ID,int druk, string uitgave, float bandlengte,string plaats_gekocht, string prijs_gekocht, string staat, List<int> gebruikerids)
+     public IActionResult OnPostSend(int stripboek_id, int druk, string uitgave, float bandlengte,string plaats_gekocht, string prijs_gekocht, string staat)
         {
-            setlists(); // sets all variables of gebruikers_stripboeken
-            Gebruikers_Stripboeken addedinfostripboek = new Gebruikers_Stripboeken();
-            gebruikers_stripboeken.Gebruiker_stripboek_ID = Gebruiker_stripboek_ID;
+            GetUserID(); // sets all variables of gebruikers_stripboeken
+            gebruikers_stripboeken.Gebruiker_id = GetUserID(); // gets id from cookie
+            gebruikers_stripboeken.stripboek_id = stripboek_id;
             gebruikers_stripboeken.druk = druk;
             gebruikers_stripboeken.uitgave = uitgave;
             gebruikers_stripboeken.bandlengte = bandlengte;
@@ -61,12 +56,14 @@ public class PersoonlijkeBoekGegevens : PageModel
             {
                 gebruikers_stripboeken.staat = staat;
             }
+            
+            //adds gebruiker_stripboek to the repostitory 
+            new Gebruikers_StripboekenRepository().Add(gebruikers_stripboeken);
 
-            addedinfostripboek = new Gebruikers_StripboekenRepository().Add(gebruikers_stripboeken);
-   
+            return RedirectToPage("/Boekenkast");
         }
      
-     public void setlists()
+     public int GetUserID()
      {
          //var claims =ClaimsPrincipal.Current.Identities.First().Claims.ToList();
          List<Claim> claims = User.Claims.ToList();
@@ -76,10 +73,14 @@ public class PersoonlijkeBoekGegevens : PageModel
              if (claim.Type == ClaimTypes.NameIdentifier)
              {
 
-                 Gebruiker_stripboek_ID = int.Parse(claim.Value);
+                 return int.Parse(claim.Value);
              }
          }
-         
+        
+         //return an incorrect user id, but this code should never be reached
+         //because we can only access this page if the user is authorized
+         return -1;
+
      }
 
 

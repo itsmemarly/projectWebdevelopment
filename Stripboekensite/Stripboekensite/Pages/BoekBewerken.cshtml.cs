@@ -110,7 +110,7 @@ public class BoekBewerken : PageModel
 
             }
             
-            stripboek.expleciet = expleciet; //has always a value and input field cannot be empty
+            stripboek.expliciet = expleciet; //has always a value and input field cannot be empty
 
             addedstripboek = new StripboekRepository().Update(stripboek);
 

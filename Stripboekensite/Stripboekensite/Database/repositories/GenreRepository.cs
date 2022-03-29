@@ -45,36 +45,13 @@ public class GenreRepository
         using var connection = GetConnection();
         return connection.ExecuteScalar<bool>(sql, new {genre_id});
     }
-
-
-    /*
-         
-    //gives back a specific genre its name
-    public Genre Get(int genreid)
-    {
-        string sql = "SELECT * FROM genre where genre_id = @genreid";
-
-        using var connection = GetConnection();
-        var genre  = connection.QuerySingle<Genre>(sql, genreid);
-        return genre;
-    }
     
-         public bool checkid(int genreid)
-    {
-        string sql = "SELECT * FROM genre where genre_id = @genreid";
-
-        using var connection = GetConnection();
-        return connection.ExecuteScalar<bool>(sql, genreid);;
-    }
-     
-         //adds a new genre
+    //adds a new genre
     public Genre Add(Genre genre)
     {
         string sql = "INSERT INTO genre (soort) VALUES (@Soort); SELECT * FROM genre WHERE genre_id = LAST_INSERT_ID()";
         using var connection = GetConnection();
         var newgenre = connection.QuerySingle<Genre>(sql, genre);
         return newgenre;
-    }      
-
-     */
+    }
 }

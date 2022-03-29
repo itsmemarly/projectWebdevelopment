@@ -55,52 +55,5 @@ public class Gebruikers_StripboekenRepository
         return connection.ExecuteScalar<bool>(sql, new {stripboek_id});
     }
     
-    
-    /* does not get used
-      //gives back specific gebruiker_stripboek stripboek combination
-    public Gebruikers_Stripboeken Get(int Gebruiker_stripboek_ID)
-    {
-        string sql = "SELECT * FROM gebruikers_stripboeken WHERE Gebruiker_stripboek_ID = @Gebruiker_stripboek_ID";
-
-        using var connection = GetConnection();
-        var gebrStripboeken = connection.QuerySingle<Gebruikers_Stripboeken>(sql, new { Gebruiker_stripboek_ID});
-        return gebrStripboeken;
-    }
-     
-     
-         //get an ienumerable list of all the 'stripboeken' owned by users
-    public IEnumerable<Stripboek> Get()
-    {
-        string sql = "SELECT * FROM stripboeken";
-
-        using var connection = GetConnection();
-        var stripboeken  = connection.Query<Stripboek>(sql);
-        return stripboeken;
-    }
-     
-      //get an ienumerable list of 'stripboeken' from a specifiek user
-    public IEnumerable<Stripboek> Getfromuser(int Gebruiker_ID)
-    {
-        string sql = "SELECT * FROM stripboeken WHERE Gebruiker_ID = @Gebruiker_ID";
-
-        using var connection = GetConnection();
-        var stripboeken  = connection.Query<Stripboek>(sql, new {Gebruiker_ID});
-        return stripboeken;
-    }
-     
-     
-         public Gebruikers_Stripboeken Update(Gebruikers_Stripboeken gebruikers_stripboeken)
-    {
-        string sql = @"
-                UPDATE gebruikers_stripboeken SET
-                Gebruikers_stripboek_ID = Gebruikers_stripboek_ID
-                WHERE Gebruikers_stripboek_ID = @Gebruikers_stripboek_ID;
-                SELECT * FROM gebruikers_stripboeken WHERE Gebruikers_stripboek_ID = @Gebruikers_stripboek_ID";
-
-        using var connection = GetConnection();
-        var updatedverzameling = connection.QuerySingle<Gebruikers_Stripboeken>(sql, gebruikers_stripboeken);
-        return updatedverzameling;
-    }
-     */
 }
     
