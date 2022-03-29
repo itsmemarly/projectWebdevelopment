@@ -49,11 +49,19 @@ public class GenreStripboekRepository
     }
     
     //deletes a genre stripboek combination by genre id
-    public void DeleteByGenreID(int genreid)
+    public int DeleteByGenreID(int Genre_id)
     {
         string sql = @"DELETE FROM genre_Stripboeken WHERE genre_id = @genreid";
         using var connection = GetConnection();
-        var rowsaffected = connection.Execute(sql, new{ genreid});
+        return connection.Execute(sql, new{genreid = Genre_id});
+    }
+    
+    //deletes a genre stripboek combination by book id
+    public int DeleteByBookID(int Stripboek_id)
+    {
+        string sql = @"DELETE FROM genre_Stripboeken WHERE Stripboek_id = @book_id";
+        using var connection = GetConnection();
+        return connection.Execute(sql, new{book_id = Stripboek_id});
     }
     
     /* does not get used
