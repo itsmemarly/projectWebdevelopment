@@ -95,40 +95,4 @@ public class GebruikerRepository
         return numOfEffectedRows == 1;
     }
     
-    
-    
-    
-    /* does not get used
-     
-         //gives back a specific gebruiker using its id
-    public Gebruiker Get(int gebruikerId)
-    {
-        string sql = "SELECT * FROM gebruikers WHERE Gebruikers_id = @gebruikerId";
-
-        using var connection = GetConnection();
-        var gebruiker = connection.QuerySingle<Gebruiker>(sql, new {gebruikerId}); 
-        return gebruiker;
-    }
-     
-         //gives back a specific gebruiker using its name
-    public bool IdCheck(int gebruikerId )
-    {
-        string sql = "SELECT * FROM gebruikers WHERE Gebruikers_id = @gebruikerId";
-
-        using var connection = GetConnection();
-        return connection.ExecuteScalar<bool>(sql, new {gebruikerId}); 
-    }
-     
-       
-     
-//deletes gebruiker using id
-public bool Delete(int GebruikersId)
-{
-    string sql = @"DELETE FROM gebruikers WHERE Gebruikers_id = @GebruikersId";
-
-    using var connection = GetConnection();
-    int numOfEffectedRows = connection.Execute(sql, new { GebruikersId });
-    return numOfEffectedRows == 1;
-}
-      */
 }

@@ -11,7 +11,7 @@ public class Stripboek
         public int Reeks_nr { get; set; }
         public int Bladzijden { get; set; }
         
-        public int expleciet { get; set; }
+        public int expliciet { get; set; }
         
         public int Reeks_id { get; set; }
         public int Uitgever_id { get; set; }

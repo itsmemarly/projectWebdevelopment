@@ -64,25 +64,4 @@ public class GenreStripboekRepository
         return connection.Execute(sql, new{book_id = Stripboek_id});
     }
     
-    /* does not get used
-//gives back a list of al genrestripboek
-    public IEnumerable<GenreStripboek> Get()
-    {
-        string sql = "SELECT * FROM genre_Stripboeken";
-
-        using var connection = GetConnection();
-        var GenreStripboek = connection.Query<GenreStripboek>(sql);
-        return GenreStripboek;
-    }
-
-
-//deletes a genre stripboek combination
-    public bool Delete(int genreid, int stripboekid)
-    {
-        string sql = @"DELETE FROM genre_Stripboeken WHERE genre_id = @genreid and stripboek_id = @stripboekid";
-        using var connection = GetConnection();
-        var rowsaffected = connection.QuerySingle<int>(sql, new{ genreid, stripboekid });
-        return rowsaffected == 1;
-    }
-     */
 }
