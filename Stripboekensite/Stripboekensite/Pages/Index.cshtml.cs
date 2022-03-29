@@ -17,8 +17,8 @@ namespace Stripboekensite.Pages
         public List<Stripboek> searchresults = new List<Stripboek>();
         public List<GenreStripboek> searchresultgenres = new List<GenreStripboek>();
         
-        
         public int userid;
+        public int userage;
         
         public string message;
         public string querysearch;
@@ -37,10 +37,16 @@ namespace Stripboekensite.Pages
         public void bookcheck()
         {
             useridget();
-            
-            //gets all genres and the books that the current user has 
-            GenreStripboeks = new JoinRepository().joingenrestripboek().ToList();
 
+            if (userage < 18)
+            {
+                GenreStripboeks = new JoinRepository().joingenrestripboekagerestrict().ToList();
+            }
+            else
+            {
+                //gets all genres and the books that the current user has 
+                GenreStripboeks = new JoinRepository().joingenrestripboek().ToList();
+            }
 
             //checks whether the books in the genre are owned 
             foreach (var genrestripboek in GenreStripboeks)
@@ -87,15 +93,9 @@ namespace Stripboekensite.Pages
                 
         }
         
-        public void OnPostAddtouser(int stripboekid)
+        public IActionResult OnPostAddtouser(int stripboekid)
         {
-            bookcheck();
-            
-            Gebruikers_Stripboeken gebruikersStripboeken = new Gebruikers_Stripboeken();
-            gebruikersStripboeken.Gebruiker_id = userid;
-            gebruikersStripboeken.stripboek_id = stripboekid;
-
-            Gebruikers_Stripboeken newgebruiker = new Gebruikers_StripboekenRepository().Add(gebruikersStripboeken);
+            return RedirectToPage("/PersoonlijkeBoekGegevens", new {id = stripboekid});
         }
         
         public void useridget()
@@ -107,6 +107,16 @@ namespace Stripboekensite.Pages
                 if (claim.Type == ClaimTypes.NameIdentifier)
                 {
                     userid = int.Parse(claim.Value);
+                } 
+                if (claim.Type == ClaimTypes.DateOfBirth)
+                {
+                    string date = claim.Value;
+                    DateTime dob =DateTime.Parse(date);
+
+                    int age = 0;  
+                    age = DateTime.Now.Subtract(dob).Days;  
+                    age = age / 365;
+                    userage = age;
                 }
             }
         }

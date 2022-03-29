@@ -10,6 +10,16 @@ public class StripboekRepository
     {
         return new DbUtils().GetDbConnection();
     }
+     
+    //gives back a specific stripboek using id
+    public Stripboek Get(int stripboek_ID)
+    {
+        string sql = "SELECT * FROM stripboeken WHERE stripboek_id = @stripboek_ID";
+
+        using var connection = GetConnection();
+        var creator = connection.QuerySingle<Stripboek>(sql, new {stripboek_ID});
+        return creator;
+    }
 
     //gives back a list of search result depending on titel using a string called search
     public IEnumerable<Stripboek> GetSearch(string search, int searchtype)
@@ -73,7 +83,7 @@ public class StripboekRepository
         {
             sql = @" 
                 INSERT INTO stripboeken (isbn, uitgave1e_druk, reeks_nr, bladzijden, titel, expliciet, uitgever_id, reeks_id) 
-                VALUES (@isbn, @Uitgave1e_druk, @Reeks_nr, @Bladzijden, @titel, @expleciet,@Uitgever_id, @Reeks_id);
+                VALUES (@isbn, @Uitgave1e_druk, @Reeks_nr, @Bladzijden, @titel, @expliciet,@Uitgever_id, @Reeks_id);
                 
                 SELECT * FROM stripboeken WHERE stripboek_id = LAST_INSERT_ID();";
         }
@@ -92,28 +102,33 @@ public class StripboekRepository
         var stripboeken = connection.Query<Stripboek>(sql);
         return stripboeken;
     }
-
-
-    /*does not get used
-     
-    //gives back a specific stripboek using id
-    public Stripboek Get(int stripboek_ID)
+    
+    //updates a stripboek their titel
+    public Stripboek Update(Stripboek stripboek)
     {
-        string sql = "SELECT * FROM stripboeken WHERE stripboek_id = @stripboek_ID";
+        string sql;
+        if (stripboek.Reeks_id == 0) //if no reeks connection exist 
+        {
+            sql = @"
+                UPDATE stripboeken SET 
+                    titel = @titel, isbn = @isbn, uitgave1e_druk= @Uitgave1e_druk, bladzijden=@Bladzijden, expliciet= @expliciet, uitgever_id =@Uitgever_id
+                WHERE stripboek_id = @Stripboek_id;
+                SELECT * FROM stripboeken WHERE stripboek_id = @Stripboek_id";
+        }
+        else //if reeks connection exist
+        {
+            sql = @"
+                UPDATE stripboeken SET 
+                    titel = @titel, isbn = @isbn,reeks_id = @Reeks_id, reeks_nr = @reeks_nr, uitgave1e_druk= @Uitgave1e_druk, bladzijden=@Bladzijden, expliciet= @expliciet, uitgever_id =@Uitgever_id
+                WHERE stripboek_id = @Stripboek_id;
+                SELECT * FROM stripboeken WHERE stripboek_id = @Stripboek_id";
+        }
 
         using var connection = GetConnection();
-        var creator = connection.QuerySingle<Stripboek>(sql, new {stripboek_ID});
-        return creator;
+        var updatedStripboek = connection.QuerySingle<Stripboek>(sql, stripboek);
+        return updatedStripboek;
     }
     
-    public bool checkid(int stripboek_ID)
-    {
-        string sql = "SELECT * FROM stripboeken WHERE stripboek_id = @stripboek_ID";
-
-        using var connection = GetConnection();
-        return connection.ExecuteScalar<bool>(sql, new {stripboek_ID});
-    }
-
     //deletes a stripboek using id
     public bool Delete(int stripboek_id)
     {
@@ -123,20 +138,5 @@ public class StripboekRepository
         int numOfEffectedRows = connection.Execute(sql, new {stripboek_id});
         return numOfEffectedRows == 1;
     }
-
-    //updates a stripboek their titel
-    public Stripboek Update(Stripboek stripboek)
-    {
-        string sql = @"
-                UPDATE stripboeken SET 
-                    titel = @titel 
-                WHERE stripboek_id = @Stripboek_id;
-                SELECT * FROM stripboeken WHERE stripboek_id = @Stripboek_id";
-
-        using var connection = GetConnection();
-        var updatedStripboek = connection.QuerySingle<Stripboek>(sql, stripboek);
-        return updatedStripboek;
-    }
-     
-     */
+    
 }

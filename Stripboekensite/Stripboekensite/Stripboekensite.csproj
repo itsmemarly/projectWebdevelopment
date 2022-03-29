@@ -29,10 +29,4 @@
     <Folder Include="Controllers" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Content Update="Pages\BoekBewerken.cshtml">
-      <DependentUpon>BekijkGebruikers.cshtml</DependentUpon>
-    </Content>
-  </ItemGroup>
-
 </Project>

@@ -1,19 +1,180 @@
 ﻿@page
 @model Stripboekensite.Pages.BoekBewerken
-
 @{
-    Layout = null;
+    
 }
 
-<!DOCTYPE html>
+<div class="col-12">
+    <form asp-page-handler="UpdateStripboek" method="post">
+    <h5>bewerk boek</h5>
+    <!--Titel van het boek-->
+    <div class="mb-3">
+        <label for="BookTitle" class="form-label"> Naam van het boek : @Model.stripboek.titel </label>
+        <input type="text" name="titel" class="form-control" id="BookTitle" placeholder="laat leeg als het klopt"/>
+    </div>
 
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-<div>
+    <!-- Browse door computer en upload gekozen afbeelding -->
+    <div class="input-group mb-3">
+        <div class="custom-file">
+            <label for="BookCover" class="form-label">Upload een foto van de cover</label>
+            <input type="file" class="custom-file-input form-control" id="BookCover">
+        </div>
+    </div>
+
+    <!-- ISBN nummer-->
+    <div class="mb-3">
+        <label for="ISBN" class="form-label">ISBN-nummer : @Model.stripboek.isbn </label>
+        <input type="text" name="isbn" class="form-control" id="ISBN" placeholder="laat leeg als het klopt"/>
+    </div>
+
+    <!--Eerste druk (Jaar)-->
+    <div class="mb-3">
+        <label for="FirstBook" class="form-label">Jaar van eerste druk : @Model.stripboek.Uitgave1e_druk </label>
+        <input type="number" name="jaar1druk" class="form-control" id="FirstBook" />
+    </div>
+
+    <!--Creator (Schrijver)-->
+    <div class="mb-3">
+        
+        @if (@Model.CreatorStripboeken.Count > 0)
+        {
+            @foreach (var creators in @Model.CreatorStripboeken)
+            {
+                if (@creators.taak == "schrijver")
+                {
+                    <label for="CreatorWriter" class="form-label">Naam van schrijver : @creators.Creator.Creator_naam</label>
+                }
+            }
+        }
+        else{<label for="CreatorDrawing" class="form-label">Naam van schrijver: Geen schrijver</label>}
+        <input class="form-control" name="schrijvernaam" list="datalistCreatorWriter" id="CreatorWriter" placeholder="Kies de gewenste schrijver">
+        <datalist id="datalistCreatorWriter">
+            @foreach (var creator in @Model.creators)
+            {
+                <option value=@creator.Creator_naam>@creator.Creator_naam</option>
+            }
+        </datalist>
+    </div>
     
+    <!--Creator (Tekenaar)-->
+    <div class="mb-3">
+        @if (@Model.CreatorStripboeken.Count > 0)
+        {
+            @foreach (var creators in @Model.CreatorStripboeken)
+            {
+                if (@creators.taak == "tekenaar")
+                {
+                    <label for="CreatorDrawing" class="form-label">Naam van Tekenaar: @creators.Creator.Creator_naam</label>
+                }
+            }
+        }
+        else{<label for="CreatorDrawing" class="form-label">Naam van Tekenaar: Geen tekenaar</label>}
+        <input class="form-control" name="tekenaarnaam" list="datalistCreatorDrawing" id="CreatorDrawing" placeholder="Kies de gewenste tekenaar">
+        <datalist id="datalistCreatorDrawing">
+
+            @foreach (var creator in @Model.creators)
+            {
+                <option value=@creator.Creator_naam>@creator.Creator_naam</option>
+            }
+
+        </datalist>
+    </div>
+    
+    <!--Uitgever (Naam)-->
+    <div class="mb-3">
+    <label for="Creator" class="form-label">Naam van uitgever : @Model.stripboek.uitgever.Naam</label>
+     <input class="form-control" list="datalistCreator" id="Creator" placeholder="Kies de gewenste uitgever"  name = "uitgever">
+                    <datalist id="datalistCreator">
+                        
+                        @foreach (var uitgever in @Model.uitgevers)
+                        {
+                            <option value=@uitgever.Naam>@uitgever.Naam</option>
+                        }
+        
+                    </datalist>
+  </div>
+    
+    <!--Expliciet boek (Ja/Nee)-->
+    <div class="mb-3">
+    <label for="ExplicitBook" class="form-label">Is dit boek expliciet?(18+)</label>
+
+    <div class="btn-group form-control col-3" role="group" id="ExplicitBook">
+  <input type="radio" class="btn-check" name="expleciet" value="1" id="Explicit" autocomplete="off" checked>
+  <label class="btn btn-outline-dark" for="Explicit">Ja</label>
+
+  <input type="radio" class="btn-check " name="expleciet" value="0" id="NotExplicit" autocomplete="off">
+  <label class="btn btn-outline-dark" for="NotExplicit">Nee</label>
+
 </div>
-</body>
-</html>
+  </div>
+    
+    <!--Aantal bladzijden-->
+    <div class="mb-3">
+        <label for="PageNumber" class="form-label">Aantal bladzijden : @Model.stripboek.Bladzijden</label>
+        <input type="number" name="paginas" class="form-control" id="PageNumber" />
+    </div>
+    
+    <!--Reeks naam-->
+    <div class="mb-3">
+            @if (@Model.stripboek.reeks != null)
+            {
+                <label for="BookSeries" class="form-label">Naam van Reeks : @Model.stripboek.reeks.Reeks_titel</label>
+                
+            }
+            else
+            {
+                <label for="BookSeries" class="form-label">Naam van Reeks : Geen reeks</label>
+            }
+            
+            <input class="form-control" list="datalistSeries" id="BookSeries" placeholder="Kies de gewenste reeks" name="reeksnaam">
+            <datalist id="datalistSeries">
+
+                @foreach (var reeks in @Model.reeksen)
+                {
+                    <option value=@reeks.Reeks_titel>@reeks.Reeks_titel</option>
+                }
+
+            </datalist>
+        </div>
+    
+    <!--Reeks nummer-->
+    <div class="mb-3">
+     @if (@Model.stripboek.Reeks_nr != null)
+                {
+                    <label for="BookSeries" class="form-label">Nummer van reeks : @Model.stripboek.Reeks_nr</label>
+                    
+                }
+                else
+                {
+                    <label for="BookSeries" class="form-label">Nummer van reeks : Geen reeks</label>
+                }
+    <input type="number" name="reeksnum" class="form-control" id="SeriesNumber" />
+  </div>
+
+    <!--Categorie van boek (Dropdown met categorie)-->
+    <div class="mb-3">
+        <label for="BookCategory" class="form-label">Zoek de juiste categorie </label>
+        <ul class="list-group" id="BookCategory">
+            @foreach (var genre in @Model.Genres)
+            { 
+                <li class="list-group-item">
+                    @if (@Model.genrestripboeks.Any(strip => strip.genre.genre_id == genre.genre_id))
+                    {
+                        <input name="genreids" class="form-check-input me-1" type="checkbox" checked="checked" value=@genre.genre_id>@genre.soort
+                    }
+                    else
+                    {
+                        <input name="genreids" class="form-check-input me-1" type="checkbox" value=@genre.genre_id>@genre.soort
+                    }
+                </li>
+            }
+        </ul>
+    </div>
+
+    <!--- <button type="submit" class="btn btn-dark">Opslaan</button>-->
+    <button type="submit" name="stripboek_id" value=@Model.stripid class="btn btn-dark">Opslaan & Toevoegen aan verzameling</button>
+</form>
+</div>
+
+<br />
+<br />

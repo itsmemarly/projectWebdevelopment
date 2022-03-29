@@ -33,45 +33,35 @@ public class GenreStripboekRepository
         }
         return newGenreStripboeken;
     }
+
+    public void Delete(List<GenreStripboek> GenreStripboek)
+    {
+        string sql = @"DELETE FROM genre_Stripboeken WHERE genre_id = @Genre_id and stripboek_id = @Stripboek_id";
+        List<GenreStripboek> empty= new List<GenreStripboek>();
+        
+        using var connection = GetConnection();
+        foreach (var genreStripboek in GenreStripboek)
+        {
+            var rowsaffected = connection.Execute(sql, genreStripboek);
+
+        }
+        
+    }
     
     //deletes a genre stripboek combination by genre id
-    public void DeleteByGenreID(int genreid)
+    public int DeleteByGenreID(int Genre_id)
     {
         string sql = @"DELETE FROM genre_Stripboeken WHERE genre_id = @genreid";
         using var connection = GetConnection();
-        var rowsaffected = connection.Execute(sql, new{ genreid});
+        return connection.Execute(sql, new{genreid = Genre_id});
     }
     
-    /* does not get used
-     
-     
-     //deletes a genre stripboek combination
-    public bool Delete(int genreid, int stripboekid)
+    //deletes a genre stripboek combination by book id
+    public int DeleteByBookID(int Stripboek_id)
     {
-        string sql = @"DELETE FROM genre_Stripboeken WHERE genre_id = @genreid and stripboek_id = @stripboekid";
+        string sql = @"DELETE FROM genre_Stripboeken WHERE Stripboek_id = @book_id";
         using var connection = GetConnection();
-        var rowsaffected = connection.QuerySingle<int>(sql, new{ genreid, stripboekid });
-        return rowsaffected == 1;
+        return connection.Execute(sql, new{book_id = Stripboek_id});
     }
     
-//gives back a list of al genrestripboek
-    public IEnumerable<GenreStripboek> Get()
-    {
-        string sql = "SELECT * FROM genre_Stripboeken";
-
-        using var connection = GetConnection();
-        var GenreStripboek = connection.Query<GenreStripboek>(sql);
-        return GenreStripboek;
-    }
-
-
-//deletes a genre stripboek combination
-    public bool Delete(int genreid, int stripboekid)
-    {
-        string sql = @"DELETE FROM genre_Stripboeken WHERE genre_id = @genreid and stripboek_id = @stripboekid";
-        using var connection = GetConnection();
-        var rowsaffected = connection.QuerySingle<int>(sql, new{ genreid, stripboekid });
-        return rowsaffected == 1;
-    }
-     */
 }
