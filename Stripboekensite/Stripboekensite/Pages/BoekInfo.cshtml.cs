@@ -8,7 +8,6 @@ public class BoekInfo : PageModel
     public List<Creator> creators { get; set; }
 
     public void OnGet(string stripboek_id)
-    
     {
         JoinRepository joinRepository = new JoinRepository();
         stripboek = joinRepository.joinStripboek(Int32.Parse(stripboek_id));

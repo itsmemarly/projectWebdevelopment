@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
 
 namespace Stripboekensite.Pages
 {
@@ -86,6 +87,11 @@ namespace Stripboekensite.Pages
                 userbookcheck();
             }
 
+        }
+
+        public IActionResult OnPostInfo(int id)
+        {
+            return RedirectToPage("/BoekInfo", new {stripboek_id = id});
         }
         
         //sets all the list and gets data from database
