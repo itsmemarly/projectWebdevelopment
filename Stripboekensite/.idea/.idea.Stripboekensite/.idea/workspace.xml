@@ -8,23 +8,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bd768dc-e43b-4651-9a8e-1b5a9645b6c0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Stripboekensite/Database/items/BewerkItem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Stripboekensite/Database/repositories/BewerkItemRepository.cs" afterDir="false" />
+    <list default="true" id="0bd768dc-e43b-4651-9a8e-1b5a9645b6c0" name="Changes" comment="database small updates, bewerkboeken etc. updates">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Stripboekensite/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Database/items/Stripboek.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Database/items/Stripboek.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Database/repositories/CreatorRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Database/repositories/CreatorRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Database/repositories/CreatorStripboekenRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Database/repositories/CreatorStripboekenRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Database/repositories/GebruikerRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Database/repositories/GebruikerRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Database/repositories/Gebruikers_StripboekenRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Database/repositories/Gebruikers_StripboekenRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Database/repositories/GenreRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Database/repositories/GenreRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Database/repositories/GenreStripboekRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Database/repositories/GenreStripboekRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Database/repositories/ReeksRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Database/repositories/ReeksRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Database/repositories/StripboekRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Database/repositories/StripboekRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Database/repositories/UitgeverRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Database/repositories/UitgeverRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/BekijkBoeken.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/BekijkBoeken.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/BoekBewerken.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/BoekBewerken.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/BoekToevoegen.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/BoekToevoegen.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stripboekensite/Database/repositories/JoinRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Database/repositories/JoinRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stripboekensite/Pages/Index.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Stripboekensite/Pages/Index.cshtml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +121,7 @@
       <workItem from="1648309140014" duration="595000" />
       <workItem from="1648380550732" duration="19893000" />
       <workItem from="1648458173079" duration="6160000" />
-      <workItem from="1648544922624" duration="9938000" />
+      <workItem from="1648544922624" duration="12102000" />
     </task>
     <task id="LOCAL-00001" summary="nvt">
       <created>1647551816154</created>
@@ -206,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648464630754</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="database small updates, bewerkboeken etc. updates">
+      <created>1648574538595</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1648574538595</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,24 +232,37 @@
     <MESSAGE value="//comments" />
     <MESSAGE value="4 zoek opties : titel, creator, reeks uitgever" />
     <MESSAGE value="boekbewerkpagina kwa code en functionaliteit af. queries toegevoegd/aangepast. testpage verwijdert" />
-    <option name="LAST_COMMIT_MESSAGE" value="boekbewerkpagina kwa code en functionaliteit af. queries toegevoegd/aangepast. testpage verwijdert" />
+    <MESSAGE value="database small updates, bewerkboeken etc. updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="database small updates, bewerkboeken etc. updates" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Stripboekensite/Pages/BekijkCategorie.cshtml</url>
-          <line>41</line>
-          <properties documentPath="C:\Users\Alissa\RiderProjects\projectWebdevelopment\Stripboekensite\Stripboekensite\Pages\BekijkCategorie.cshtml" initialLine="77" isMultiMethodBreakpoint="true">
-            <option name="multiMethodBreakpoint" value="true" />
+          <url>file://$PROJECT_DIR$/Stripboekensite/Pages/Index.cshtml.cs</url>
+          <line>118</line>
+          <properties documentPath="C:\Users\Alissa\RiderProjects\projectWebdevelopment\Stripboekensite\Stripboekensite\Pages\Index.cshtml.cs" initialLine="112" containingFunctionPresentation="method 'useridget'">
             <startOffsets>
-              <option value="-1" />
+              <option value="4025" />
             </startOffsets>
             <endOffsets>
-              <option value="-1" />
+              <option value="4039" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="77" />
+          <option name="timeStamp" value="103" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Stripboekensite/Pages/Index.cshtml.cs</url>
+          <line>42</line>
+          <properties documentPath="C:\Users\Alissa\RiderProjects\projectWebdevelopment\Stripboekensite\Stripboekensite\Pages\Index.cshtml.cs" initialLine="42" containingFunctionPresentation="method 'bookcheck'">
+            <startOffsets>
+              <option value="1206" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1286" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="105" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
