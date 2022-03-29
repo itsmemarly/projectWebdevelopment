@@ -71,6 +71,19 @@ public class GebruikerRepository
         var updatedgebruiker = connection.QuerySingle<Gebruiker>(sql, gebruiker);
         return updatedgebruiker;
     }
+    // Updates a user's profile, only restricted to name and date of birth
+    public Gebruiker UpdateUserProfile(Gebruiker gebruiker)
+    {
+        string sql = @"
+            UPDATE gebruikers SET 
+                naam = @naam, Geboorte_datum = @Geboorte_datum
+            WHERE Gebruikers_id = @gebruikers_id;
+            SELECT * FROM gebruikers WHERE Gebruikers_id = @gebruikers_id";
+
+        using var connection = GetConnection();
+        var updatedProfile = connection.QuerySingle<Gebruiker>(sql, gebruiker);
+        return updatedProfile;
+    }
     
     //deletes gebruiker using id
     public bool Delete(int GebruikersId)

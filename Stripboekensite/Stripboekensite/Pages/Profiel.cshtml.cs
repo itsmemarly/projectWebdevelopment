@@ -14,19 +14,22 @@ namespace Stripboekensite.Pages
         public void OnGet()
         {
             GebruikerRepository gebruikerRepository = new GebruikerRepository();
-            gebruiker = gebruikerRepository.Get(getEmail());
+            gebruiker = gebruikerRepository.Get(GetEmail());
         }
         
-        public IActionResult OnPostEdit(string gebruikersNaam)
+        public IActionResult OnPostEdit(string naam, DateTime geboorteDatum)
         {
-            gebruiker.Gebruikersnaam = gebruikersNaam;
-
             GebruikerRepository gebruikerRepository = new GebruikerRepository();
-            gebruikerRepository.Update(gebruiker);
+            gebruiker = gebruikerRepository.Get(GetEmail());
+            
+            gebruiker.naam = naam;
+            gebruiker.Geboorte_datum = geboorteDatum;
+            
+            gebruikerRepository.UpdateUserProfile(gebruiker);
             return RedirectToPage("/Profiel");
         }
         
-        public string getEmail()
+        private string GetEmail()
         {
             List<Claim> claims = User.Claims.ToList();
 

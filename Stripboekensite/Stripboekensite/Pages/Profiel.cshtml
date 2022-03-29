@@ -17,24 +17,20 @@
               </div>
               
               <form method="post" asp-page-handler="Edit">
-                      <input type="hidden" name="gebruiker_id" value="@Model.gebruiker.Gebruikers_id"/>
-                      <div class="mb-3 d-md-flex justify-content-md-end">
-                          <input class="form-control col-2" type="text" name="naam" value="@Model.gebruiker.naam">
-                      </div>
-
-                      <div class="mb-3 d-md-flex justify-content-md-end">
-                          <input class="form-control col-2" type="text" name="gebruikersNaam" value="@Model.gebruiker.Gebruikersnaam">
-                      </div>
-
-                      <div class="mb-3 d-md-flex justify-content-md-end">
-                          <input class="form-control col-2" type="date" name="geboorte_datum" value="@Model.gebruiker.Geboorte_datum.Date.ToString("yyyy-MM-dd")">
-                      </div>
-
-
-                      <div class="mb-3 d-md-flex justify-content-md-center">
-                          <button type="submit" class="btn btn-dark">Wijzigingen opslaan</button>
-                      </div>
-                  </form>
+                  <input type="hidden" name="gebruiker_id" value="@Model.gebruiker.Gebruikers_id"/>
+                  
+                  <div class="mb-3 d-md-flex justify-content-md-end">
+                      <input class="form-control col-2" type="text" name="naam" value="@Model.gebruiker.naam">
+                  </div>
+                  
+                  <div class="mb-3 d-md-flex justify-content-md-end">
+                      <input class="form-control col-2" type="date" name="geboorteDatum" value="@Model.gebruiker.Geboorte_datum.Date.ToString("yyyy-MM-dd")">
+                  </div>
+                  
+                  <div class="mb-3 d-md-flex justify-content-md-center">
+                      <button type="submit" class="btn btn-dark">Wijzigingen opslaan</button>
+                  </div>
+              </form>
 
           </div>
             </div>
