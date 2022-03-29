@@ -5,19 +5,30 @@
 }
 
 <!-- Alles netjes op een rij gezet, boekenkast pagina heeft een eigen zoekbalk -->
- <div class="row">
-   <form asp-page-handler="Search" method="post">
-     <input name="search" type="search"  id="form1" class="form-control col-6" placeholder="Typ hier" aria-label="Search" />
-     <button class="btn btn-dark col-2" type="submit">search</button>
-     <select class="col-4 form-control" name="searchtype">
-     <option value="1">titel</option>
-     <option value="2">creator</option>
-     <option value="3">reeks</option>
-     <option value="4">uitgever</option>
-     </select>
-     </form>
-   <h1 class="clearfix">@Model.message</h1>
- </div>
+
+<div class="row">
+    <form asp-page-handler="Search" method="post">
+      <div class=" col-6 input-group mb-3 p-2">
+        <input name="search" type="search" id="form1" class="form-control" placeholder="Typ hier" aria-label="Search"/>
+       
+        <div class=" col-4 input-group-append p-2">
+          <select class=" form-control" name="searchtype">
+            <option value="1">titel</option>
+            <option value="2">creator</option>
+            <option value="3">reeks</option>
+            <option value="4">uitgever</option>
+          </select>
+        </div>
+        
+         <div class=" col-2 input-group-append p-2">
+           <button class="btn btn-dark" type="submit">search</button>
+           </div>
+      </div>
+    </form>  
+
+  </div>
+  <h1 class="clearfix">@Model.message</h1>
+
  <br/>
 
  <!-- Deze button stuurt je door naar de pagina BoekToevoegen -->
