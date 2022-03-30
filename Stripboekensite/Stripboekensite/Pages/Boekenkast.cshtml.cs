@@ -41,21 +41,12 @@ namespace Stripboekensite.Pages
             querysearch = "%" + search + "%";
             message = "je zoekt op : " + search;
             
-            List<GenreStripboek> ownedsearch = new List<GenreStripboek>();
+            //List<GenreStripboek> ownedsearch = new List<GenreStripboek>();
             searchresults = new StripboekRepository().GetSearch(querysearch, searchtype).ToList();
             List<Gebruikers_Stripboeken> searchresultsstripboekuser = new List<Gebruikers_Stripboeken>();
             
             foreach (var stripboek in searchresults)
             {
-                //checks if user owns stripboek and then sets the searchresult list for the genrestripboek connection
-                foreach (var stripboekuser in stripboekgenreshowed)
-                {
-                    if (stripboek.Stripboek_id == stripboekuser.Stripboek.Stripboek_id)
-                    {
-                        ownedsearch.Add(stripboekuser);
-                    }
-                }
-                
                 //checks if user owns stripboek and then sets the searchresult list for the userstripboek connection
                 foreach (var stripboekuser in gebruikerlijstshow)
                 {
@@ -68,10 +59,10 @@ namespace Stripboekensite.Pages
 
             //replaces the list to the search results
             gebruikerlijstshow  = searchresultsstripboekuser;
-            stripboekgenreshowed = ownedsearch;
+           
 
             //geeft een message weer als er geen zoek resultaat is
-            if(ownedsearch.Count==0)
+            if(gebruikerlijstshow.Count==0)
             {
                 message = "geen zoek resultaat voor :" + search;
             }
