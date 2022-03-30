@@ -85,6 +85,20 @@ public class JoinRepository
             new {id}, 
             splitOn: "Stripboek_id");
 
+        foreach (var stripboek in stripboeken)
+        {
+            int stripboek_id = stripboek.Stripboek.Stripboek_id;
+            var sqlGetGenres = @"select * from genre 
+                                left join genre_stripboeken gs on genre.genre_id = gs.Genre_id
+                                where  gs.Stripboek_id = @stripboek_id";
+            var sqlGetCreators = @"select * from creator 
+                                left join creators_stripboeken cs on creator.creator_ID = cs.creator_id
+                                where  cs.stripboek_id= @stripboek_id";
+            
+            stripboek.Genres = connection.Query<Genre>(sqlGetGenres, new {stripboek_id}).ToList();
+            stripboek.Stripboek.Creators = connection.Query<Creator>(sqlGetCreators, new {stripboek_id}).ToList();
+        }
+        
         return stripboeken;
     }
 
