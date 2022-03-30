@@ -39,14 +39,14 @@
   <div class="accordion" id="CollectionAccordion">
     
     <!-- dit zijn alle boeken  -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingTwo">
+    <!--<div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo"> 
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#CollectionTwo" aria-expanded="true" aria-controls="CollectionTwo">
           alle boeken
-        </button>
-      </h2>
-      <div id="CollectionTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#CollectionAccordion">
-        <div class="accordion-body">
+        </button>-->
+      <!--</h2>-->
+      <!--<div id="CollectionTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#CollectionAccordion">
+        <div class="accordion-body"> -->
 
           <div class="row mt-4 pb-4 pt-2 text-center">
             @foreach (var stripboek in @Model.gebruikerlijstshow)
@@ -55,15 +55,29 @@
                   <div class="card col-4 mt-2" style="width: 18rem; margin:3rem;">
                     <div class="card-body">
                       <h5 class="card-title">@stripboek.Stripboek.titel</h5>
-                      <ul style="text-align: left">
-                        <li>isbn: @stripboek.Stripboek.isbn</li>
-                        <li>bladzijden: @stripboek.Stripboek.Bladzijden</li>
-                        <li>druk: @stripboek.druk</li>
-                        <li>uitgave: @stripboek.uitgave</li>
-                        <li>bandlengte: @stripboek.bandlengte</li>
-                        <li>aankoop plaats: @stripboek.plaats_gekocht</li>
-                        <li>conditie: @stripboek.staat</li>
+                      <ul class="list-group" style="text-align: left">
+                        <li class="list-group-item">isbn: @stripboek.Stripboek.isbn</li>
+                        <li class="list-group-item">bladzijden: @stripboek.Stripboek.Bladzijden</li>
+                        <li class="list-group-item">druk: @stripboek.druk</li>
+                        <li class="list-group-item">eerste druk: @stripboek.Stripboek.Uitgave1e_druk</li>
+                        <li class="list-group-item">uitgave: @stripboek.uitgave</li>
+                        <li class="list-group-item">bandlengte: @stripboek.bandlengte</li>
+                        <li class="list-group-item">aankoop plaats: @stripboek.plaats_gekocht</li>
+                        <li class="list-group-item">conditie: @stripboek.staat</li>
+                        <li class="list-group-item">genres: 
+                          @foreach (var genre in @stripboek.Genres)
+                          {
+                            <span class="badge bg-secondary">@genre.soort</span>
+                          }
+                        </li>
+                        <li class="list-group-item">door: 
+                         @foreach (var creator in @stripboek.Stripboek.Creators)
+                         {
+                           <span class="badge bg-secondary">@creator.Creator_naam</span>
+                         }
+                         </li>
                       </ul>
+                      <br/>
                       <form asp-page-handler="Delete" method="post">
                         <button name="stripboekid" value="@stripboek.Gebruiker_stripboek_ID" class="btn btn-danger">Verwijder</button>
                       </form>
@@ -76,9 +90,9 @@
         </div>
       </div>
 
-    </div>
+    <!--</div>
 
-    <!-- dit is per genre -->
+    dit is per genre
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingOne">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#CollectionOne" aria-expanded="true" aria-controls="CollectionOne">
@@ -114,5 +128,5 @@
 
   </div>
 </div>
-
+-->
 <br/>

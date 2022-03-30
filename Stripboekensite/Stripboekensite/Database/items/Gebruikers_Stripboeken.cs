@@ -40,6 +40,8 @@ public class Gebruikers_Stripboeken
         
         public Gebruiker Gebruiker { get; set; }
         
+        public List<Genre> Genres { get; set; }
+        
         
         
     
