@@ -27,10 +27,10 @@ public class Gebruikers_Stripboeken
         public float bandlengte { get; set; }
         
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {100} characters long.", MinimumLength = 2)]
-        [DataType(DataType.Text)]
+        [DataType(DataType.Custom)]
         public string plaats_gekocht { get; set; }
         
-        [DataType(DataType.Currency)]
+        [DataType(DataType.Custom)]
         public string prijs_gekocht { get; set; }
         
         [DataType(DataType.Text)]

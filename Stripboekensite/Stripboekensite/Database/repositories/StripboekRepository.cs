@@ -58,6 +58,14 @@ public class StripboekRepository
                 inner join uitgever e on c.uitgever_id = e.uitgever_id
                 where Naam  like @search";
         }
+        else if (searchtype == 5)
+        {
+            //search on uitgever name
+            sql = @"select  e.genre_id, e.soort, p.stripboek_id, p.isbn, p.uitgave1e_druk, p.reeks_nr, p.bladzijden, p.titel, p.expliciet, p.uitgever_id, p.reeks_id
+                from genre_stripboeken c
+                inner join genre e on c.Genre_id = e.genre_id
+                inner join stripboeken p on c.Stripboek_id = p.stripboek_id where e.soort like @search";
+        }
         else
         {
             //fail save
